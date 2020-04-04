@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace InventorySystem.Contract
 {
-    public class Class1
+    public class Provider
     {
+        public string Id { get; set; }
+
+        public string Name { get; set; }
     }
 }
