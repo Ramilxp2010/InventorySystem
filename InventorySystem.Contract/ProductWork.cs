@@ -18,12 +18,16 @@ namespace InventorySystem.Contract
 
         public Product Product { get; set; }
 
-        public int PurchaseInvoiceId { get; set; }
+        public int? PurchaseInvoiceId { get; set; }
 
         public PurchaseInvoice PurchaseInvoice { get; set; }
 
-        public int InvoiceId { get; set; }
+        public int? InvoiceId { get; set; }
 
         public Invoice Invoice { get; set; }
+        
+        public int? InventoryId { get; set; }
+
+        public Inventory Inventory { get; set; }
     }
 }

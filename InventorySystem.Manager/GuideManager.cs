@@ -1,5 +1,6 @@
 ﻿using InventorySystem.Contract;
 using InventorySystem.Core;
+using InventorySystem.DataAccess.Implementation;
 using InventorySystem.DataAccess.Interfaces;
 using Unity;
 
@@ -14,8 +15,9 @@ namespace InventorySystem.Manager
         public GuideManager()
         {
             _productRepository = RootContainer.Container.Resolve<IGenericRepository<Product>>();
+            //_unitRepository = RootContainer.Container.Resolve<IGenericRepository<Unit>>();
             _unitRepository = RootContainer.Container.Resolve<IGenericRepository<Unit>>();
-            _providerRepository = RootContainer.Container.Resolve<IGenericRepository<Provider>>();
+            // _providerRepository = RootContainer.Container.Resolve<IGenericRepository<Provider>>();
         }
 
         public void CreateProduct(Product item)

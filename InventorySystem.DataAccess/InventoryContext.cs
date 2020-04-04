@@ -21,5 +21,6 @@ namespace InventorySystem.DataAccess
         public DbSet<Provider> Providers { get; set; }
         public DbSet<PurchaseInvoice> PurchaseInvoices { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
     }
 }

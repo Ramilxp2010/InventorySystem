@@ -14,10 +14,11 @@ namespace InventorySystem.DataAccess.Implementation
         DbContext _context;
         DbSet<TEntity> _dbSet;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository()
         {
-            _context = RootContainer.Container.Resolve<DbContext>();
-            _dbSet = context.Set<TEntity>();
+            _context = new InventoryContext();
+            //;RootContainer.Container.Resolve<InventoryContext>();
+            _dbSet = _context.Set<TEntity>();
         }
 
         public IEnumerable<TEntity> Get()

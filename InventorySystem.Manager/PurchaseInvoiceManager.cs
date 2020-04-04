@@ -15,12 +15,14 @@ namespace InventorySystem.Manager
         private IGenericRepository<ProductWork> _productWorkRepository;
         private IGenericRepository<PurchaseInvoice> _purchaseRepository;
         private IGenericRepository<Invoice> _invoiceRepository;
+        private IGenericRepository<Inventory> _inventoryRepository;
 
         public PurchaseInvoiceManager()
         {
             _productWorkRepository = RootContainer.Container.Resolve<IGenericRepository<ProductWork>>();
             _purchaseRepository = RootContainer.Container.Resolve<IGenericRepository<PurchaseInvoice>>();
             _invoiceRepository = RootContainer.Container.Resolve<IGenericRepository<Invoice>>();
+            _inventoryRepository = RootContainer.Container.Resolve<IGenericRepository<Inventory>>();
         }
 
         public void ProductWorkCreate(ProductWork item)
@@ -49,6 +51,16 @@ namespace InventorySystem.Manager
         }
 
         public void InvoiceUpdate(Invoice item)
+        {
+            _invoiceRepository.Update(item);
+        }
+
+        public void InventoryCreate(Invoice item)
+        {
+            _invoiceRepository.Create(item);
+        }
+
+        public void InventoryUpdate(Invoice item)
         {
             _invoiceRepository.Update(item);
         }

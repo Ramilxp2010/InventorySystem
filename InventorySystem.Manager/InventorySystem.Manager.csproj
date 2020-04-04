@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GuideManager.cs" />
+    <Compile Include="InventorySystemEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseInvoiceManager.cs" />
   </ItemGroup>

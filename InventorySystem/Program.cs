@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventorySystem.Contract;
+using InventorySystem.Core;
+using InventorySystem.DataAccess;
+using InventorySystem.DataAccess.Implementation;
+using InventorySystem.DataAccess.Interfaces;
+using Unity;
 
 namespace InventorySystem
 {
@@ -14,9 +17,12 @@ namespace InventorySystem
         [STAThread]
         static void Main()
         {
+            //RootContainer.Container.RegisterType<InventoryContext>();
+            RootContainer.Container.RegisterType(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Warehouse());
         }
     }
 }
