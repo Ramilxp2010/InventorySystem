@@ -8,7 +8,7 @@ namespace InventorySystem.Contract
 {
     public class Product
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
@@ -16,8 +16,10 @@ namespace InventorySystem.Contract
 
         public string Article { get; set; }
 
-        public Unit Unit { get; set; }
-
         public string Description { get; set; }
+
+        public int UnitId { get; set; }
+
+        public Unit Unit { get; set; }
     }
 }

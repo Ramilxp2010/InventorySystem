@@ -8,14 +8,21 @@ namespace InventorySystem.Contract
 {
     public class PurchaseInvoice
     {
-        public string Id { get; set; }
+        public PurchaseInvoice()
+        {
+            Products = new List<ProductWork>();
+        }
+
+        public int Id { get; set; }
 
         public string Number { get; set; }
 
         public DateTime Date { get; set; }
 
+        public int ProviderId { get; set; }
+
         public Provider Provider { get; set; }
 
-        public List<ProductWork> Products { get; set; }
+        public ICollection<ProductWork> Products { get; set; }
     }
 }

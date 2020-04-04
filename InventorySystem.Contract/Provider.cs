@@ -8,7 +8,7 @@ namespace InventorySystem.Contract
 {
     public class Provider
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
     }
