@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using InventorySystem.Core;
 using InventorySystem.DataAccess.Interfaces;
+using Unity;
 
 namespace InventorySystem.DataAccess.Implementation
 {
@@ -16,7 +16,7 @@ namespace InventorySystem.DataAccess.Implementation
 
         public GenericRepository(DbContext context)
         {
-            _context = context;
+            _context = RootContainer.Container.Resolve<DbContext>();
             _dbSet = context.Set<TEntity>();
         }
 

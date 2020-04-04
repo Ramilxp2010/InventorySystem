@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{94484310-D3F0-4BDE-9883-78B363476059}</ProjectGuid>
+    <ProjectGuid>{98092816-7DDC-45FD-88ED-C1D8A25DCC08}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InventorySystem.Manager</RootNamespace>
-    <AssemblyName>InventorySystem.Manager</AssemblyName>
+    <RootNamespace>InventorySystem.Core</RootNamespace>
+    <AssemblyName>InventorySystem.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -50,23 +50,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GuideManager.cs" />
+    <Compile Include="RootContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurchaseInvoiceManager.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\InventorySystem.Contract\InventorySystem.Contract.csproj">
-      <Project>{07729941-4e89-4776-ac09-91f3a6fd872b}</Project>
-      <Name>InventorySystem.Contract</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InventorySystem.Core\InventorySystem.Core.csproj">
-      <Project>{98092816-7ddc-45fd-88ed-c1d8a25dcc08}</Project>
-      <Name>InventorySystem.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InventorySystem.DataAccess\InventorySystem.DataAccess.csproj">
-      <Project>{98ba231f-9401-424a-9280-5435b6819c59}</Project>
-      <Name>InventorySystem.DataAccess</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
