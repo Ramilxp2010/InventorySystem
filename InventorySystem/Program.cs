@@ -17,12 +17,17 @@ namespace InventorySystem
         [STAThread]
         static void Main()
         {
-            //RootContainer.Container.RegisterType<InventoryContext>();
             RootContainer.Container.RegisterType(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Warehouse());
+            
+            RootContainer.Container.RegisterInstance<Warehouse>(new Warehouse());
+            RootContainer.Container.RegisterInstance<AddProduct>(new AddProduct());
+            RootContainer.Container.RegisterInstance<Purshase>(new Purshase());
+
+            var warehouse = RootContainer.Container.Resolve<Warehouse>();
+            Application.Run(warehouse);
         }
     }
 }

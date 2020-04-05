@@ -1,4 +1,5 @@
-﻿using InventorySystem.Contract;
+﻿using System.Collections.Generic;
+using InventorySystem.Contract;
 using InventorySystem.Core;
 using InventorySystem.DataAccess.Implementation;
 using InventorySystem.DataAccess.Interfaces;
@@ -15,9 +16,9 @@ namespace InventorySystem.Manager
         public GuideManager()
         {
             _productRepository = RootContainer.Container.Resolve<IGenericRepository<Product>>();
-            //_unitRepository = RootContainer.Container.Resolve<IGenericRepository<Unit>>();
             _unitRepository = RootContainer.Container.Resolve<IGenericRepository<Unit>>();
-            // _providerRepository = RootContainer.Container.Resolve<IGenericRepository<Provider>>();
+            _unitRepository = RootContainer.Container.Resolve<IGenericRepository<Unit>>();
+            _providerRepository = RootContainer.Container.Resolve<IGenericRepository<Provider>>();
         }
 
         public void CreateProduct(Product item)
@@ -25,16 +26,31 @@ namespace InventorySystem.Manager
             _productRepository.Create(item);
         }
 
+        public IEnumerable<Product> GetProducts()
+        {
+            return _productRepository.GetWithInclude(x=>x.Unit);
+        }
+
         public void CreateUnit(Unit item)
         {
             _unitRepository.Create(item);
+        }
+
+        public IEnumerable<Unit> GetUnits()
+        {
+            return _unitRepository.Get();
         }
 
         public void CreateProvider(Provider item)
         {
             _providerRepository.Create(item);
         }
-        
+
+        public IEnumerable<Provider> GetProviders()
+        {
+            return _providerRepository.Get();
+        }
+
         public void UpdateProduct(Product item)
         {
             _productRepository.Update(item);
