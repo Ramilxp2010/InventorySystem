@@ -169,7 +169,7 @@ namespace InventorySystem
 
             if (dataSource.Count() > 0)
             {
-                bs_Products.DataSource = dataSource.Select(x => $"{x.Name}, {x.Unit.Name}");
+                bs_Products.DataSource = dataSource;
                 cmb_Products.DataSource = bs_Products;
 
                 var sText = cmb_Products.Items[0].ToString();
@@ -266,7 +266,7 @@ namespace InventorySystem
 
             if (dgv_Products.Rows.Count == 0)
             {
-                ErrorProvider.SetError(gb_Products, "Добавьте хотя бы один товар");
+                ErrorProvider.SetError(panel3, "Добавьте хотя бы один товар");
                 result = false;
             }
 
@@ -282,6 +282,11 @@ namespace InventorySystem
         {
             var addProduct = RootContainer.Container.Resolve<AddProduct>();
             addProduct.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -46,14 +46,17 @@ namespace InventorySystem
         {
             var purchaseFrom = RootContainer.Container.Resolve<Purshase>();
             purchaseFrom.Show();
-
-           // this.Visible = false;
+            // this.Visible = false;
         }
 
         private void Warehouse_Enter(object sender, EventArgs e)
         {
             LoadComponents();
         }
-        
+
+        private void brn_Invoice_Click(object sender, EventArgs e)
+        {
+            new Invoice().Show();
+        }
     }
 }
