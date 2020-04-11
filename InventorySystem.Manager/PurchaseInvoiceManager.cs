@@ -35,6 +35,31 @@ namespace InventorySystem.Manager
             _productWorkRepository.Update(item);
         }
 
+        public IEnumerable<ProductWork> GetProductByPurchaseInvoice(PurchaseInvoice item)
+        {
+            return _productWorkRepository.GetWithInclude(x => x.PurchaseInvoiceId == item.Id,
+                work => work.PurchaseInvoice,
+                work => work.Product,
+                work => work.Product.Unit,
+                work => work.PurchaseInvoice.Provider);
+        }
+
+        public IEnumerable<ProductWork> GetProductByInvoice(Invoice item)
+        {
+            return _productWorkRepository.GetWithInclude(x => x.InvoiceId == item.Id,
+                work => work.Invoice,
+                work => work.Product,
+                work => work.Product.Unit);
+        }
+
+        public IEnumerable<ProductWork> GetProductByInventory(Inventory item)
+        {
+            return _productWorkRepository.GetWithInclude(x => x.InventoryId == item.Id,
+                work => work.Inventory,
+                work => work.Product,
+                work => work.Product.Unit);
+        }
+
         public void PurchaseInvoiceCreate(PurchaseInvoice item)
         {
             _purchaseRepository.Create(item);

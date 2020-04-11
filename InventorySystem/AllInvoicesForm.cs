@@ -70,5 +70,20 @@ namespace InventorySystem
                 dgv_Inventories.Rows[index].Tag = invoice;
             }
         }
+
+        private void dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView dataGrid = (DataGridView) sender;
+            if (dataGrid == null)
+            {
+                return;
+            }
+
+            var selectedItem = dataGrid.CurrentRow.Tag;
+            if (selectedItem != null)
+            {
+                new TransactionDetailForm(selectedItem).Show();
+            }
+        }
     }
 }

@@ -105,6 +105,12 @@
     <Compile Include="PurshaseForm.Designer.cs">
       <DependentUpon>PurshaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransactionDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransactionDetailForm.Designer.cs">
+      <DependentUpon>TransactionDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WarehouseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PurshaseForm.resx">
       <DependentUpon>PurshaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransactionDetailForm.resx">
+      <DependentUpon>TransactionDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WarehouseForm.resx">
       <DependentUpon>WarehouseForm.cs</DependentUpon>
