@@ -14,7 +14,11 @@ namespace InventorySystem.Contract
         }
 
         public int Id { get; set; }
+
         public string Number { get; set; }
+
+        public string ResponsibleName { get; set; }
+
         public DateTime Date { get; set; }
 
         public ICollection<ProductWork> Products { get; set; }

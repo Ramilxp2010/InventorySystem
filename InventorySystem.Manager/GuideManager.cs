@@ -12,13 +12,18 @@ namespace InventorySystem.Manager
         private IGenericRepository<Product> _productRepository;
         private IGenericRepository<Unit> _unitRepository;
         private IGenericRepository<Provider> _providerRepository;
+        private IGenericRepository<PurchaseInvoice> _purchaseInvoiceRepository;
+        private IGenericRepository<Invoice> _invoiceRepository;
+        private IGenericRepository<Inventory> _inventoryRepository;
 
         public GuideManager()
         {
             _productRepository = RootContainer.Container.Resolve<IGenericRepository<Product>>();
             _unitRepository = RootContainer.Container.Resolve<IGenericRepository<Unit>>();
-            _unitRepository = RootContainer.Container.Resolve<IGenericRepository<Unit>>();
             _providerRepository = RootContainer.Container.Resolve<IGenericRepository<Provider>>();
+            _purchaseInvoiceRepository = RootContainer.Container.Resolve<IGenericRepository<PurchaseInvoice>>();
+            _invoiceRepository = RootContainer.Container.Resolve<IGenericRepository<Invoice>>();
+            _inventoryRepository = RootContainer.Container.Resolve<IGenericRepository<Inventory>>();
         }
 
         public void CreateProduct(Product item)
@@ -79,6 +84,21 @@ namespace InventorySystem.Manager
         public void DeleteProvider(Provider item)
         {
             _providerRepository.Remove(item);
+        }
+
+        public IEnumerable<PurchaseInvoice> GetPurchaseInvoices()
+        {
+            return _purchaseInvoiceRepository.GetWithInclude(x => x.Products, invoice => invoice.Provider);
+        }
+
+        public IEnumerable<Invoice> GetInvoices()
+        {
+            return _invoiceRepository.GetWithInclude(x => x.Products);
+        }
+
+        public IEnumerable<Inventory> GetInventories()
+        {
+            return _inventoryRepository.GetWithInclude(x => x.Products);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace InventorySystem
 {
-    partial class AddProduct
+    partial class AddProductForm
     {
         /// <summary>
         /// Required designer variable.
@@ -49,15 +49,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
             this.label1.Location = new System.Drawing.Point(21, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 20);
+            this.label1.Size = new System.Drawing.Size(115, 19);
             this.label1.TabIndex = 10;
             this.label1.Text = "Наименование";
             // 
             // tb_ProductName
             // 
+            this.tb_ProductName.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.tb_ProductName.Location = new System.Drawing.Point(20, 38);
             this.tb_ProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_ProductName.Name = "tb_ProductName";
@@ -66,7 +69,8 @@
             // 
             // tb_Code
             // 
-            this.tb_Code.Location = new System.Drawing.Point(20, 117);
+            this.tb_Code.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tb_Code.Location = new System.Drawing.Point(20, 93);
             this.tb_Code.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_Code.Name = "tb_Code";
             this.tb_Code.Size = new System.Drawing.Size(580, 26);
@@ -75,16 +79,19 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 92);
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.label2.Location = new System.Drawing.Point(21, 69);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 20);
+            this.label2.Size = new System.Drawing.Size(37, 19);
             this.label2.TabIndex = 12;
             this.label2.Text = "Код";
             // 
             // tb_Articul
             // 
-            this.tb_Articul.Location = new System.Drawing.Point(20, 198);
+            this.tb_Articul.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tb_Articul.Location = new System.Drawing.Point(20, 148);
             this.tb_Articul.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_Articul.Name = "tb_Articul";
             this.tb_Articul.Size = new System.Drawing.Size(580, 26);
@@ -93,26 +100,31 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 173);
+            this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.label3.Location = new System.Drawing.Point(21, 124);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.Size = new System.Drawing.Size(71, 19);
             this.label3.TabIndex = 14;
             this.label3.Text = "Артикул";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 253);
+            this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.label4.Location = new System.Drawing.Point(21, 179);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 20);
+            this.label4.Size = new System.Drawing.Size(62, 19);
             this.label4.TabIndex = 16;
             this.label4.Text = "Ед. езм";
             // 
             // tb_Description
             // 
-            this.tb_Description.Location = new System.Drawing.Point(20, 351);
+            this.tb_Description.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tb_Description.Location = new System.Drawing.Point(20, 260);
             this.tb_Description.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_Description.Multiline = true;
             this.tb_Description.Name = "tb_Description";
@@ -122,17 +134,20 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 326);
+            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.label5.Location = new System.Drawing.Point(21, 236);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 20);
+            this.label5.Size = new System.Drawing.Size(80, 19);
             this.label5.TabIndex = 18;
             this.label5.Text = "Описание";
             // 
             // cmb_Unit
             // 
+            this.cmb_Unit.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.cmb_Unit.FormattingEnabled = true;
-            this.cmb_Unit.Location = new System.Drawing.Point(20, 278);
+            this.cmb_Unit.Location = new System.Drawing.Point(20, 203);
             this.cmb_Unit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmb_Unit.Name = "cmb_Unit";
             this.cmb_Unit.Size = new System.Drawing.Size(580, 28);
@@ -140,8 +155,10 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.BackColor = System.Drawing.Color.Lime;
-            this.btn_Save.Location = new System.Drawing.Point(398, 506);
+            this.btn_Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(129)))), ((int)(((byte)(184)))));
+            this.btn_Save.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Save.ForeColor = System.Drawing.Color.White;
+            this.btn_Save.Location = new System.Drawing.Point(398, 402);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(202, 74);
@@ -152,7 +169,8 @@
             // 
             // tb_Count
             // 
-            this.tb_Count.Location = new System.Drawing.Point(20, 470);
+            this.tb_Count.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.tb_Count.Location = new System.Drawing.Point(20, 366);
             this.tb_Count.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tb_Count.Name = "tb_Count";
             this.tb_Count.Size = new System.Drawing.Size(580, 26);
@@ -162,10 +180,12 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 445);
+            this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.label6.Location = new System.Drawing.Point(21, 342);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 20);
+            this.label6.Size = new System.Drawing.Size(60, 19);
             this.label6.TabIndex = 112;
             this.label6.Text = "Кол-во";
             // 
@@ -173,12 +193,12 @@
             // 
             this.ErrorProvider.ContainerControl = this;
             // 
-            // AddProduct
+            // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Honeydew;
-            this.ClientSize = new System.Drawing.Size(617, 594);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
+            this.ClientSize = new System.Drawing.Size(617, 494);
             this.Controls.Add(this.tb_Count);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btn_Save);
@@ -195,12 +215,12 @@
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(633, 633);
+            this.MaximumSize = new System.Drawing.Size(633, 533);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(633, 633);
-            this.Name = "AddProduct";
+            this.MinimumSize = new System.Drawing.Size(633, 533);
+            this.Name = "AddProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddProduct";
+            this.Text = "Добавить новый продукт";
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

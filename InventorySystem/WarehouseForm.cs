@@ -27,19 +27,17 @@ namespace InventorySystem
 
         private void LoadComponents()
         {
-            BindingSource bs = new BindingSource();
-
             _products = _engine.GetWarehouseProducts();
-            bs.DataSource = _products.Select(x =>
-                new
-                {
-                    ProductName = x.Product.Name,
-                    Article = x.Product.Article,
-                    Count = x.Count,
-                    Unit = x.Product.Unit.Name
-                });
-
-            dgv_products.DataSource = bs;
+            foreach (var product in _products)
+            {
+                dgv_products.Rows.Add();
+                var index = dgv_products.Rows.Count - 1;
+                dgv_products.Rows[index].Cells[0].Value = product.Product.Name;
+                dgv_products.Rows[index].Cells[1].Value = product.Count;
+                dgv_products.Rows[index].Cells[2].Value = product.Product.Unit.Name;
+                dgv_products.Rows[index].Cells[3].Value = product.Product.Code;
+                dgv_products.Rows[index].Tag = product;
+            }
         }
 
         private void btn_Purshase_Click(object sender, EventArgs e)
@@ -55,6 +53,16 @@ namespace InventorySystem
         private void brn_Invoice_Click(object sender, EventArgs e)
         {
             new InvoiceForm().Show();
+        }
+
+        private void btn_Inventory_Click(object sender, EventArgs e)
+        {
+            new InventoryForm().Show();
+        }
+
+        private void btn_CheckPurshases_Click(object sender, EventArgs e)
+        {
+            new AllInvoicesForm().Show();
         }
     }
 }

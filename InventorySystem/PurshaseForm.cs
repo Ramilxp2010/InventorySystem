@@ -281,7 +281,7 @@ namespace InventorySystem
         private void btn_AddNewProduct_Click(object sender, EventArgs e)
         {
             RootContainer.Container.RegisterInstance<IInvoice>(this);
-            new AddProduct().Show();
+            new AddProductForm().Show();
         }
     }
 }

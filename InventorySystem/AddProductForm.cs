@@ -14,14 +14,14 @@ using Unity;
 
 namespace InventorySystem
 {
-    public partial class AddProduct : Form
+    public partial class AddProductForm : Form
     {
         GuideManager _guideManager = new GuideManager();
 
         private IEnumerable<Unit> _units;
         private BindingSource bs_Units;
 
-        public AddProduct()
+        public AddProductForm()
         {
             InitializeComponent();
             bs_Units = new BindingSource();

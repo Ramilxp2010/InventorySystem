@@ -388,7 +388,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Save);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1083, 805);
+            this.MinimumSize = new System.Drawing.Size(1083, 805);
             this.Name = "InvoiceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Накладная форма № 264-АНК (ф 87)";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Products)).EndInit();
             this.panel1.ResumeLayout(false);

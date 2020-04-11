@@ -14,7 +14,7 @@ using Unity;
 
 namespace InventorySystem
 {
-    public partial class InvoiceForm : Form, IInvoice
+    public partial class InventoryForm : Form, IInvoice
     {
         GuideManager _guideManager = new GuideManager();
         PurchaseInvoiceManager _purchaseManager = new PurchaseInvoiceManager();
@@ -25,7 +25,7 @@ namespace InventorySystem
         private IEnumerable<Product> _products;
         private IEnumerable<Provider> _providers;
 
-        public InvoiceForm()
+        public InventoryForm()
         {
             InitializeComponent();
             _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
@@ -41,7 +41,7 @@ namespace InventorySystem
             cmb_Products.DisplayMember = "Name";
             cmb_Products.ValueMember = "Id";
         }
-        
+
         private void btn_AddProduct_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tb_Count.Text))
@@ -77,7 +77,7 @@ namespace InventorySystem
             tb_Count.Clear();
             cmb_Products.SelectedItem = null;
         }
-    
+
         private void tb_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
@@ -97,11 +97,9 @@ namespace InventorySystem
         {
             if (IsValid())
             {
-                var invoice = new Invoice()
+                var inventory = new Inventory()
                 {
                     ResponsibleName = tb_ResponsibleName.Text,
-                    Goal = tb_Goal.Text,
-                    OrganizationName = tb_OrgName.Text,
                     Date = dateTimePicker1.Value,
                     Number = tb_InvoiceNumber.Text
                 };
@@ -113,7 +111,7 @@ namespace InventorySystem
                     {
                         ProductId = prod.Id,
                         Count = decimal.Parse(row.Cells[2].Value.ToString()),
-                        Invoice = invoice,
+                        Inventory = inventory,
                         Cost = 0
                     };
                     _purchaseManager.ProductWorkCreate(product);
@@ -140,7 +138,6 @@ namespace InventorySystem
         private void ClearForm()
         {
             tb_Count.Clear();
-            tb_Goal.Clear();
             tb_InvoiceNumber.Clear();
             dgv_Products.Rows.Clear();
         }
@@ -160,13 +157,7 @@ namespace InventorySystem
                 ErrorProvider.SetError(tb_ResponsibleName, "Поле не может быть пустым");
                 result = false;
             }
-
-            if (string.IsNullOrEmpty(tb_Goal.Text))
-            {
-                ErrorProvider.SetError(tb_Goal, "Поле не может быть пустым");
-                result = false;
-            }
-
+            
             if (dgv_Products.Rows.Count == 0)
             {
                 ErrorProvider.SetError(panel3, "Добавьте хотя бы один товар");
