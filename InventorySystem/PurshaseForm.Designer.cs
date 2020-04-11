@@ -1,6 +1,6 @@
 ﻿namespace InventorySystem
 {
-    partial class Purshase
+    partial class PurshaseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -129,7 +129,6 @@
             this.label1.Size = new System.Drawing.Size(90, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Поставщик";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // cmb_Providers
             // 
@@ -342,7 +341,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1083, 805);
             this.MinimumSize = new System.Drawing.Size(1083, 805);
-            this.Name = "Purshase";
+            this.Name = "PurshaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Приходная накладная";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Purshase_FormClosed);

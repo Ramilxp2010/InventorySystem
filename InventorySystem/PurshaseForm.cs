@@ -14,22 +14,22 @@ using Unity;
 
 namespace InventorySystem
 {
-    public partial class Purshase : Form
+    public partial class PurshaseForm : Form, IInvoice
     {
         GuideManager _guideManager = new GuideManager();
         PurchaseInvoiceManager _purchaseManager = new PurchaseInvoiceManager();
 
-        private Warehouse _warehouse;
+        private WarehouseForm _warehouse;
         private BindingSource bs_Products;
         private BindingSource bs_Providers;
         private IEnumerable<Product> _products;
         private IEnumerable<Provider> _providers;
 
-        public Purshase()
+        public PurshaseForm()
         {
             InitializeComponent();
 
-            _warehouse = RootContainer.Container.Resolve<Warehouse>();
+            _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
 
             bs_Products = new BindingSource();
             bs_Providers = new BindingSource();
@@ -79,7 +79,7 @@ namespace InventorySystem
 
             dgv_Products.Rows[index].Cells[2].Value = count;
             dgv_Products.Rows[index].Tag = product;
-
+            
             tb_Count.Clear();
             cmb_Products.SelectedItem = null;
         }
@@ -280,13 +280,8 @@ namespace InventorySystem
 
         private void btn_AddNewProduct_Click(object sender, EventArgs e)
         {
-            var addProduct = RootContainer.Container.Resolve<AddProduct>();
-            addProduct.Show();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            RootContainer.Container.RegisterInstance<IInvoice>(this);
+            new AddProduct().Show();
         }
     }
 }

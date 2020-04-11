@@ -17,6 +17,12 @@ namespace InventorySystem.Contract
 
         public string Number { get; set; }
 
+        public string OrganizationName { get; set; }
+
+        public string ResponsibleName { get; set; }
+
+        public string Goal { get; set; }
+        
         public DateTime Date { get; set; }
         
         public ICollection<ProductWork> Products { get; set; }

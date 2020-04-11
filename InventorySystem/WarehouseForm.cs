@@ -14,12 +14,12 @@ using Unity;
 
 namespace InventorySystem
 {
-    public partial class Warehouse : Form
+    public partial class WarehouseForm : Form
     {
         List<WarehouseProduct> _products = new List<WarehouseProduct>();
         InventorySystemEngine _engine = new InventorySystemEngine();
         
-        public Warehouse()
+        public WarehouseForm()
         {
             InitializeComponent();
             LoadComponents();
@@ -44,9 +44,7 @@ namespace InventorySystem
 
         private void btn_Purshase_Click(object sender, EventArgs e)
         {
-            var purchaseFrom = RootContainer.Container.Resolve<Purshase>();
-            purchaseFrom.Show();
-            // this.Visible = false;
+            new PurshaseForm().Show();
         }
 
         private void Warehouse_Enter(object sender, EventArgs e)
@@ -56,7 +54,7 @@ namespace InventorySystem
 
         private void brn_Invoice_Click(object sender, EventArgs e)
         {
-            new Invoice().Show();
+            new InvoiceForm().Show();
         }
     }
 }

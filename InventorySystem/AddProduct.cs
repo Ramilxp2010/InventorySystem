@@ -50,7 +50,7 @@ namespace InventorySystem
                 };
                 _guideManager.CreateProduct(product);
                 
-                var purshase = RootContainer.Container.Resolve<Purshase>();
+                var purshase = RootContainer.Container.Resolve<IInvoice>();
                 purshase.AddProduct(product, count, unit);
 
                 ClearAll();

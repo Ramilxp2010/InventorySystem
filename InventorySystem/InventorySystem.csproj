@@ -80,37 +80,38 @@
     <Compile Include="AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="Invoice.cs">
+    <Compile Include="IInvoice.cs" />
+    <Compile Include="InvoiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Invoice.Designer.cs">
-      <DependentUpon>Invoice.cs</DependentUpon>
+    <Compile Include="InvoiceForm.Designer.cs">
+      <DependentUpon>InvoiceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Purshase.cs">
+    <Compile Include="PurshaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Purshase.Designer.cs">
-      <DependentUpon>Purshase.cs</DependentUpon>
+    <Compile Include="PurshaseForm.Designer.cs">
+      <DependentUpon>PurshaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Warehouse.cs">
+    <Compile Include="WarehouseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Warehouse.Designer.cs">
-      <DependentUpon>Warehouse.cs</DependentUpon>
+    <Compile Include="WarehouseForm.Designer.cs">
+      <DependentUpon>WarehouseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Invoice.resx">
-      <DependentUpon>Invoice.cs</DependentUpon>
+    <EmbeddedResource Include="InvoiceForm.resx">
+      <DependentUpon>InvoiceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Purshase.resx">
-      <DependentUpon>Purshase.cs</DependentUpon>
+    <EmbeddedResource Include="PurshaseForm.resx">
+      <DependentUpon>PurshaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Warehouse.resx">
-      <DependentUpon>Warehouse.cs</DependentUpon>
+    <EmbeddedResource Include="WarehouseForm.resx">
+      <DependentUpon>WarehouseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

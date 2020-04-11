@@ -22,11 +22,9 @@ namespace InventorySystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            RootContainer.Container.RegisterInstance<Warehouse>(new Warehouse());
-            RootContainer.Container.RegisterInstance<AddProduct>(new AddProduct());
-            RootContainer.Container.RegisterInstance<Purshase>(new Purshase());
+            RootContainer.Container.RegisterInstance<WarehouseForm>(new WarehouseForm());
 
-            var warehouse = RootContainer.Container.Resolve<Warehouse>();
+            var warehouse = RootContainer.Container.Resolve<WarehouseForm>();
             Application.Run(warehouse);
         }
     }

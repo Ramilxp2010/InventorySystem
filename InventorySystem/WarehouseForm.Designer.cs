@@ -1,6 +1,6 @@
 ﻿namespace InventorySystem
 {
-    partial class Warehouse
+    partial class WarehouseForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -204,7 +204,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximumSize = new System.Drawing.Size(1083, 805);
             this.MinimumSize = new System.Drawing.Size(1083, 805);
-            this.Name = "Warehouse";
+            this.Name = "WarehouseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Склад";
             this.Activated += new System.EventHandler(this.Warehouse_Enter);
