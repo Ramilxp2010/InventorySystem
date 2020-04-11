@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Save = new System.Windows.Forms.Button();
             this.tb_Count = new System.Windows.Forms.TextBox();
             this.dgv_Products = new System.Windows.Forms.DataGridView();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.tb_Goal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,21 +45,29 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btn_AddNewProduct = new System.Windows.Forms.Button();
-            this.cmb_Products = new System.Windows.Forms.ComboBox();
             this.btn_AddProduct = new System.Windows.Forms.Button();
             this.tb_InvoiceNumber = new System.Windows.Forms.TextBox();
             this.tb_ResponsibleName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dgv_Warehouse = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tb_Searh = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Products)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Warehouse)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -72,10 +82,10 @@
             this.btn_Save.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_Save.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_Save.ForeColor = System.Drawing.Color.White;
-            this.btn_Save.Location = new System.Drawing.Point(794, 699);
+            this.btn_Save.Location = new System.Drawing.Point(817, 699);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(235, 55);
+            this.btn_Save.Size = new System.Drawing.Size(203, 55);
             this.btn_Save.TabIndex = 9;
             this.btn_Save.Text = "Сохранить";
             this.btn_Save.UseVisualStyleBackColor = false;
@@ -83,10 +93,10 @@
             // tb_Count
             // 
             this.tb_Count.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_Count.Location = new System.Drawing.Point(337, 40);
+            this.tb_Count.Location = new System.Drawing.Point(598, 192);
             this.tb_Count.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Count.Name = "tb_Count";
-            this.tb_Count.Size = new System.Drawing.Size(225, 26);
+            this.tb_Count.Size = new System.Drawing.Size(169, 26);
             this.tb_Count.TabIndex = 6;
             this.tb_Count.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
@@ -98,14 +108,14 @@
             this.dgv_Products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Products.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductName,
-            this.Unit,
-            this.Count});
+            this.Count,
+            this.Unit});
             this.dgv_Products.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_Products.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_Products.Location = new System.Drawing.Point(0, 0);
             this.dgv_Products.Name = "dgv_Products";
             this.dgv_Products.ReadOnly = true;
-            this.dgv_Products.Size = new System.Drawing.Size(1000, 326);
+            this.dgv_Products.Size = new System.Drawing.Size(1000, 188);
             this.dgv_Products.TabIndex = 10;
             // 
             // ProductName
@@ -114,17 +124,17 @@
             this.ProductName.Name = "ProductName";
             this.ProductName.ReadOnly = true;
             // 
-            // Unit
-            // 
-            this.Unit.HeaderText = "Ед. езм";
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            // 
             // Count
             // 
             this.Count.HeaderText = "Кол-во";
             this.Count.Name = "Count";
             this.Count.ReadOnly = true;
+            // 
+            // Unit
+            // 
+            this.Unit.HeaderText = "Ед. езм";
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
             // 
             // label6
             // 
@@ -133,7 +143,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label6.Location = new System.Drawing.Point(342, 16);
+            this.label6.Location = new System.Drawing.Point(530, 192);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 19);
@@ -220,49 +230,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Номер накладной";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label5.Location = new System.Drawing.Point(9, 16);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 19);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Товар";
-            // 
-            // btn_AddNewProduct
-            // 
-            this.btn_AddNewProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(176)))), ((int)(((byte)(83)))));
-            this.btn_AddNewProduct.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_AddNewProduct.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.btn_AddNewProduct.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btn_AddNewProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btn_AddNewProduct.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_AddNewProduct.ForeColor = System.Drawing.Color.White;
-            this.btn_AddNewProduct.Location = new System.Drawing.Point(783, 25);
-            this.btn_AddNewProduct.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_AddNewProduct.Name = "btn_AddNewProduct";
-            this.btn_AddNewProduct.Size = new System.Drawing.Size(222, 55);
-            this.btn_AddNewProduct.TabIndex = 8;
-            this.btn_AddNewProduct.Text = "Добавить новый товар";
-            this.btn_AddNewProduct.UseVisualStyleBackColor = false;
-            this.btn_AddNewProduct.Click += new System.EventHandler(this.btn_AddNewProduct_Click);
-            // 
-            // cmb_Products
-            // 
-            this.cmb_Products.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmb_Products.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.cmb_Products.FormattingEnabled = true;
-            this.cmb_Products.Location = new System.Drawing.Point(9, 40);
-            this.cmb_Products.Margin = new System.Windows.Forms.Padding(4);
-            this.cmb_Products.Name = "cmb_Products";
-            this.cmb_Products.Size = new System.Drawing.Size(320, 28);
-            this.cmb_Products.TabIndex = 5;
-            // 
             // btn_AddProduct
             // 
             this.btn_AddProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(129)))), ((int)(((byte)(184)))));
@@ -273,7 +240,7 @@
             this.btn_AddProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_AddProduct.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_AddProduct.ForeColor = System.Drawing.Color.White;
-            this.btn_AddProduct.Location = new System.Drawing.Point(570, 25);
+            this.btn_AddProduct.Location = new System.Drawing.Point(804, 189);
             this.btn_AddProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddProduct.Name = "btn_AddProduct";
             this.btn_AddProduct.Size = new System.Drawing.Size(205, 55);
@@ -338,19 +305,120 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.tb_Searh);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.cmb_Products);
             this.panel2.Controls.Add(this.btn_AddProduct);
-            this.panel2.Controls.Add(this.btn_AddNewProduct);
             this.panel2.Controls.Add(this.tb_Count);
-            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel2.Location = new System.Drawing.Point(11, 242);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1044, 450);
             this.panel2.TabIndex = 18;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dgv_Warehouse);
+            this.panel4.Location = new System.Drawing.Point(7, 79);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1000, 103);
+            this.panel4.TabIndex = 23;
+            // 
+            // dgv_Warehouse
+            // 
+            this.dgv_Warehouse.AllowUserToAddRows = false;
+            this.dgv_Warehouse.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.dgv_Warehouse.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_Warehouse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Warehouse.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgv_Warehouse.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv_Warehouse.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dgv_Warehouse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Warehouse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column3,
+            this.Column2,
+            this.Column4});
+            this.dgv_Warehouse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_Warehouse.GridColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgv_Warehouse.Location = new System.Drawing.Point(0, 0);
+            this.dgv_Warehouse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgv_Warehouse.Name = "dgv_Warehouse";
+            this.dgv_Warehouse.ReadOnly = true;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.dgv_Warehouse.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_Warehouse.Size = new System.Drawing.Size(1000, 103);
+            this.dgv_Warehouse.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "НАЗВАНИЕ";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "КОД";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "КОЛИЧЕСТВО НА СКЛАДЕ";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "ЕД.ИЗМ";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // tb_Searh
+            // 
+            this.tb_Searh.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_Searh.Location = new System.Drawing.Point(65, 16);
+            this.tb_Searh.Margin = new System.Windows.Forms.Padding(4);
+            this.tb_Searh.Name = "tb_Searh";
+            this.tb_Searh.Size = new System.Drawing.Size(223, 26);
+            this.tb_Searh.TabIndex = 21;
+            this.tb_Searh.TextChanged += new System.EventHandler(this.tb_Searh_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.label9.Location = new System.Drawing.Point(12, 16);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 19);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Поиск";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+            this.label5.Location = new System.Drawing.Point(10, 57);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 19);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Товары на складе";
             // 
             // label8
             // 
@@ -359,7 +427,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label8.Location = new System.Drawing.Point(9, 91);
+            this.label8.Location = new System.Drawing.Point(9, 225);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(264, 19);
@@ -369,9 +437,9 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.dgv_Products);
-            this.panel3.Location = new System.Drawing.Point(9, 113);
+            this.panel3.Location = new System.Drawing.Point(9, 251);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1000, 326);
+            this.panel3.Size = new System.Drawing.Size(1000, 188);
             this.panel3.TabIndex = 18;
             // 
             // ErrorProvider
@@ -398,6 +466,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Warehouse)).EndInit();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -409,9 +479,6 @@
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.TextBox tb_Count;
         private System.Windows.Forms.DataGridView dgv_Products;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tb_Goal;
         private System.Windows.Forms.Label label4;
@@ -420,9 +487,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btn_AddNewProduct;
-        private System.Windows.Forms.ComboBox cmb_Products;
         private System.Windows.Forms.Button btn_AddProduct;
         private System.Windows.Forms.TextBox tb_ResponsibleName;
         private System.Windows.Forms.Label label7;
@@ -432,5 +496,17 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ErrorProvider ErrorProvider;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.TextBox tb_Searh;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView dgv_Warehouse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

@@ -14,16 +14,15 @@ using Unity;
 
 namespace InventorySystem
 {
-    public partial class InvoiceForm : Form, IInvoice
+    public partial class InvoiceForm : Form
     {
         GuideManager _guideManager = new GuideManager();
         PurchaseInvoiceManager _purchaseManager = new PurchaseInvoiceManager();
+        InventorySystemEngine _engine = new InventorySystemEngine();
 
         private WarehouseForm _warehouse;
         private BindingSource bs_Products;
-        private BindingSource bs_Providers;
-        private IEnumerable<Product> _products;
-        private IEnumerable<Provider> _providers;
+        private List<WarehouseProduct> _products;
 
         public InvoiceForm()
         {
@@ -31,15 +30,19 @@ namespace InventorySystem
             _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
 
             bs_Products = new BindingSource();
-            bs_Providers = new BindingSource();
-            _products = _guideManager.GetProducts();
+            _products = _engine.GetWarehouseProducts();
+            bs_Products.DataSource = _products.Select(x =>
+                new
+                {
+                    PN = x.Product.Name,
+                    Cd = x.Product.Code,
+                    Ct = x.Count,
+                    Un = x.Product.Unit.Name
+                });
 
-            bs_Products.DataSource = _products;
-            bs_Providers.DataSource = _providers;
+            dgv_Products.DataSource = bs_Products;
 
-            cmb_Products.DataSource = bs_Products;
-            cmb_Products.DisplayMember = "Name";
-            cmb_Products.ValueMember = "Id";
+            //SetWareHouse();
         }
         
         private void btn_AddProduct_Click(object sender, EventArgs e)
@@ -50,17 +53,17 @@ namespace InventorySystem
                 return;
             }
 
-            if (cmb_Products.SelectedItem is Product)
+            if (dgv_Warehouse.CurrentRow.Tag is ProductWork)
             {
-                AddProduct(cmb_Products.SelectedItem as Product, decimal.Parse(tb_Count.Text));
+                AddProduct(dgv_Warehouse.CurrentRow.Tag as ProductWork, decimal.Parse(tb_Count.Text));
             }
         }
 
-        public void AddProduct(Product product, decimal count, Unit unit = null)
+        public void AddProduct(ProductWork product, decimal count, Unit unit = null)
         {
             dgv_Products.Rows.Add();
             var index = dgv_Products.Rows.Count - 1;
-            dgv_Products.Rows[index].Cells[0].Value = product.Name;
+            dgv_Products.Rows[index].Cells[0].Value = product.Product.Name;
 
             if (unit != null)
             {
@@ -68,14 +71,13 @@ namespace InventorySystem
             }
             else
             {
-                dgv_Products.Rows[index].Cells[1].Value = product.Unit.Name;
+                dgv_Products.Rows[index].Cells[1].Value = product.Product.Unit.Name;
             }
 
             dgv_Products.Rows[index].Cells[2].Value = count;
             dgv_Products.Rows[index].Tag = product;
 
             tb_Count.Clear();
-            cmb_Products.SelectedItem = null;
         }
     
         private void tb_KeyPress(object sender, KeyPressEventArgs e)
@@ -175,11 +177,30 @@ namespace InventorySystem
 
             return result;
         }
-
-        private void btn_AddNewProduct_Click(object sender, EventArgs e)
+        
+        private void SetWareHouse()
         {
-            RootContainer.Container.RegisterInstance<IInvoice>(this);
-            new AddProductForm().Show();
+            foreach (var product in _products)
+            {
+                dgv_Warehouse.Rows.Add();
+                var index = dgv_Warehouse.Rows.Count - 1;
+                dgv_Warehouse.Rows[index].Cells[0].Value = product.Product.Name;
+                dgv_Warehouse.Rows[index].Cells[1].Value = product.Product.Code;
+                dgv_Warehouse.Rows[index].Cells[2].Value = product.Count; 
+                dgv_Warehouse.Rows[index].Cells[3].Value = product.Product.Unit.Name;
+                dgv_Warehouse.Rows[index].Tag = product;
+            }
+        }
+
+        private void tb_Searh_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_Searh.Text.Length > 4)
+            {
+                _products = _products.Where(x => x.Product.Name.Contains(tb_Searh.Text)).ToList();
+                SetWareHouse();
+                dgv_Warehouse.Update();
+            }
+
         }
     }
 }
