@@ -70,7 +70,7 @@
             this.tab_Invoices.Location = new System.Drawing.Point(3, 12);
             this.tab_Invoices.Name = "tab_Invoices";
             this.tab_Invoices.SelectedIndex = 0;
-            this.tab_Invoices.Size = new System.Drawing.Size(1052, 742);
+            this.tab_Invoices.Size = new System.Drawing.Size(869, 565);
             this.tab_Invoices.TabIndex = 0;
             // 
             // tab_PurchaseInvoices
@@ -79,7 +79,7 @@
             this.tab_PurchaseInvoices.Location = new System.Drawing.Point(4, 28);
             this.tab_PurchaseInvoices.Name = "tab_PurchaseInvoices";
             this.tab_PurchaseInvoices.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_PurchaseInvoices.Size = new System.Drawing.Size(1044, 710);
+            this.tab_PurchaseInvoices.Size = new System.Drawing.Size(861, 533);
             this.tab_PurchaseInvoices.TabIndex = 0;
             this.tab_PurchaseInvoices.Text = "Приходные накладные";
             this.tab_PurchaseInvoices.UseVisualStyleBackColor = true;
@@ -90,7 +90,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1038, 704);
+            this.panel3.Size = new System.Drawing.Size(855, 527);
             this.panel3.TabIndex = 20;
             // 
             // dgv_PurchaseInvoices
@@ -112,7 +112,7 @@
             this.dgv_PurchaseInvoices.Location = new System.Drawing.Point(0, 0);
             this.dgv_PurchaseInvoices.Name = "dgv_PurchaseInvoices";
             this.dgv_PurchaseInvoices.ReadOnly = true;
-            this.dgv_PurchaseInvoices.Size = new System.Drawing.Size(1038, 704);
+            this.dgv_PurchaseInvoices.Size = new System.Drawing.Size(855, 527);
             this.dgv_PurchaseInvoices.TabIndex = 10;
             this.dgv_PurchaseInvoices.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
             // 
@@ -140,7 +140,7 @@
             this.tab_invoice.Location = new System.Drawing.Point(4, 28);
             this.tab_invoice.Name = "tab_invoice";
             this.tab_invoice.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_invoice.Size = new System.Drawing.Size(1044, 710);
+            this.tab_invoice.Size = new System.Drawing.Size(861, 533);
             this.tab_invoice.TabIndex = 1;
             this.tab_invoice.Text = "Накладные";
             this.tab_invoice.UseVisualStyleBackColor = true;
@@ -151,7 +151,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1038, 704);
+            this.panel1.Size = new System.Drawing.Size(855, 527);
             this.panel1.TabIndex = 21;
             // 
             // dgv_Invoices
@@ -171,7 +171,7 @@
             this.dgv_Invoices.Location = new System.Drawing.Point(0, 0);
             this.dgv_Invoices.Name = "dgv_Invoices";
             this.dgv_Invoices.ReadOnly = true;
-            this.dgv_Invoices.Size = new System.Drawing.Size(1038, 704);
+            this.dgv_Invoices.Size = new System.Drawing.Size(855, 527);
             this.dgv_Invoices.TabIndex = 10;
             this.dgv_Invoices.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
             // 
@@ -205,7 +205,7 @@
             this.tab_inventory.Location = new System.Drawing.Point(4, 28);
             this.tab_inventory.Name = "tab_inventory";
             this.tab_inventory.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_inventory.Size = new System.Drawing.Size(1044, 710);
+            this.tab_inventory.Size = new System.Drawing.Size(861, 533);
             this.tab_inventory.TabIndex = 2;
             this.tab_inventory.Text = "Инвентаризации";
             this.tab_inventory.UseVisualStyleBackColor = true;
@@ -216,7 +216,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1038, 704);
+            this.panel2.Size = new System.Drawing.Size(855, 527);
             this.panel2.TabIndex = 21;
             // 
             // dgv_Inventories
@@ -235,7 +235,7 @@
             this.dgv_Inventories.Location = new System.Drawing.Point(0, 0);
             this.dgv_Inventories.Name = "dgv_Inventories";
             this.dgv_Inventories.ReadOnly = true;
-            this.dgv_Inventories.Size = new System.Drawing.Size(1038, 704);
+            this.dgv_Inventories.Size = new System.Drawing.Size(855, 527);
             this.dgv_Inventories.TabIndex = 10;
             this.dgv_Inventories.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
             // 
@@ -262,8 +262,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1067, 690);
+            this.ClientSize = new System.Drawing.Size(884, 581);
             this.Controls.Add(this.tab_Invoices);
+            this.MaximumSize = new System.Drawing.Size(900, 620);
+            this.MinimumSize = new System.Drawing.Size(900, 620);
             this.Name = "AllInvoicesForm";
             this.Text = "Счета-фактуры и произведенные инвентаризации";
             this.tab_Invoices.ResumeLayout(false);

@@ -78,10 +78,10 @@
             this.btn_Save.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_Save.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_Save.ForeColor = System.Drawing.Color.White;
-            this.btn_Save.Location = new System.Drawing.Point(817, 699);
+            this.btn_Save.Location = new System.Drawing.Point(633, 330);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(203, 55);
+            this.btn_Save.Size = new System.Drawing.Size(203, 30);
             this.btn_Save.TabIndex = 9;
             this.btn_Save.Text = "Сохранить";
             this.btn_Save.UseVisualStyleBackColor = false;
@@ -90,7 +90,7 @@
             // tb_Count
             // 
             this.tb_Count.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_Count.Location = new System.Drawing.Point(598, 192);
+            this.tb_Count.Location = new System.Drawing.Point(404, 162);
             this.tb_Count.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Count.Name = "tb_Count";
             this.tb_Count.Size = new System.Drawing.Size(169, 26);
@@ -113,7 +113,7 @@
             this.dgv_Products.Location = new System.Drawing.Point(0, 0);
             this.dgv_Products.Name = "dgv_Products";
             this.dgv_Products.ReadOnly = true;
-            this.dgv_Products.Size = new System.Drawing.Size(1000, 188);
+            this.dgv_Products.Size = new System.Drawing.Size(827, 126);
             this.dgv_Products.TabIndex = 10;
             this.dgv_Products.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataGrid_KeyDown);
             // 
@@ -142,7 +142,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label6.Location = new System.Drawing.Point(530, 192);
+            this.label6.Location = new System.Drawing.Point(318, 162);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 19);
@@ -152,10 +152,10 @@
             // tb_Goal
             // 
             this.tb_Goal.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_Goal.Location = new System.Drawing.Point(572, 142);
+            this.tb_Goal.Location = new System.Drawing.Point(432, 142);
             this.tb_Goal.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Goal.Name = "tb_Goal";
-            this.tb_Goal.Size = new System.Drawing.Size(435, 26);
+            this.tb_Goal.Size = new System.Drawing.Size(404, 26);
             this.tb_Goal.TabIndex = 4;
             // 
             // label4
@@ -164,7 +164,7 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label4.Location = new System.Drawing.Point(577, 118);
+            this.label4.Location = new System.Drawing.Point(439, 119);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 19);
@@ -174,10 +174,10 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(572, 83);
+            this.dateTimePicker1.Location = new System.Drawing.Point(432, 83);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(435, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(404, 26);
             this.dateTimePicker1.TabIndex = 51;
             // 
             // tb_OrgName
@@ -186,7 +186,7 @@
             this.tb_OrgName.Location = new System.Drawing.Point(7, 29);
             this.tb_OrgName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_OrgName.Name = "tb_OrgName";
-            this.tb_OrgName.Size = new System.Drawing.Size(553, 26);
+            this.tb_OrgName.Size = new System.Drawing.Size(417, 26);
             this.tb_OrgName.TabIndex = 1;
             this.tb_OrgName.Text = "СССОПОК БАЛАНДЫШ";
             // 
@@ -196,7 +196,7 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label3.Location = new System.Drawing.Point(577, 60);
+            this.label3.Location = new System.Drawing.Point(439, 60);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 19);
@@ -239,10 +239,10 @@
             this.btn_AddProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_AddProduct.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_AddProduct.ForeColor = System.Drawing.Color.White;
-            this.btn_AddProduct.Location = new System.Drawing.Point(804, 189);
+            this.btn_AddProduct.Location = new System.Drawing.Point(631, 160);
             this.btn_AddProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddProduct.Name = "btn_AddProduct";
-            this.btn_AddProduct.Size = new System.Drawing.Size(205, 55);
+            this.btn_AddProduct.Size = new System.Drawing.Size(205, 30);
             this.btn_AddProduct.TabIndex = 7;
             this.btn_AddProduct.Text = "Добавить";
             this.btn_AddProduct.UseVisualStyleBackColor = false;
@@ -254,7 +254,7 @@
             this.tb_InvoiceNumber.Location = new System.Drawing.Point(7, 83);
             this.tb_InvoiceNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tb_InvoiceNumber.Name = "tb_InvoiceNumber";
-            this.tb_InvoiceNumber.Size = new System.Drawing.Size(553, 26);
+            this.tb_InvoiceNumber.Size = new System.Drawing.Size(417, 26);
             this.tb_InvoiceNumber.TabIndex = 2;
             // 
             // tb_ResponsibleName
@@ -263,7 +263,7 @@
             this.tb_ResponsibleName.Location = new System.Drawing.Point(9, 142);
             this.tb_ResponsibleName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_ResponsibleName.Name = "tb_ResponsibleName";
-            this.tb_ResponsibleName.Size = new System.Drawing.Size(551, 26);
+            this.tb_ResponsibleName.Size = new System.Drawing.Size(415, 26);
             this.tb_ResponsibleName.TabIndex = 3;
             // 
             // label7
@@ -297,7 +297,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(199)))));
             this.panel1.Location = new System.Drawing.Point(11, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1044, 207);
+            this.panel1.Size = new System.Drawing.Size(861, 185);
             this.panel1.TabIndex = 11;
             // 
             // panel2
@@ -306,6 +306,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.tb_Searh);
+            this.panel2.Controls.Add(this.btn_Save);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label8);
@@ -314,17 +315,17 @@
             this.panel2.Controls.Add(this.tb_Count);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panel2.Location = new System.Drawing.Point(11, 242);
+            this.panel2.Location = new System.Drawing.Point(11, 203);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1044, 450);
+            this.panel2.Size = new System.Drawing.Size(861, 373);
             this.panel2.TabIndex = 18;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.dgv_Warehouse);
-            this.panel4.Location = new System.Drawing.Point(7, 79);
+            this.panel4.Location = new System.Drawing.Point(7, 61);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1000, 103);
+            this.panel4.Size = new System.Drawing.Size(829, 96);
             this.panel4.TabIndex = 23;
             // 
             // dgv_Warehouse
@@ -349,13 +350,13 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dgv_Warehouse.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_Warehouse.Size = new System.Drawing.Size(1000, 103);
+            this.dgv_Warehouse.Size = new System.Drawing.Size(829, 96);
             this.dgv_Warehouse.TabIndex = 0;
             // 
             // tb_Searh
             // 
             this.tb_Searh.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_Searh.Location = new System.Drawing.Point(65, 16);
+            this.tb_Searh.Location = new System.Drawing.Point(65, 9);
             this.tb_Searh.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Searh.Name = "tb_Searh";
             this.tb_Searh.Size = new System.Drawing.Size(223, 26);
@@ -369,7 +370,7 @@
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label9.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label9.Location = new System.Drawing.Point(12, 16);
+            this.label9.Location = new System.Drawing.Point(12, 9);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 19);
@@ -383,7 +384,7 @@
             this.label5.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label5.Location = new System.Drawing.Point(10, 57);
+            this.label5.Location = new System.Drawing.Point(10, 39);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 19);
@@ -397,7 +398,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label8.Location = new System.Drawing.Point(9, 225);
+            this.label8.Location = new System.Drawing.Point(12, 162);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(264, 19);
@@ -407,9 +408,9 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.dgv_Products);
-            this.panel3.Location = new System.Drawing.Point(9, 251);
+            this.panel3.Location = new System.Drawing.Point(9, 197);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1000, 188);
+            this.panel3.Size = new System.Drawing.Size(827, 126);
             this.panel3.TabIndex = 18;
             // 
             // ErrorProvider
@@ -421,13 +422,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1067, 766);
+            this.ClientSize = new System.Drawing.Size(884, 581);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btn_Save);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1083, 805);
-            this.MinimumSize = new System.Drawing.Size(1083, 805);
+            this.MaximumSize = new System.Drawing.Size(900, 620);
+            this.MinimumSize = new System.Drawing.Size(900, 620);
             this.Name = "InvoiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Накладная форма № 264-АНК (ф 87)";

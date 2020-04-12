@@ -53,8 +53,8 @@
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Products)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,7 +64,7 @@
             // 
             // tb_Goal
             // 
-            this.tb_Goal.Location = new System.Drawing.Point(580, 87);
+            this.tb_Goal.Location = new System.Drawing.Point(405, 87);
             this.tb_Goal.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Goal.Name = "tb_Goal";
             this.tb_Goal.Size = new System.Drawing.Size(435, 27);
@@ -74,7 +74,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label4.Location = new System.Drawing.Point(577, 63);
+            this.label4.Location = new System.Drawing.Point(410, 64);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 19);
@@ -83,7 +83,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(580, 33);
+            this.dateTimePicker1.Location = new System.Drawing.Point(405, 31);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(435, 27);
@@ -94,14 +94,14 @@
             this.tb_PurchaseNumber.Location = new System.Drawing.Point(14, 87);
             this.tb_PurchaseNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tb_PurchaseNumber.Name = "tb_PurchaseNumber";
-            this.tb_PurchaseNumber.Size = new System.Drawing.Size(552, 27);
+            this.tb_PurchaseNumber.Size = new System.Drawing.Size(383, 27);
             this.tb_PurchaseNumber.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label3.Location = new System.Drawing.Point(577, 7);
+            this.label3.Location = new System.Drawing.Point(410, 7);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 19);
@@ -136,7 +136,7 @@
             this.cmb_Providers.Location = new System.Drawing.Point(14, 31);
             this.cmb_Providers.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_Providers.Name = "cmb_Providers";
-            this.cmb_Providers.Size = new System.Drawing.Size(552, 27);
+            this.cmb_Providers.Size = new System.Drawing.Size(383, 27);
             this.cmb_Providers.TabIndex = 0;
             // 
             // dgv_Products
@@ -154,7 +154,7 @@
             this.dgv_Products.Location = new System.Drawing.Point(0, 0);
             this.dgv_Products.Name = "dgv_Products";
             this.dgv_Products.ReadOnly = true;
-            this.dgv_Products.Size = new System.Drawing.Size(1001, 415);
+            this.dgv_Products.Size = new System.Drawing.Size(826, 223);
             this.dgv_Products.TabIndex = 10;
             // 
             // ProductName
@@ -180,7 +180,7 @@
             this.tb_Count.Location = new System.Drawing.Point(342, 34);
             this.tb_Count.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Count.Name = "tb_Count";
-            this.tb_Count.Size = new System.Drawing.Size(224, 27);
+            this.tb_Count.Size = new System.Drawing.Size(122, 27);
             this.tb_Count.TabIndex = 9;
             this.tb_Count.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
@@ -211,10 +211,10 @@
             this.btn_AddNewProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(176)))), ((int)(((byte)(83)))));
             this.btn_AddNewProduct.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_AddNewProduct.ForeColor = System.Drawing.Color.White;
-            this.btn_AddNewProduct.Location = new System.Drawing.Point(794, 19);
+            this.btn_AddNewProduct.Location = new System.Drawing.Point(629, 19);
             this.btn_AddNewProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddNewProduct.Name = "btn_AddNewProduct";
-            this.btn_AddNewProduct.Size = new System.Drawing.Size(221, 55);
+            this.btn_AddNewProduct.Size = new System.Drawing.Size(211, 55);
             this.btn_AddNewProduct.TabIndex = 3;
             this.btn_AddNewProduct.Text = "Добавить новый товар";
             this.btn_AddNewProduct.UseVisualStyleBackColor = false;
@@ -225,10 +225,10 @@
             this.btn_AddProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(129)))), ((int)(((byte)(184)))));
             this.btn_AddProduct.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_AddProduct.ForeColor = System.Drawing.Color.White;
-            this.btn_AddProduct.Location = new System.Drawing.Point(581, 19);
+            this.btn_AddProduct.Location = new System.Drawing.Point(472, 19);
             this.btn_AddProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddProduct.Name = "btn_AddProduct";
-            this.btn_AddProduct.Size = new System.Drawing.Size(205, 55);
+            this.btn_AddProduct.Size = new System.Drawing.Size(149, 55);
             this.btn_AddProduct.TabIndex = 2;
             this.btn_AddProduct.Text = "Добавить";
             this.btn_AddProduct.UseVisualStyleBackColor = false;
@@ -253,10 +253,10 @@
             this.btn_Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(129)))), ((int)(((byte)(184)))));
             this.btn_Save.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_Save.ForeColor = System.Drawing.Color.White;
-            this.btn_Save.Location = new System.Drawing.Point(850, 705);
+            this.btn_Save.Location = new System.Drawing.Point(639, 513);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(205, 55);
+            this.btn_Save.Size = new System.Drawing.Size(211, 55);
             this.btn_Save.TabIndex = 3;
             this.btn_Save.Text = "Сохранить";
             this.btn_Save.UseVisualStyleBackColor = false;
@@ -285,7 +285,7 @@
             this.panel1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel1.Location = new System.Drawing.Point(8, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1047, 135);
+            this.panel1.Size = new System.Drawing.Size(863, 135);
             this.panel1.TabIndex = 11;
             // 
             // panel2
@@ -303,16 +303,8 @@
             this.panel2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel2.Location = new System.Drawing.Point(8, 166);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1047, 532);
+            this.panel2.Size = new System.Drawing.Size(863, 340);
             this.panel2.TabIndex = 12;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dgv_Products);
-            this.panel3.Location = new System.Drawing.Point(14, 110);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1001, 415);
-            this.panel3.TabIndex = 10;
             // 
             // label8
             // 
@@ -328,19 +320,27 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "Товары добавленные в накладную";
             // 
-            // Purshase
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.dgv_Products);
+            this.panel3.Location = new System.Drawing.Point(14, 110);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(826, 223);
+            this.panel3.TabIndex = 10;
+            // 
+            // PurshaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1067, 766);
+            this.ClientSize = new System.Drawing.Size(884, 581);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Save);
             this.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1083, 805);
-            this.MinimumSize = new System.Drawing.Size(1083, 805);
+            this.MaximumSize = new System.Drawing.Size(900, 620);
+            this.MinimumSize = new System.Drawing.Size(900, 620);
             this.Name = "PurshaseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Приходная накладная";

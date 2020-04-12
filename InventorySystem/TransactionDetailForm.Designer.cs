@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgv_products = new System.Windows.Forms.DataGridView();
@@ -73,16 +73,16 @@
             this.panel2.Controls.Add(this.dgv_products);
             this.panel2.Location = new System.Drawing.Point(12, 253);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(895, 372);
+            this.panel2.Size = new System.Drawing.Size(860, 253);
             this.panel2.TabIndex = 22;
             // 
             // dgv_products
             // 
             this.dgv_products.AllowUserToAddRows = false;
             this.dgv_products.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dgv_products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgv_products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_products.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_products.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_products.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -99,11 +99,11 @@
             this.dgv_products.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_products.Name = "dgv_products";
             this.dgv_products.ReadOnly = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgv_products.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgv_products.Size = new System.Drawing.Size(895, 372);
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgv_products.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_products.Size = new System.Drawing.Size(860, 253);
             this.dgv_products.TabIndex = 0;
             // 
             // Column1
@@ -140,7 +140,7 @@
             this.btn_Print.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_Print.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_Print.ForeColor = System.Drawing.Color.White;
-            this.btn_Print.Location = new System.Drawing.Point(660, 632);
+            this.btn_Print.Location = new System.Drawing.Point(631, 515);
             this.btn_Print.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Print.Name = "btn_Print";
             this.btn_Print.Size = new System.Drawing.Size(235, 55);
@@ -168,7 +168,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(199)))));
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(895, 207);
+            this.panel1.Size = new System.Drawing.Size(860, 207);
             this.panel1.TabIndex = 25;
             // 
             // tb_ResponsibleName
@@ -250,7 +250,7 @@
             this.tb_Goal.Location = new System.Drawing.Point(446, 142);
             this.tb_Goal.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Goal.Name = "tb_Goal";
-            this.tb_Goal.Size = new System.Drawing.Size(435, 26);
+            this.tb_Goal.Size = new System.Drawing.Size(406, 26);
             this.tb_Goal.TabIndex = 4;
             // 
             // tb_OrgName
@@ -284,18 +284,20 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(446, 83);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(435, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(406, 26);
             this.dateTimePicker1.TabIndex = 51;
             // 
             // TransactionDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 694);
+            this.ClientSize = new System.Drawing.Size(884, 581);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Print);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel2);
+            this.MaximumSize = new System.Drawing.Size(900, 620);
+            this.MinimumSize = new System.Drawing.Size(900, 620);
             this.Name = "TransactionDetailForm";
             this.Text = "TransactionDetailForm";
             this.Load += new System.EventHandler(this.TransactionDetailForm_Load);

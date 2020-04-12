@@ -71,9 +71,9 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.panel2.Location = new System.Drawing.Point(12, 242);
+            this.panel2.Location = new System.Drawing.Point(12, 146);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1044, 450);
+            this.panel2.Size = new System.Drawing.Size(860, 360);
             this.panel2.TabIndex = 20;
             // 
             // label8
@@ -95,7 +95,7 @@
             this.panel3.Controls.Add(this.dgv_Products);
             this.panel3.Location = new System.Drawing.Point(9, 113);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1000, 326);
+            this.panel3.Size = new System.Drawing.Size(823, 240);
             this.panel3.TabIndex = 18;
             // 
             // dgv_Products
@@ -113,7 +113,7 @@
             this.dgv_Products.Location = new System.Drawing.Point(0, 0);
             this.dgv_Products.Name = "dgv_Products";
             this.dgv_Products.ReadOnly = true;
-            this.dgv_Products.Size = new System.Drawing.Size(1000, 326);
+            this.dgv_Products.Size = new System.Drawing.Size(823, 240);
             this.dgv_Products.TabIndex = 10;
             // 
             // ProductName
@@ -142,7 +142,7 @@
             this.cmb_Products.Location = new System.Drawing.Point(9, 40);
             this.cmb_Products.Margin = new System.Windows.Forms.Padding(4);
             this.cmb_Products.Name = "cmb_Products";
-            this.cmb_Products.Size = new System.Drawing.Size(320, 28);
+            this.cmb_Products.Size = new System.Drawing.Size(217, 28);
             this.cmb_Products.TabIndex = 5;
             // 
             // btn_AddProduct
@@ -155,10 +155,10 @@
             this.btn_AddProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_AddProduct.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_AddProduct.ForeColor = System.Drawing.Color.White;
-            this.btn_AddProduct.Location = new System.Drawing.Point(570, 25);
+            this.btn_AddProduct.Location = new System.Drawing.Point(467, 16);
             this.btn_AddProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddProduct.Name = "btn_AddProduct";
-            this.btn_AddProduct.Size = new System.Drawing.Size(205, 55);
+            this.btn_AddProduct.Size = new System.Drawing.Size(145, 55);
             this.btn_AddProduct.TabIndex = 7;
             this.btn_AddProduct.Text = "Добавить";
             this.btn_AddProduct.UseVisualStyleBackColor = false;
@@ -173,10 +173,10 @@
             this.btn_AddNewProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_AddNewProduct.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_AddNewProduct.ForeColor = System.Drawing.Color.White;
-            this.btn_AddNewProduct.Location = new System.Drawing.Point(783, 25);
+            this.btn_AddNewProduct.Location = new System.Drawing.Point(620, 16);
             this.btn_AddNewProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddNewProduct.Name = "btn_AddNewProduct";
-            this.btn_AddNewProduct.Size = new System.Drawing.Size(222, 55);
+            this.btn_AddNewProduct.Size = new System.Drawing.Size(212, 55);
             this.btn_AddNewProduct.TabIndex = 8;
             this.btn_AddNewProduct.Text = "Добавить новый товар";
             this.btn_AddNewProduct.UseVisualStyleBackColor = false;
@@ -185,7 +185,7 @@
             // tb_Count
             // 
             this.tb_Count.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_Count.Location = new System.Drawing.Point(337, 40);
+            this.tb_Count.Location = new System.Drawing.Point(234, 42);
             this.tb_Count.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Count.Name = "tb_Count";
             this.tb_Count.Size = new System.Drawing.Size(225, 26);
@@ -212,7 +212,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label6.Location = new System.Drawing.Point(342, 16);
+            this.label6.Location = new System.Drawing.Point(241, 19);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 19);
@@ -233,7 +233,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(190)))), ((int)(((byte)(199)))));
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1044, 224);
+            this.panel1.Size = new System.Drawing.Size(860, 128);
             this.panel1.TabIndex = 19;
             // 
             // tb_ResponsibleName
@@ -242,7 +242,7 @@
             this.tb_ResponsibleName.Location = new System.Drawing.Point(9, 88);
             this.tb_ResponsibleName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_ResponsibleName.Name = "tb_ResponsibleName";
-            this.tb_ResponsibleName.Size = new System.Drawing.Size(551, 26);
+            this.tb_ResponsibleName.Size = new System.Drawing.Size(445, 26);
             this.tb_ResponsibleName.TabIndex = 3;
             // 
             // label7
@@ -277,7 +277,7 @@
             this.tb_InvoiceNumber.Location = new System.Drawing.Point(7, 29);
             this.tb_InvoiceNumber.Margin = new System.Windows.Forms.Padding(4);
             this.tb_InvoiceNumber.Name = "tb_InvoiceNumber";
-            this.tb_InvoiceNumber.Size = new System.Drawing.Size(553, 26);
+            this.tb_InvoiceNumber.Size = new System.Drawing.Size(447, 26);
             this.tb_InvoiceNumber.TabIndex = 2;
             // 
             // label3
@@ -286,7 +286,7 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label3.Location = new System.Drawing.Point(577, 6);
+            this.label3.Location = new System.Drawing.Point(463, 6);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 19);
@@ -296,10 +296,10 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(572, 29);
+            this.dateTimePicker1.Location = new System.Drawing.Point(462, 29);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(435, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(380, 26);
             this.dateTimePicker1.TabIndex = 51;
             // 
             // btn_Save
@@ -312,7 +312,7 @@
             this.btn_Save.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_Save.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_Save.ForeColor = System.Drawing.Color.White;
-            this.btn_Save.Location = new System.Drawing.Point(788, 699);
+            this.btn_Save.Location = new System.Drawing.Point(611, 513);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(235, 55);
@@ -330,10 +330,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1067, 766);
+            this.ClientSize = new System.Drawing.Size(884, 581);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(900, 620);
+            this.MinimumSize = new System.Drawing.Size(900, 620);
             this.Name = "InventoryForm";
             this.Text = "Инвентаризация";
             this.panel2.ResumeLayout(false);
