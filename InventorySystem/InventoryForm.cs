@@ -23,7 +23,6 @@ namespace InventorySystem
         private BindingSource bs_Products;
         private BindingSource bs_Providers;
         private IEnumerable<Product> _products;
-        private IEnumerable<Provider> _providers;
 
         public InventoryForm()
         {
@@ -31,11 +30,9 @@ namespace InventorySystem
             _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
 
             bs_Products = new BindingSource();
-            bs_Providers = new BindingSource();
             _products = _guideManager.GetProducts();
 
             bs_Products.DataSource = _products;
-            bs_Providers.DataSource = _providers;
 
             cmb_Products.DataSource = bs_Products;
             cmb_Products.DisplayMember = "Name";

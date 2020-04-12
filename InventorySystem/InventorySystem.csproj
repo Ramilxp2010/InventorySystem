@@ -103,11 +103,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNewProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewProductForm.Designer.cs">
+      <DependentUpon>AddNewProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddProductForm.Designer.cs">
       <DependentUpon>AddProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddProviderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProviderForm.Designer.cs">
+      <DependentUpon>AddProviderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUnitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUnitForm.Designer.cs">
+      <DependentUpon>AddUnitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AllInvoicesForm.cs">
       <SubType>Form</SubType>
@@ -128,6 +146,18 @@
     <Compile Include="InvoiceForm.Designer.cs">
       <DependentUpon>InvoiceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsForm.Designer.cs">
+      <DependentUpon>ProductsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProvidersDorm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProvidersDorm.Designer.cs">
+      <DependentUpon>ProvidersDorm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PurshaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +170,12 @@
     <Compile Include="TransactionDetailForm.Designer.cs">
       <DependentUpon>TransactionDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UnitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnitForm.Designer.cs">
+      <DependentUpon>UnitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WarehouseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,8 +184,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddNewProductForm.resx">
+      <DependentUpon>AddNewProductForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddProductForm.resx">
       <DependentUpon>AddProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProviderForm.resx">
+      <DependentUpon>AddProviderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUnitForm.resx">
+      <DependentUpon>AddUnitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AllInvoicesForm.resx">
       <DependentUpon>AllInvoicesForm.cs</DependentUpon>
@@ -160,11 +205,20 @@
     <EmbeddedResource Include="InvoiceForm.resx">
       <DependentUpon>InvoiceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductsForm.resx">
+      <DependentUpon>ProductsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProvidersDorm.resx">
+      <DependentUpon>ProvidersDorm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PurshaseForm.resx">
       <DependentUpon>PurshaseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionDetailForm.resx">
       <DependentUpon>TransactionDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitForm.resx">
+      <DependentUpon>UnitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WarehouseForm.resx">
       <DependentUpon>WarehouseForm.cs</DependentUpon>

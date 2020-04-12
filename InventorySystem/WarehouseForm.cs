@@ -81,5 +81,41 @@ namespace InventorySystem
         {
             new AllInvoicesForm().Show();
         }
+
+        private void продуктToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ProductsForm().ShowDialog();
+            _products = _engine.GetWarehouseProducts();
+            LoadComponents(_products);
+        }
+
+        private void поставщикToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ProvidersForm().ShowDialog();
+            _products = _engine.GetWarehouseProducts();
+            LoadComponents(_products);
+        }
+
+        private void едизмToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new UnitForm().ShowDialog();
+            _products = _engine.GetWarehouseProducts();
+            LoadComponents(_products);
+        }
+
+        private void tb_Searh_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_Searh.Text.Length > 3)
+            {
+                var products = _products.Where(x => x.Product.Name.ToLowerInvariant().Contains(tb_Searh.Text.ToLowerInvariant())).ToList();
+                LoadComponents(products);
+            }
+
+            if (tb_Searh.Text.Length == 0)
+            {
+                LoadComponents(_products);
+            }
+        }
+        
     }
 }
