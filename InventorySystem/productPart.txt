@@ -1,0 +1,35 @@
+<tr class="product">
+	<td class="product">
+		<strong> ProductName </strong>
+	</td>
+	<td class="product">
+		<strong> UnitValue </strong>
+	</td>
+	<td class="product">
+		<strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong>
+	</td>
+	<td class="product">
+		<strong>ProductCount</strong>
+	</td>
+	<td class="product">
+		<strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong>
+	</td>
+	<td class="product">
+		<strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong>
+	</td>
+	<td class="product">
+		<strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong>
+	</td>
+	<td class="product">
+		<strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong>
+	</td>
+	<td class="product">
+		<strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong>
+	</td>
+	<td class="product">
+		<strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong>
+	</td>
+	<td class="product">
+		<strong>&nbsp; &nbsp; &nbsp; &nbsp;</strong>
+	</td>
+</tr>

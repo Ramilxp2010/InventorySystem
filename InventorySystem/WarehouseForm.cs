@@ -16,48 +16,65 @@ namespace InventorySystem
 {
     public partial class WarehouseForm : Form
     {
-        List<WarehouseProduct> _products = new List<WarehouseProduct>();
         InventorySystemEngine _engine = new InventorySystemEngine();
-        
+        private BindingSource bs_Products;
+        private List<WarehouseProduct> _products;
+
         public WarehouseForm()
         {
             InitializeComponent();
-            LoadComponents();
+            
+            bs_Products = new BindingSource();
+            _products = _engine.GetWarehouseProducts();
+            LoadComponents(_products);
+
+            dgv_products.DataSource = bs_Products;
+            dgv_products.Columns[0].HeaderText = "НАЗВАНИЕ";
+            dgv_products.Columns[1].HeaderText = "КОД";
+            dgv_products.Columns[2].HeaderText = "КОЛИЧЕСТВО НА СКЛАДЕ";
+            dgv_products.Columns[3].HeaderText = "ЕД. ИЗМ";
+            dgv_products.Columns[4].Visible = false;
         }
 
-        private void LoadComponents()
+        private void LoadComponents(List<WarehouseProduct> products)
         {
-            _products = _engine.GetWarehouseProducts();
-            foreach (var product in _products)
-            {
-                dgv_products.Rows.Add();
-                var index = dgv_products.Rows.Count - 1;
-                dgv_products.Rows[index].Cells[0].Value = product.Product.Name;
-                dgv_products.Rows[index].Cells[1].Value = product.Count;
-                dgv_products.Rows[index].Cells[2].Value = product.Product.Unit.Name;
-                dgv_products.Rows[index].Cells[3].Value = product.Product.Code;
-                dgv_products.Rows[index].Tag = product;
-            }
+            List<ProductViewModel> productView = products.Select(x =>
+                new ProductViewModel
+                {
+                    Name = x.Product.Name,
+                    Code = x.Product.Code,
+                    Count = x.Count,
+                    Unit = x.Product.Unit.Name,
+                    Product = x.Product
+                }).ToList();
+
+            bs_Products.DataSource = productView;
         }
 
         private void btn_Purshase_Click(object sender, EventArgs e)
         {
-            new PurshaseForm().Show();
+            new PurshaseForm().ShowDialog();
+            _products = _engine.GetWarehouseProducts();
+            LoadComponents(_products);
         }
 
         private void Warehouse_Enter(object sender, EventArgs e)
         {
-            LoadComponents();
+            //LoadComponents();
         }
 
         private void brn_Invoice_Click(object sender, EventArgs e)
         {
-            new InvoiceForm().Show();
+            new InvoiceForm().ShowDialog();
+            _products = _engine.GetWarehouseProducts();
+            LoadComponents(_products);
         }
 
         private void btn_Inventory_Click(object sender, EventArgs e)
         {
-            new InventoryForm().Show();
+            new InventoryForm().ShowDialog();
+            _products = _engine.GetWarehouseProducts();
+            LoadComponents(_products);
         }
 
         private void btn_CheckPurshases_Click(object sender, EventArgs e)

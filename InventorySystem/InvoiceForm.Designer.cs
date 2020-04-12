@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Save = new System.Windows.Forms.Button();
             this.tb_Count = new System.Windows.Forms.TextBox();
             this.dgv_Products = new System.Windows.Forms.DataGridView();
@@ -53,10 +53,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgv_Warehouse = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tb_Searh = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -89,6 +85,7 @@
             this.btn_Save.TabIndex = 9;
             this.btn_Save.Text = "Сохранить";
             this.btn_Save.UseVisualStyleBackColor = false;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // tb_Count
             // 
@@ -103,6 +100,7 @@
             // dgv_Products
             // 
             this.dgv_Products.AllowUserToAddRows = false;
+            this.dgv_Products.AllowUserToDeleteRows = false;
             this.dgv_Products.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Products.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_Products.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -117,6 +115,7 @@
             this.dgv_Products.ReadOnly = true;
             this.dgv_Products.Size = new System.Drawing.Size(1000, 188);
             this.dgv_Products.TabIndex = 10;
+            this.dgv_Products.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataGrid_KeyDown);
             // 
             // ProductName
             // 
@@ -332,55 +331,26 @@
             // 
             this.dgv_Warehouse.AllowUserToAddRows = false;
             this.dgv_Warehouse.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dgv_Warehouse.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgv_Warehouse.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Warehouse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Warehouse.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_Warehouse.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_Warehouse.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgv_Warehouse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Warehouse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column3,
-            this.Column2,
-            this.Column4});
             this.dgv_Warehouse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_Warehouse.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_Warehouse.Location = new System.Drawing.Point(0, 0);
             this.dgv_Warehouse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_Warehouse.Name = "dgv_Warehouse";
             this.dgv_Warehouse.ReadOnly = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgv_Warehouse.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgv_Warehouse.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Warehouse.Size = new System.Drawing.Size(1000, 103);
             this.dgv_Warehouse.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "НАЗВАНИЕ";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "КОД";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "КОЛИЧЕСТВО НА СКЛАДЕ";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "ЕД.ИЗМ";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // tb_Searh
             // 
@@ -461,6 +431,7 @@
             this.Name = "InvoiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Накладная форма № 264-АНК (ф 87)";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InvoiceForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Products)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -504,9 +475,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dgv_Warehouse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

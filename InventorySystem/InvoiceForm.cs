@@ -28,23 +28,19 @@ namespace InventorySystem
         {
             InitializeComponent();
             _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
-
             bs_Products = new BindingSource();
+
             _products = _engine.GetWarehouseProducts();
-            bs_Products.DataSource = _products.Select(x =>
-                new
-                {
-                    PN = x.Product.Name,
-                    Cd = x.Product.Code,
-                    Ct = x.Count,
-                    Un = x.Product.Unit.Name
-                });
+            SetWareHouse(_products);
 
-            dgv_Products.DataSource = bs_Products;
-
-            //SetWareHouse();
+            dgv_Warehouse.DataSource = bs_Products;
+            dgv_Warehouse.Columns[0].HeaderText = "НАЗВАНИЕ";
+            dgv_Warehouse.Columns[1].HeaderText = "КОД";
+            dgv_Warehouse.Columns[2].HeaderText = "КОЛИЧЕСТВО НА СКЛАДЕ";
+            dgv_Warehouse.Columns[3].HeaderText = "ЕД. ИЗМ";
+            dgv_Warehouse.Columns[4].Visible = false;
         }
-        
+
         private void btn_AddProduct_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tb_Count.Text))
@@ -53,28 +49,42 @@ namespace InventorySystem
                 return;
             }
 
-            if (dgv_Warehouse.CurrentRow.Tag is ProductWork)
+            var selectedProduct = dgv_Warehouse.CurrentRow.Cells[4].Value;
+            if (selectedProduct is Product)
             {
-                AddProduct(dgv_Warehouse.CurrentRow.Tag as ProductWork, decimal.Parse(tb_Count.Text));
+                var product = selectedProduct as Product;
+                var warehouseProduct = _products.FirstOrDefault(x => x.Product.Id == product.Id);
+                var selectedCount = decimal.Parse(tb_Count.Text);
+                if (warehouseProduct.Count >= selectedCount)
+                {
+                    AddProduct(product, selectedCount);
+                    warehouseProduct.Count = warehouseProduct.Count - selectedCount;
+                    tb_Searh_TextChanged(null, null);
+                }
+                else
+                {
+                    MessageBox.Show($"Необходимого количества нет на складе. На складе - {warehouseProduct.Count}, требуется - {selectedCount}", "Ошибка", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
         }
 
-        public void AddProduct(ProductWork product, decimal count, Unit unit = null)
+        public void AddProduct(Product product, decimal count, Unit unit = null)
         {
             dgv_Products.Rows.Add();
             var index = dgv_Products.Rows.Count - 1;
-            dgv_Products.Rows[index].Cells[0].Value = product.Product.Name;
+            dgv_Products.Rows[index].Cells[0].Value = product.Name;
 
+            dgv_Products.Rows[index].Cells[1].Value = count;
             if (unit != null)
             {
-                dgv_Products.Rows[index].Cells[1].Value = unit.Name;
+                dgv_Products.Rows[index].Cells[2].Value = unit.Name;
             }
             else
             {
-                dgv_Products.Rows[index].Cells[1].Value = product.Product.Unit.Name;
+                dgv_Products.Rows[index].Cells[2].Value = product.Unit.Name;
             }
 
-            dgv_Products.Rows[index].Cells[2].Value = count;
             dgv_Products.Rows[index].Tag = product;
 
             tb_Count.Clear();
@@ -114,7 +124,7 @@ namespace InventorySystem
                     var product = new ProductWork()
                     {
                         ProductId = prod.Id,
-                        Count = decimal.Parse(row.Cells[2].Value.ToString()),
+                        Count = decimal.Parse(row.Cells[1].Value.ToString()),
                         Invoice = invoice,
                         Cost = 0
                     };
@@ -178,29 +188,66 @@ namespace InventorySystem
             return result;
         }
         
-        private void SetWareHouse()
+        private void SetWareHouse(List<WarehouseProduct> products)
         {
-            foreach (var product in _products)
-            {
-                dgv_Warehouse.Rows.Add();
-                var index = dgv_Warehouse.Rows.Count - 1;
-                dgv_Warehouse.Rows[index].Cells[0].Value = product.Product.Name;
-                dgv_Warehouse.Rows[index].Cells[1].Value = product.Product.Code;
-                dgv_Warehouse.Rows[index].Cells[2].Value = product.Count; 
-                dgv_Warehouse.Rows[index].Cells[3].Value = product.Product.Unit.Name;
-                dgv_Warehouse.Rows[index].Tag = product;
-            }
+            List<ProductViewModel> productView = products.Select(x =>
+                new ProductViewModel
+                {
+                    Name = x.Product.Name,
+                    Code = x.Product.Code,
+                    Count = x.Count,
+                    Unit = x.Product.Unit.Name,
+                    Product = x.Product
+                }).ToList();
+
+            bs_Products.DataSource = productView;
         }
 
         private void tb_Searh_TextChanged(object sender, EventArgs e)
         {
-            if (tb_Searh.Text.Length > 4)
+            if (tb_Searh.Text.Length > 3)
             {
-                _products = _products.Where(x => x.Product.Name.Contains(tb_Searh.Text)).ToList();
-                SetWareHouse();
-                dgv_Warehouse.Update();
+                var products = _products.Where(x => x.Product.Name.ToLowerInvariant().Contains(tb_Searh.Text.ToLowerInvariant())).ToList();
+                SetWareHouse(products);
             }
 
+            if (tb_Searh.Text.Length == 0)
+            {
+                SetWareHouse(_products);
+            }
         }
+
+        private void DataGrid_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                Int32 selectedRowCount = dgv_Products.Rows.GetRowCount(DataGridViewElementStates.Selected);
+                if (selectedRowCount > 0)
+                {
+                    for (int i = 0; i < selectedRowCount; i++)
+                    {
+                        var product = dgv_Products.SelectedRows[0].Tag as Product;
+                        var warehouseProduct = _products.FirstOrDefault(x => x.Product.Id == product.Id);
+                        var count = Decimal.Parse(dgv_Products.SelectedRows[0].Cells[1].Value.ToString());
+                        warehouseProduct.Count = warehouseProduct.Count + count;
+                        tb_Searh_TextChanged(null, null);
+                        dgv_Products.Rows.RemoveAt(dgv_Products.SelectedRows[0].Index);
+                    }
+                }
+            }
+        }
+
+        private void InvoiceForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+        }
+    }
+
+    public class ProductViewModel
+    {
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public decimal Count { get; set; }
+        public string Unit { get; set; }
+        public Product Product { get; set; }
     }
 }

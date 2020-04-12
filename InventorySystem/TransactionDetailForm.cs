@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace InventorySystem
         PurchaseInvoiceManager _purchaseManager = new PurchaseInvoiceManager();
         
         private IEnumerable<ProductWork> _products;
+        private Invoice _invoice;
 
         public TransactionDetailForm(object transaction)
         {
@@ -39,6 +41,8 @@ namespace InventorySystem
             else if (selectedItem is Invoice)
             {
                 var invoice = selectedItem as Invoice;
+                _invoice = invoice;
+                btn_Print.Visible = true;
                 HandleInvoice(invoice);
             }
             else if (selectedItem is Inventory)
@@ -93,5 +97,52 @@ namespace InventorySystem
                 dgv_products.Rows[index].Tag = product;
             }
         }
+
+        private void btn_Print_Click(object sender, EventArgs e)
+        {
+            string fileName = "printTemplate.html";
+            string fileProductPart = "productPart.txt";
+            var path = Path.GetDirectoryName(Application.ExecutablePath);
+
+            var dictonary = new Dictionary<string, string>();
+            dictonary.Add("InvoiceNumber", _invoice.Number);
+            dictonary.Add("ResponsibleName", _invoice.ResponsibleName);
+            dictonary.Add("InvoiceGoal", _invoice.Goal);
+            dictonary.Add("InvoiceDate", _invoice.Date.ToShortDateString());
+            
+            string productPart = File.ReadAllText($@"{path}\{fileProductPart}");
+            var productTable = new StringBuilder();
+            foreach (var product in _products)
+            {
+                var clone = productPart.Replace("ProductName", product.Product.Name);
+                clone = clone.Replace("UnitValue", product.Product.Unit.Name);
+                clone = clone.Replace("ProductCount", product.Count.ToString());
+                productTable.Append(clone);
+            }
+
+            dictonary.Add("AllInvoiceProducts", productTable.ToString());
+            
+            string contents = File.ReadAllText($@"{path}\{fileName}");
+            foreach (var pair in dictonary)
+            {
+                contents = contents.Replace(pair.Key, pair.Value);
+            }
+
+            var newFile = $@"{path}/Накладная_{_invoice.Number}.html";
+            var newFilePdf = $@"{path}/Накладная_{_invoice.Number}.pdf";
+            var tool = $@"{path}/wkhtmltopdf.exe";
+            File.WriteAllText(newFile, contents);
+            if (File.Exists(newFile))
+            {
+                System.Diagnostics.Process.Start(newFile);
+                //System.Diagnostics.Process.Start($"{tool} {newFile} {newFilePdf}");
+            }
+            if (File.Exists(newFilePdf))
+            {
+                //System.Diagnostics.Process.Start(newFilePdf);
+            }
+        }
+        
+
     }
 }
