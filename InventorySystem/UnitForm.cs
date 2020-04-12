@@ -67,5 +67,6 @@ namespace InventorySystem
                 MessageBox.Show("Эта функциональность не реализована!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        
     }
 }

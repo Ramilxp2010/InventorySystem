@@ -51,6 +51,7 @@
             this.btn_Updater.TabIndex = 44;
             this.btn_Updater.Text = "Изменить";
             this.btn_Updater.UseVisualStyleBackColor = false;
+            this.btn_Updater.Click += new System.EventHandler(this.btn_Updater_Click);
             // 
             // btn_Delete
             // 
@@ -64,6 +65,7 @@
             this.btn_Delete.TabIndex = 43;
             this.btn_Delete.Text = "Удалить";
             this.btn_Delete.UseVisualStyleBackColor = false;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Add
             // 
@@ -77,6 +79,7 @@
             this.btn_Add.TabIndex = 42;
             this.btn_Add.Text = "Добавить";
             this.btn_Add.UseVisualStyleBackColor = false;
+            this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
             // 
             // label8
             // 

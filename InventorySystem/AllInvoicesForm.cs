@@ -74,7 +74,7 @@ namespace InventorySystem
             switch (rb.Name)
             {
                 case "rb_dayPurchase":
-                    purchaseInvoices = _purchaseInvoices.Where(x => x.Date == DateTime.Now);
+                    purchaseInvoices = _purchaseInvoices.Where(x => x.Date.Date == DateTime.Now.Date);
                     ShowPurchaseInvoices(purchaseInvoices);
                     EnablePurchaseDate(false);
                     break;
@@ -147,7 +147,7 @@ namespace InventorySystem
             switch (rb.Name)
             {
                 case "rb_DayInvoice":
-                    invoices = _invoices.Where(x => x.Date == DateTime.Now);
+                    invoices = _invoices.Where(x => x.Date.Date == DateTime.Now.Date);
                     ShowInvoices(invoices);
                     EnableInvoiceDate(false);
                     break;
@@ -219,7 +219,7 @@ namespace InventorySystem
             switch (rb.Name)
             {
                 case "rb_DayInventory":
-                    inventories = _inventories.Where(x => x.Date == DateTime.Now);
+                    inventories = _inventories.Where(x => x.Date.Date == DateTime.Now.Date);
                     ShowInventories(inventories);
                     EnableInventoryDate(false);
                     break;
