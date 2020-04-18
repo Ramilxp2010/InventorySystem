@@ -21,5 +21,7 @@ namespace InventorySystem.Contract
         public int UnitId { get; set; }
 
         public Unit Unit { get; set; }
+
+        public bool? IsDelete { get; set; }
     }
 }

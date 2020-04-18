@@ -49,6 +49,11 @@ namespace InventorySystem
 
         private void btn_Updater_Click(object sender, EventArgs e)
         {
+            if (dgv_Providers.CurrentRow == null)
+            {
+                return;
+            }
+
             var seletedItem = dgv_Providers.CurrentRow.Tag as Provider;
             if (seletedItem != null)
             {
@@ -59,12 +64,17 @@ namespace InventorySystem
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
+            if (dgv_Providers.CurrentRow == null)
+            {
+                return;
+            }
+
             var seletedItem = dgv_Providers.CurrentRow.Tag as Provider;
             if (seletedItem != null)
             {
-                //_guideManager.DeleteProduct(seletedItem);
-                //ShowProducts();
-                MessageBox.Show("Эта функциональность не реализована!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _guideManager.DeleteProvider(seletedItem);
+                ShowProviders();
+                MessageBox.Show("Удалено!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

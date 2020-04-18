@@ -20,10 +20,10 @@ namespace InventorySystem
         public UnitForm()
         {
             InitializeComponent();
-            ShowProviders();
+            ShowUnits();
         }
 
-        private void ShowProviders()
+        private void ShowUnits()
         {
             dgv_Units.Rows.Clear();
             _units = _guideManager.GetUnits();
@@ -44,27 +44,37 @@ namespace InventorySystem
         private void btn_Add_Click(object sender, EventArgs e)
         {
             new AddUnitForm().ShowDialog();
-            ShowProviders();
+            ShowUnits();
         }
 
         private void btn_Updater_Click(object sender, EventArgs e)
         {
+            if (dgv_Units.CurrentRow == null)
+            {
+                return;
+            }
+
             var seletedItem = dgv_Units.CurrentRow.Tag as Unit;
             if (seletedItem != null)
             {
                 new AddUnitForm(seletedItem).ShowDialog();
-                ShowProviders();
+                ShowUnits();
             }
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            var seletedItem = dgv_Units.CurrentRow.Tag as Provider;
+            if (dgv_Units.CurrentRow == null)
+            {
+                return;
+            }
+
+            var seletedItem = dgv_Units.CurrentRow.Tag as Unit;
             if (seletedItem != null)
             {
-                //_guideManager.DeleteProduct(seletedItem);
-                //ShowProducts();
-                MessageBox.Show("Эта функциональность не реализована!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _guideManager.DeleteUnit(seletedItem);
+                ShowUnits();
+                MessageBox.Show("Удалено!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         

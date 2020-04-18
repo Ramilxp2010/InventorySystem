@@ -46,7 +46,7 @@
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(205, 55);
             this.btn_Save.TabIndex = 45;
-            this.btn_Save.Text = "Сохронить";
+            this.btn_Save.Text = "Сохранить";
             this.btn_Save.UseVisualStyleBackColor = false;
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 

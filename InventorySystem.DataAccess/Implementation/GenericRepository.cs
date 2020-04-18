@@ -16,11 +16,11 @@ namespace InventorySystem.DataAccess.Implementation
 
         public GenericRepository()
         {
+            //string conString = "Data Source=.\InventorySystem.db"
             _context = new InventoryContext();
-            //;RootContainer.Container.Resolve<InventoryContext>();
             _dbSet = _context.Set<TEntity>();
         }
-
+        
         public IEnumerable<TEntity> Get()
         {
             return _dbSet.AsNoTracking().ToList();
@@ -37,18 +37,43 @@ namespace InventorySystem.DataAccess.Implementation
 
         public void Create(TEntity item)
         {
-            _dbSet.Add(item);
-            _context.SaveChanges();
+            try
+            {
+                _dbSet.Add(item);
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
         public void Update(TEntity item)
         {
-            _context.Entry(item).State = EntityState.Modified;
-            _context.SaveChanges();
+            try
+            {
+                _context.Entry(item).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
         public void Remove(TEntity item)
         {
-            _dbSet.Remove(item);
-            _context.SaveChanges();
+            try
+            {
+                _dbSet.Attach(item);
+                _dbSet.Remove(item);
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public IEnumerable<TEntity> GetWithInclude(params Expression<Func<TEntity, object>>[] includeProperties)
