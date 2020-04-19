@@ -29,10 +29,7 @@ namespace InventorySystem.Manager
             _productWorkRepository = RootContainer.Container.Resolve<IGenericRepository<ProductWork>>();
         }
 
-        public void CreateProduct(Product item)
-        {
-            _productRepository.Create(item);
-        }
+        #region Product
 
         public IEnumerable<Product> GetProducts(bool showIsDelete = false)
         {
@@ -47,10 +44,34 @@ namespace InventorySystem.Manager
             }
         }
 
-        public void CreateUnit(Unit item)
+        public void CreateProduct(Product item)
         {
-            _unitRepository.Create(item);
+            _productRepository.Create(item);
         }
+
+        public void UpdateProduct(Product item)
+        {
+            _productRepository.Update(item);
+        }
+
+        public void DeleteProduct(Product item)
+        {
+            var relatives = _productWorkRepository.Get(x => x.ProductId == item.Id);
+            if (relatives.Any())
+            {
+                item.IsDelete = true;
+                item.Unit = null;
+                UpdateProduct(item);
+            }
+            else
+            {
+                _productRepository.Remove(item);
+            }
+        }
+
+        #endregion Product
+
+        #region Unit
 
         public IEnumerable<Unit> GetUnits(bool showIsDelete = false)
         {
@@ -64,6 +85,34 @@ namespace InventorySystem.Manager
             }
         }
 
+        public void CreateUnit(Unit item)
+        {
+            _unitRepository.Create(item);
+        }
+
+        public void UpdateUnit(Unit item)
+        {
+            _unitRepository.Update(item);
+        }
+
+        public void DeleteUnit(Unit item)
+        {
+            var relatives = _productRepository.Get(x => x.UnitId == item.Id);
+            if (relatives.Any())
+            {
+                item.IsDelete = true;
+                UpdateUnit(item);
+            }
+            else
+            {
+                _unitRepository.Remove(item);
+            }
+        }
+
+        #endregion Unit
+
+        #region Providers
+        
         public void CreateProvider(Provider item)
         {
             _providerRepository.Create(item);
@@ -81,48 +130,9 @@ namespace InventorySystem.Manager
             }
         }
 
-        public void UpdateProduct(Product item)
-        {
-            _productRepository.Update(item);
-        }
-
-        public void UpdateUnit(Unit item)
-        {
-            _unitRepository.Update(item);
-        }
-
         public void UpdateProvider(Provider item)
         {
             _providerRepository.Update(item);
-        }
-        
-        public void DeleteProduct(Product item)
-        {
-            var relatives = _productWorkRepository.Get(x => x.ProductId == item.Id);
-            if (relatives.Any())
-            {
-                item.IsDelete = true;
-                item.Unit = null;
-                UpdateProduct(item);
-            }
-            else
-            {
-                _productRepository.Remove(item);
-            }
-        }
-
-        public void DeleteUnit(Unit item)
-        {
-            var relatives = _productRepository.Get(x => x.UnitId == item.Id);
-            if (relatives.Any())
-            {
-                item.IsDelete = true;
-                UpdateUnit(item);
-            }
-            else
-            {
-                _unitRepository.Remove(item);
-            }
         }
 
         public void DeleteProvider(Provider item)
@@ -138,6 +148,9 @@ namespace InventorySystem.Manager
                 _providerRepository.Remove(item);
             }
         }
+
+
+        #endregion Providers
 
         public IEnumerable<PurchaseInvoice> GetPurchaseInvoices()
         {

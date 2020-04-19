@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventorySystem.Api;
 using InventorySystem.Contract;
-using InventorySystem.Manager;
 
 namespace InventorySystem
 {
     public partial class AddProviderForm : Form
     {
         private Provider _provider;
-        GuideManager _guideManager = new GuideManager();
+        ApiManager _apiManager = new ApiManager();
 
         public AddProviderForm(Provider provider)
         {
@@ -40,12 +40,12 @@ namespace InventorySystem
 
                 if (_provider == null)
                 {
-                    _guideManager.CreateProvider(provider);
+                    _apiManager.CreateProvider(provider);
                     MessageBox.Show("Поставщик добавлен!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    _guideManager.UpdateProvider(provider);
+                    _apiManager.UpdateProvider(provider);
                     MessageBox.Show("Поставщик обновлен!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

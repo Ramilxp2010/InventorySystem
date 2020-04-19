@@ -17,6 +17,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Inst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.WebApi", "InventorySystem.WebApi\InventorySystem.WebApi.csproj", "{EB847D35-186F-4F87-BA9E-B02D5D68315B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.Api", "InventorySystem.Api\InventorySystem.Api.csproj", "{62ECD251-CC8A-4B59-B9D5-44AF513BD93C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{EB847D35-186F-4F87-BA9E-B02D5D68315B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB847D35-186F-4F87-BA9E-B02D5D68315B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB847D35-186F-4F87-BA9E-B02D5D68315B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62ECD251-CC8A-4B59-B9D5-44AF513BD93C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62ECD251-CC8A-4B59-B9D5-44AF513BD93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62ECD251-CC8A-4B59-B9D5-44AF513BD93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62ECD251-CC8A-4B59-B9D5-44AF513BD93C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

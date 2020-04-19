@@ -1,6 +1,6 @@
 ﻿using InventorySystem.Contract;
 using InventorySystem.Core;
-using InventorySystem.Manager;
+using InventorySystem.Api;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +16,10 @@ namespace InventorySystem
 {
     public partial class InventoryForm : Form, IInvoice
     {
-        GuideManager _guideManager = new GuideManager();
-        PurchaseInvoiceManager _purchaseManager = new PurchaseInvoiceManager();
+        ApiManager _apiManager = new ApiManager();
 
         private WarehouseForm _warehouse;
         private BindingSource bs_Products;
-        private BindingSource bs_Providers;
         private IEnumerable<Product> _products;
 
         public InventoryForm()
@@ -30,7 +28,7 @@ namespace InventorySystem
             _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
 
             bs_Products = new BindingSource();
-            _products = _guideManager.GetProducts();
+            _products = _apiManager.GetProducts();
 
             bs_Products.DataSource = _products;
 
@@ -111,7 +109,7 @@ namespace InventorySystem
                         Inventory = inventory,
                         Cost = 0
                     };
-                    _purchaseManager.ProductWorkCreate(product);
+                    _apiManager.ProductWorkCreate(product);
                 }
 
                 var result = MessageBox.Show("Накладная добавлена! Добавить новую накладную?",

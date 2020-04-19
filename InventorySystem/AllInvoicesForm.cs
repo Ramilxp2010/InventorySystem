@@ -1,5 +1,5 @@
 ﻿using InventorySystem.Contract;
-using InventorySystem.Manager;
+using InventorySystem.Api;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ namespace InventorySystem
 {
     public partial class AllInvoicesForm : Form
     {
-        GuideManager _guideManager = new GuideManager();
+        ApiManager _apiManager = new ApiManager();
         
         private IEnumerable<PurchaseInvoice> _purchaseInvoices;
         private IEnumerable<Invoice> _invoices;
@@ -23,15 +23,15 @@ namespace InventorySystem
         public AllInvoicesForm()
         {
             InitializeComponent();
-            _purchaseInvoices = _guideManager.GetPurchaseInvoices();
+            _purchaseInvoices = _apiManager.GetPurchaseInvoices();
             ShowPurchaseInvoices(_purchaseInvoices);
             EnablePurchaseDate(false);
 
-            _invoices = _guideManager.GetInvoices();
+            _invoices = _apiManager.GetInvoices();
             ShowInvoices(_invoices);
             EnableInvoiceDate(false);
 
-            _inventories = _guideManager.GetInventories();
+            _inventories = _apiManager.GetInventories();
             ShowInventories(_inventories);
             EnableInventoryDate(false);
         }

@@ -1,5 +1,5 @@
 ﻿using InventorySystem.Contract;
-using InventorySystem.Manager;
+using InventorySystem.Api;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ namespace InventorySystem
 {
     public partial class ProductsForm : Form
     {
-        GuideManager _guideManager = new GuideManager();
+        ApiManager _apiManager = new ApiManager();
         private IEnumerable<Product> _products;
 
         public ProductsForm()
@@ -26,7 +26,7 @@ namespace InventorySystem
         private void ShowProducts()
         {
             dgv_Products.Rows.Clear();
-            _products = _guideManager.GetProducts();
+            _products = _apiManager.GetProducts();
             foreach (var product in _products)
             {
                 AddNewProduct(product);
@@ -75,7 +75,7 @@ namespace InventorySystem
             var seletedItem = dgv_Products.CurrentRow.Tag as Product;
             if (seletedItem != null)
             {
-                _guideManager.DeleteProduct(seletedItem);
+                _apiManager.DeleteProduct(seletedItem);
                 ShowProducts();
                 MessageBox.Show("Удалено!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

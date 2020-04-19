@@ -12,33 +12,171 @@ namespace InventorySystem.WebApi.Controllers
     public class ValuesController : ApiController
     {
         GuideManager _guideManager = new GuideManager();
+        PurchaseInvoiceManager _invoiceManager = new PurchaseInvoiceManager();
+        InventorySystemEngine _engine = new InventorySystemEngine();
 
-        // GET api/values
-        public IEnumerable<string> Get()
+        #region Product
+
+        public IEnumerable<Product> GetProducts(bool showIsDelete = false)
         {
-            _guideManager.CreateUnit(new Unit(){Name = "New Unit From Web Api"});
-            return new string[] { "value1", "value2" };
+            return _guideManager.GetProducts(showIsDelete);
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        public void CreateProduct([FromBody]Product item)
         {
-            return "value";
+            _guideManager.CreateProduct(item);
         }
 
-        // POST api/values
-        public void Post([FromBody]string value)
+        public void UpdateProduct([FromBody]Product item)
         {
+            _guideManager.UpdateProduct(item);
         }
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        public void DeleteProduct([FromBody]Product item)
         {
+            _guideManager.DeleteProduct(item);
         }
 
-        // DELETE api/values/5
-        public void Delete(int id)
+        #endregion Product
+
+        #region Unit
+
+        public IEnumerable<Unit> GetUnits(bool showIsDelete = false)
         {
+            return _guideManager.GetUnits(showIsDelete);
         }
+
+        public void CreateUnit([FromBody]Unit item)
+        {
+            _guideManager.CreateUnit(item);
+        }
+
+        public void UpdateUnit([FromBody]Unit item)
+        {
+            _guideManager.UpdateUnit(item);
+        }
+
+        public void DeleteUnit([FromBody]Unit item)
+        {
+            _guideManager.DeleteUnit(item);
+        }
+
+        #endregion Unit
+
+        #region Provider
+
+        public IEnumerable<Provider> GetProviders(bool showIsDelete = false)
+        {
+            return _guideManager.GetProviders(showIsDelete);
+        }
+
+        public void CreateProvider([FromBody]Provider item)
+        {
+            _guideManager.CreateProvider(item);
+        }
+
+        public void UpdateProvider([FromBody]Provider item)
+        {
+            _guideManager.UpdateProvider(item);
+        }
+
+        public void DeleteProvider([FromBody]Provider item)
+        {
+            _guideManager.DeleteProvider(item);
+        }
+
+        #endregion Provider
+
+        #region ProductWork
+
+        public void ProductWorkCreate([FromBody]ProductWork item)
+        {
+            _invoiceManager.ProductWorkCreate(item);
+        }
+
+        public void ProductWorkUpdate([FromBody]ProductWork item)
+        {
+            _invoiceManager.ProductWorkUpdate(item);
+        }
+
+        public IEnumerable<ProductWork> GetProductByPurchaseInvoice([FromBody]PurchaseInvoice item)
+        {
+            return _invoiceManager.GetProductByPurchaseInvoice(item);
+        }
+
+        public IEnumerable<ProductWork> GetProductByInvoice([FromBody]Invoice item)
+        {
+            return _invoiceManager.GetProductByInvoice(item);
+        }
+
+        public IEnumerable<ProductWork> GetProductByInventory([FromBody]Inventory item)
+        {
+            return _invoiceManager.GetProductByInventory(item);
+        }
+        
+        #endregion ProductWork
+
+        #region PurchaseInvoice
+
+        public IEnumerable<PurchaseInvoice> GetPurchaseInvoices()
+        {
+            return _guideManager.GetPurchaseInvoices();
+        }
+
+        public void PurchaseInvoiceCreate([FromBody]PurchaseInvoice item)
+        {
+            _invoiceManager.PurchaseInvoiceUpdate(item);
+        }
+
+        public void PurchaseInvoiceUpdate([FromBody]PurchaseInvoice item)
+        {
+            _invoiceManager.PurchaseInvoiceUpdate(item);
+        }
+
+        #endregion PurchaseInvoice
+
+        #region Invoice
+
+        public IEnumerable<Invoice> GetInvoices()
+        {
+            return _guideManager.GetInvoices();
+        }
+
+        public void InvoiceCreate([FromBody]Invoice item)
+        {
+            _invoiceManager.InvoiceCreate(item);
+        }
+
+        public void InvoiceUpdate([FromBody]Invoice item)
+        {
+            _invoiceManager.InvoiceUpdate(item);
+        }
+
+        #endregion Invoice
+
+        #region Inventory
+
+        public List<Inventory> GetInventories()
+        {
+            return _guideManager.GetInventories().ToList();
+        }
+
+        public void InventoryCreate([FromBody]Inventory item)
+        {
+            _invoiceManager.InventoryCreate(item);
+        }
+
+        public void InventoryUpdate([FromBody]Inventory item)
+        {
+            _invoiceManager.InventoryUpdate(item);
+        }
+
+        #endregion Inventory
+        
+        public List<WarehouseProduct> GetWarehouseProducts()
+        {
+            return _engine.GetWarehouseProducts();
+        }
+        
     }
 }

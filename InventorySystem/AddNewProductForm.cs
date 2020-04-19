@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventorySystem.Api;
 using InventorySystem.Contract;
-using InventorySystem.Manager;
 
 namespace InventorySystem
 {
     public partial class AddNewProductForm : Form
     {
         private Product _product;
-
-        GuideManager _guideManager = new GuideManager();
         
+        ApiManager _apiManager = new ApiManager();
+
         private BindingSource bs_Units;
         private IEnumerable<Unit> _units;
 
@@ -38,7 +38,7 @@ namespace InventorySystem
         private void LoadComponents()
         {
             bs_Units = new BindingSource();
-            _units = _guideManager.GetUnits();
+            _units = _apiManager.GetUnits();
 
             bs_Units.DataSource = _units;
             cmb_Unit.DataSource = bs_Units;
@@ -63,12 +63,12 @@ namespace InventorySystem
 
                 if (_product == null)
                 {
-                    _guideManager.CreateProduct(product);
-                    MessageBox.Show("Продукт добавлен!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var status = _apiManager.CreateProduct(product);
+                    MessageBox.Show($"Статус {status}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    _guideManager.UpdateProduct(product);
+                    _apiManager.UpdateProduct(product);
                     MessageBox.Show("Продукт обновлен!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 

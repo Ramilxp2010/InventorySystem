@@ -1,4 +1,4 @@
-﻿using InventorySystem.Manager;
+﻿using InventorySystem.Api;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +16,7 @@ namespace InventorySystem
 {
     public partial class PurshaseForm : Form, IInvoice
     {
-        GuideManager _guideManager = new GuideManager();
-        PurchaseInvoiceManager _purchaseManager = new PurchaseInvoiceManager();
+        ApiManager _apiManager = new ApiManager();
 
         private WarehouseForm _warehouse;
         private BindingSource bs_Products;
@@ -33,8 +32,8 @@ namespace InventorySystem
 
             bs_Products = new BindingSource();
             bs_Providers = new BindingSource();
-            _products = _guideManager.GetProducts();
-            _providers = _guideManager.GetProviders();
+            _products = _apiManager.GetProducts();
+            _providers = _apiManager.GetProviders();
 
             bs_Products.DataSource = _products;
             bs_Providers.DataSource = _providers;
@@ -218,7 +217,7 @@ namespace InventorySystem
                         PurchaseInvoice = purchaseInvoice,
                         Cost = 0
                     };
-                    _purchaseManager.ProductWorkCreate(product);
+                    _apiManager.ProductWorkCreate(product);
                 }
 
                 var result = MessageBox.Show("Накладная добавлена! Добавить новую накладную?",

@@ -257,6 +257,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InventorySystem.Api\InventorySystem.Api.csproj">
+      <Project>{62ecd251-cc8a-4b59-b9d5-44af513bd93c}</Project>
+      <Name>InventorySystem.Api</Name>
+    </ProjectReference>
     <ProjectReference Include="..\InventorySystem.Contract\InventorySystem.Contract.csproj">
       <Project>{07729941-4e89-4776-ac09-91f3a6fd872b}</Project>
       <Name>InventorySystem.Contract</Name>
@@ -268,10 +272,6 @@
     <ProjectReference Include="..\InventorySystem.DataAccess\InventorySystem.DataAccess.csproj">
       <Project>{98ba231f-9401-424a-9280-5435b6819c59}</Project>
       <Name>InventorySystem.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\InventorySystem.Manager\InventorySystem.Manager.csproj">
-      <Project>{94484310-d3f0-4bde-9883-78b363476059}</Project>
-      <Name>InventorySystem.Manager</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

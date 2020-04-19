@@ -1,5 +1,5 @@
-﻿using InventorySystem.Contract;
-using InventorySystem.Manager;
+﻿using InventorySystem.Api;
+using InventorySystem.Contract;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ namespace InventorySystem
     public partial class AddUnitForm : Form
     {
         private Unit _unit;
-        GuideManager _guideManager = new GuideManager();
+        ApiManager _apiManager = new ApiManager();
 
         public AddUnitForm(Unit unit)
         {
@@ -40,12 +40,12 @@ namespace InventorySystem
 
                 if (_unit == null)
                 {
-                    _guideManager.CreateUnit(unit);
+                    _apiManager.CreateUnit(unit);
                     MessageBox.Show("Ед.изм добавлена!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    _guideManager.UpdateUnit(unit);
+                    _apiManager.UpdateUnit(unit);
                     MessageBox.Show("Ед.изм обновлена!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

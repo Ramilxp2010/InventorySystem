@@ -80,14 +80,14 @@ namespace InventorySystem.Manager
             _invoiceRepository.Update(item);
         }
 
-        public void InventoryCreate(Invoice item)
+        public void InventoryCreate(Inventory item)
         {
-            _invoiceRepository.Create(item);
+            _inventoryRepository.Create(item);
         }
 
-        public void InventoryUpdate(Invoice item)
+        public void InventoryUpdate(Inventory item)
         {
-            _invoiceRepository.Update(item);
+            _inventoryRepository.Update(item);
         }
     }
 }

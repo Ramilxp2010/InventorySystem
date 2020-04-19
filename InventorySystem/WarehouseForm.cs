@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventorySystem.Contract;
 using InventorySystem.Core;
-using InventorySystem.Manager;
+using InventorySystem.Api;
 using Unity;
 
 namespace InventorySystem
 {
     public partial class WarehouseForm : Form
     {
-        InventorySystemEngine _engine = new InventorySystemEngine();
+        ApiManager _apiManager = new ApiManager();
         private BindingSource bs_Products;
         private List<WarehouseProduct> _products;
 
@@ -25,7 +25,7 @@ namespace InventorySystem
             InitializeComponent();
             
             bs_Products = new BindingSource();
-            _products = _engine.GetWarehouseProducts();
+            _products = _apiManager.GetWarehouseProducts().ToList();
             LoadComponents(_products);
 
             dgv_products.DataSource = bs_Products;
@@ -54,7 +54,7 @@ namespace InventorySystem
         private void btn_Purshase_Click(object sender, EventArgs e)
         {
             new PurshaseForm().ShowDialog();
-            _products = _engine.GetWarehouseProducts();
+            _products = _apiManager.GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
@@ -66,14 +66,14 @@ namespace InventorySystem
         private void brn_Invoice_Click(object sender, EventArgs e)
         {
             new InvoiceForm().ShowDialog();
-            _products = _engine.GetWarehouseProducts();
+            _products = _apiManager.GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
         private void btn_Inventory_Click(object sender, EventArgs e)
         {
             new InventoryForm().ShowDialog();
-            _products = _engine.GetWarehouseProducts();
+            _products = _apiManager.GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
@@ -85,21 +85,21 @@ namespace InventorySystem
         private void продуктToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ProductsForm().ShowDialog();
-            _products = _engine.GetWarehouseProducts();
+            _products = _apiManager.GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
         private void поставщикToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ProvidersForm().ShowDialog();
-            _products = _engine.GetWarehouseProducts();
+            _products = _apiManager.GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
         private void едизмToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new UnitForm().ShowDialog();
-            _products = _engine.GetWarehouseProducts();
+            _products = _apiManager.GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 

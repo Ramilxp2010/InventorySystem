@@ -144,6 +144,7 @@
   <ItemGroup>
     <Content Include="App_Data\InventorySystem.db" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

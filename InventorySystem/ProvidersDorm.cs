@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventorySystem.Contract;
-using InventorySystem.Manager;
+using InventorySystem.Api;
 
 namespace InventorySystem
 {
     public partial class ProvidersForm : Form
     {
-        GuideManager _guideManager = new GuideManager();
+        ApiManager _apiManager = new ApiManager();
         private IEnumerable<Provider> _providers;
 
         public ProvidersForm()
@@ -26,7 +26,7 @@ namespace InventorySystem
         private void ShowProviders()
         {
             dgv_Providers.Rows.Clear();
-            _providers = _guideManager.GetProviders();
+            _providers = _apiManager.GetProviders();
             foreach (var provider in _providers)
             {
                 AddNewProvider(provider);
@@ -72,7 +72,7 @@ namespace InventorySystem
             var seletedItem = dgv_Providers.CurrentRow.Tag as Provider;
             if (seletedItem != null)
             {
-                _guideManager.DeleteProvider(seletedItem);
+                _apiManager.DeleteProvider(seletedItem);
                 ShowProviders();
                 MessageBox.Show("Удалено!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

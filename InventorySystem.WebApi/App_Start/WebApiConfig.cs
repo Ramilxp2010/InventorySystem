@@ -15,6 +15,12 @@ namespace InventorySystem.WebApi
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+                name: "GetRoute",
+                routeTemplate: "api/{controller}/{action}/{showIsDelete}",
+                defaults: new { showIsDelete = RouteParameter.Optional }
+            );
+            
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

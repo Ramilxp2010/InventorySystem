@@ -1,4 +1,4 @@
-﻿using InventorySystem.Manager;
+﻿using InventorySystem.Api;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ namespace InventorySystem
 {
     public partial class UnitForm : Form
     {
-        GuideManager _guideManager = new GuideManager();
+        ApiManager _apiManager = new ApiManager();
         private IEnumerable<Unit> _units;
 
         public UnitForm()
@@ -26,7 +26,7 @@ namespace InventorySystem
         private void ShowUnits()
         {
             dgv_Units.Rows.Clear();
-            _units = _guideManager.GetUnits();
+            _units = _apiManager.GetUnits();
             foreach (var unit in _units)
             {
                 AddNewUnit(unit);
@@ -72,7 +72,7 @@ namespace InventorySystem
             var seletedItem = dgv_Units.CurrentRow.Tag as Unit;
             if (seletedItem != null)
             {
-                _guideManager.DeleteUnit(seletedItem);
+                _apiManager.DeleteUnit(seletedItem);
                 ShowUnits();
                 MessageBox.Show("Удалено!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
