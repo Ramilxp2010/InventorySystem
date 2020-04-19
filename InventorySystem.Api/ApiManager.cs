@@ -1,7 +1,6 @@
 ﻿using InventorySystem.Contract;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
@@ -13,8 +12,24 @@ namespace InventorySystem.Api
 {
     public class ApiManager
     {
-        private string APP_PATH = "http://localhost:61510/";
-        //private string APP_PATH = "http://ramilxp2010-001-site1.ctempurl.com/";
+        //private string APP_PATH = "http://localhost:61510/";
+        private string APP_PATH = "http://ramilxp2010-001-site1.ctempurl.com/";
+
+        public bool CheckServer()
+        {
+            using (var client = new HttpClient())
+            {
+                var response = client.GetAsync(APP_PATH + $"/api/values/GetServerStatus/status");
+                var result = response.Result;
+                if (result.StatusCode == HttpStatusCode.OK)
+                {
+                    var content = JsonConvert.DeserializeObject<bool>(result.Content.ReadAsStringAsync().Result); ;
+                    return content;
+                }
+
+                return false;
+            }
+        }
 
         #region Product
 

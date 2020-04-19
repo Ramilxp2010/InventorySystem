@@ -15,6 +15,12 @@ namespace InventorySystem.WebApi.Controllers
         PurchaseInvoiceManager _invoiceManager = new PurchaseInvoiceManager();
         InventorySystemEngine _engine = new InventorySystemEngine();
 
+        [HttpGet]
+        public bool GetServerStatus([FromBody]string status)
+        {
+            return true;
+        }
+
         #region Product
 
         public IEnumerable<Product> GetProducts(bool showIsDelete = false)

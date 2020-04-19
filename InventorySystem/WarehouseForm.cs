@@ -23,17 +23,6 @@ namespace InventorySystem
         public WarehouseForm()
         {
             InitializeComponent();
-            
-            bs_Products = new BindingSource();
-            _products = _apiManager.GetWarehouseProducts().ToList();
-            LoadComponents(_products);
-
-            dgv_products.DataSource = bs_Products;
-            dgv_products.Columns[0].HeaderText = "НАЗВАНИЕ";
-            dgv_products.Columns[1].HeaderText = "КОД";
-            dgv_products.Columns[2].HeaderText = "КОЛИЧЕСТВО НА СКЛАДЕ";
-            dgv_products.Columns[3].HeaderText = "ЕД. ИЗМ";
-            dgv_products.Columns[4].Visible = false;
         }
 
         private void LoadComponents(List<WarehouseProduct> products)
@@ -116,6 +105,34 @@ namespace InventorySystem
                 LoadComponents(_products);
             }
         }
-        
+
+        private void WarehouseForm_Load(object sender, EventArgs e)
+        {
+            if (_apiManager.CheckServer())
+            {
+                bs_Products = new BindingSource();
+                _products = _apiManager.GetWarehouseProducts().ToList();
+                LoadComponents(_products);
+
+                dgv_products.DataSource = bs_Products;
+                dgv_products.Columns[0].HeaderText = "НАЗВАНИЕ";
+                dgv_products.Columns[1].HeaderText = "КОД";
+                dgv_products.Columns[2].HeaderText = "КОЛИЧЕСТВО НА СКЛАДЕ";
+                dgv_products.Columns[3].HeaderText = "ЕД. ИЗМ";
+                dgv_products.Columns[4].Visible = false;
+            }
+            else
+            {
+                var result = MessageBox.Show("Сервер не доступен, обратись к системному администратору",
+                    "Ошибка!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                if (result == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+        }
     }
 }

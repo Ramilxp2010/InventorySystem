@@ -33,7 +33,13 @@ namespace InventorySystem.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            
+
+            config.Routes.MapHttpRoute(
+                name: "CheckCon",
+                routeTemplate: "api/{controller}/{action}/{status}",
+                defaults: new { status = RouteParameter.Optional }
+            );
+
             config.Formatters.Remove(config.Formatters.XmlFormatter);
         }
     }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dgv_products = new System.Windows.Forms.DataGridView();
             this.btn_CheckPurshases = new System.Windows.Forms.Button();
@@ -65,9 +65,9 @@
             // 
             this.dgv_products.AllowUserToAddRows = false;
             this.dgv_products.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            this.dgv_products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgv_products.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_products.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_products.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_products.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -79,10 +79,10 @@
             this.dgv_products.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgv_products.Name = "dgv_products";
             this.dgv_products.ReadOnly = true;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.dgv_products.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgv_products.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_products.Size = new System.Drawing.Size(859, 394);
             this.dgv_products.TabIndex = 0;
             // 
@@ -210,34 +210,34 @@
             this.едизмToolStripMenuItem,
             this.отвественныеToolStripMenuItem});
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             // 
             // продуктToolStripMenuItem
             // 
             this.продуктToolStripMenuItem.Name = "продуктToolStripMenuItem";
-            this.продуктToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.продуктToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.продуктToolStripMenuItem.Text = "Продукт";
             this.продуктToolStripMenuItem.Click += new System.EventHandler(this.продуктToolStripMenuItem_Click);
             // 
             // поставщикToolStripMenuItem
             // 
             this.поставщикToolStripMenuItem.Name = "поставщикToolStripMenuItem";
-            this.поставщикToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.поставщикToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.поставщикToolStripMenuItem.Text = "Поставщик";
             this.поставщикToolStripMenuItem.Click += new System.EventHandler(this.поставщикToolStripMenuItem_Click);
             // 
             // едизмToolStripMenuItem
             // 
             this.едизмToolStripMenuItem.Name = "едизмToolStripMenuItem";
-            this.едизмToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.едизмToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.едизмToolStripMenuItem.Text = "Ед.изм";
             this.едизмToolStripMenuItem.Click += new System.EventHandler(this.едизмToolStripMenuItem_Click);
             // 
             // отвественныеToolStripMenuItem
             // 
             this.отвественныеToolStripMenuItem.Name = "отвественныеToolStripMenuItem";
-            this.отвественныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.отвественныеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.отвественныеToolStripMenuItem.Text = "Отвественные";
             // 
             // tb_Searh
@@ -285,6 +285,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Склад";
             this.Activated += new System.EventHandler(this.Warehouse_Enter);
+            this.Load += new System.EventHandler(this.WarehouseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_products)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
