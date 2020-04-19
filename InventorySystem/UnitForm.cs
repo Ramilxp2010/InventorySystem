@@ -74,7 +74,7 @@ namespace InventorySystem
             {
                 _apiManager.DeleteUnit(seletedItem);
                 ShowUnits();
-                MessageBox.Show("Удалено!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Удалено!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         

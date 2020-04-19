@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Text;
@@ -27,12 +28,19 @@ namespace InventorySystem.Api
             }
         }
 
-        public string CreateProduct(Product item)
+        public int CreateProduct(Product item)
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/CreateProduct", item).Result;
-                return response.StatusCode.ToString();
+                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/CreateProduct", item);
+                var result = response.Result;
+                if (result.StatusCode == HttpStatusCode.OK)
+                {
+                    var content = JsonConvert.DeserializeObject<int>(result.Content.ReadAsStringAsync().Result); ;
+                    return content;
+                }
+
+                return -1;
             }
         }
 
@@ -49,7 +57,7 @@ namespace InventorySystem.Api
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/DeleteProduct", item).Result;
+                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/RemoveProduct", item).Result;
                 return response.StatusCode.ToString();
             }
         }
@@ -68,12 +76,19 @@ namespace InventorySystem.Api
             }
         }
 
-        public string CreateUnit(Unit item)
+        public int CreateUnit(Unit item)
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/CreateUnit", item).Result;
-                return response.StatusCode.ToString();
+                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/CreateUnit", item);
+                var result = response.Result;
+                if (result.StatusCode == HttpStatusCode.OK)
+                {
+                    var content = JsonConvert.DeserializeObject<int>(result.Content.ReadAsStringAsync().Result); ;
+                    return content;
+                }
+
+                return -1;
             }
         }
 
@@ -90,7 +105,7 @@ namespace InventorySystem.Api
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/DeleteUnit", item).Result;
+                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/RemoveUnit", item).Result;
                 return response.StatusCode.ToString();
             }
         }
@@ -109,12 +124,19 @@ namespace InventorySystem.Api
             }
         }
 
-        public string CreateProvider(Provider item)
+        public int CreateProvider(Provider item)
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/CreateProvider", item).Result;
-                return response.StatusCode.ToString();
+                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/CreateProvider", item);
+                var result = response.Result;
+                if (result.StatusCode == HttpStatusCode.OK)
+                {
+                    var content = JsonConvert.DeserializeObject<int>(result.Content.ReadAsStringAsync().Result);
+                    return content;
+                }
+
+                return -1;
             }
         }
 
@@ -131,7 +153,7 @@ namespace InventorySystem.Api
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/DeleteProvider", item).Result;
+                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/RemoveProvider", item).Result;
                 return response.StatusCode.ToString();
             }
         }
@@ -144,7 +166,7 @@ namespace InventorySystem.Api
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/GetProductByPurchaseInvoice", item).Result;
+                var response = client.GetAsync(APP_PATH + $"/api/values/GetProductByPurchaseInvoice/byid/{item.Id}").Result;
                 var result = response.Content.ReadAsStringAsync().Result;
                 return JsonConvert.DeserializeObject<IEnumerable<ProductWork>>(result);
             }
@@ -154,7 +176,7 @@ namespace InventorySystem.Api
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/GetProductByInvoice", item).Result;
+                var response = client.GetAsync(APP_PATH + $"/api/values/GetProductByInvoice/byid/{item.Id}").Result;
                 var result = response.Content.ReadAsStringAsync().Result;
                 return JsonConvert.DeserializeObject<IEnumerable<ProductWork>>(result);
             }
@@ -164,18 +186,25 @@ namespace InventorySystem.Api
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/GetProductByInventory", item).Result;
+                var response = client.GetAsync(APP_PATH + $"/api/values/GetProductByInventory/byid/{item.Id}").Result;
                 var result = response.Content.ReadAsStringAsync().Result;
                 return JsonConvert.DeserializeObject<IEnumerable<ProductWork>>(result);
             }
         }
 
-        public string ProductWorkCreate(ProductWork item)
+        public int ProductWorkCreate(ProductWork item)
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/ProductWorkCreate", item).Result;
-                return response.StatusCode.ToString();
+                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/ProductWorkCreate", item);
+                var result = response.Result;
+                if (result.StatusCode == HttpStatusCode.OK)
+                {
+                    var content = JsonConvert.DeserializeObject<int>(result.Content.ReadAsStringAsync().Result); ;
+                    return content;
+                }
+
+                return -1;
             }
         }
 
@@ -202,12 +231,24 @@ namespace InventorySystem.Api
             }
         }
 
-        public string PurchaseInvoiceCreate(PurchaseInvoice item)
+        /// <summary>
+        /// Add new item and return item id
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public int PurchaseInvoiceCreate(PurchaseInvoice item)
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/PurchaseInvoiceCreate", item).Result;
-                return response.StatusCode.ToString();
+                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/PurchaseInvoiceCreate", item);
+                var result = response.Result;
+                if (result.StatusCode == HttpStatusCode.OK)
+                {
+                    var content = JsonConvert.DeserializeObject<int>(result.Content.ReadAsStringAsync().Result); ;
+                    return content;
+                }
+
+                return -1;
             }
         }
 
@@ -234,12 +275,19 @@ namespace InventorySystem.Api
             }
         }
 
-        public string InvoiceCreate(Invoice item)
+        public int InvoiceCreate(Invoice item)
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/InvoiceCreate", item).Result;
-                return response.StatusCode.ToString();
+                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/InvoiceCreate", item);
+                var result = response.Result;
+                if (result.StatusCode == HttpStatusCode.OK)
+                {
+                    var content = JsonConvert.DeserializeObject<int>(result.Content.ReadAsStringAsync().Result); ;
+                    return content;
+                }
+
+                return -1;
             }
         }
 
@@ -275,12 +323,19 @@ namespace InventorySystem.Api
             }
         }
 
-        public string InventoryCreate(Inventory item)
+        public int InventoryCreate(Inventory item)
         {
             using (var client = new HttpClient())
             {
-                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/InventoryCreate", item).Result;
-                return response.StatusCode.ToString();
+                var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/InventoryCreate", item);
+                var result = response.Result;
+                if (result.StatusCode == HttpStatusCode.OK)
+                {
+                    var content = JsonConvert.DeserializeObject<int>(result.Content.ReadAsStringAsync().Result); ;
+                    return content;
+                }
+
+                return -1;
             }
         }
 

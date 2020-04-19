@@ -64,12 +64,12 @@ namespace InventorySystem
                 if (_product == null)
                 {
                     var status = _apiManager.CreateProduct(product);
-                    MessageBox.Show($"Статус {status}", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Продукт обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     _apiManager.UpdateProduct(product);
-                    MessageBox.Show("Продукт обновлен!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Продукт обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 
                 this.Close();

@@ -41,12 +41,12 @@ namespace InventorySystem
                 if (_unit == null)
                 {
                     _apiManager.CreateUnit(unit);
-                    MessageBox.Show("Ед.изм добавлена!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ед.изм добавлена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     _apiManager.UpdateUnit(unit);
-                    MessageBox.Show("Ед.изм обновлена!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ед.изм обновлена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 this.Close();
@@ -74,11 +74,6 @@ namespace InventorySystem
         public void SetFields(Unit unit)
         {
             tb_UnitName.Text = unit.Name;
-        }
-
-        private void btn_Save_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -74,7 +74,7 @@ namespace InventorySystem
             {
                 _apiManager.DeleteProvider(seletedItem);
                 ShowProviders();
-                MessageBox.Show("Удалено!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Удалено!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

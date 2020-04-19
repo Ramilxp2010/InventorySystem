@@ -22,9 +22,9 @@ namespace InventorySystem.WebApi.Controllers
             return _guideManager.GetProducts(showIsDelete);
         }
 
-        public void CreateProduct([FromBody]Product item)
+        public int CreateProduct([FromBody]Product item)
         {
-            _guideManager.CreateProduct(item);
+            return _guideManager.CreateProduct(item);
         }
 
         public void UpdateProduct([FromBody]Product item)
@@ -32,7 +32,7 @@ namespace InventorySystem.WebApi.Controllers
             _guideManager.UpdateProduct(item);
         }
 
-        public void DeleteProduct([FromBody]Product item)
+        public void RemoveProduct([FromBody]Product item)
         {
             _guideManager.DeleteProduct(item);
         }
@@ -46,9 +46,9 @@ namespace InventorySystem.WebApi.Controllers
             return _guideManager.GetUnits(showIsDelete);
         }
 
-        public void CreateUnit([FromBody]Unit item)
+        public int CreateUnit([FromBody]Unit item)
         {
-            _guideManager.CreateUnit(item);
+            return _guideManager.CreateUnit(item);
         }
 
         public void UpdateUnit([FromBody]Unit item)
@@ -56,7 +56,7 @@ namespace InventorySystem.WebApi.Controllers
             _guideManager.UpdateUnit(item);
         }
 
-        public void DeleteUnit([FromBody]Unit item)
+        public void RemoveUnit([FromBody]Unit item)
         {
             _guideManager.DeleteUnit(item);
         }
@@ -70,9 +70,9 @@ namespace InventorySystem.WebApi.Controllers
             return _guideManager.GetProviders(showIsDelete);
         }
 
-        public void CreateProvider([FromBody]Provider item)
+        public int CreateProvider([FromBody]Provider item)
         {
-            _guideManager.CreateProvider(item);
+            return _guideManager.CreateProvider(item);
         }
 
         public void UpdateProvider([FromBody]Provider item)
@@ -80,7 +80,7 @@ namespace InventorySystem.WebApi.Controllers
             _guideManager.UpdateProvider(item);
         }
 
-        public void DeleteProvider([FromBody]Provider item)
+        public void RemoveProvider([FromBody]Provider item)
         {
             _guideManager.DeleteProvider(item);
         }
@@ -89,29 +89,29 @@ namespace InventorySystem.WebApi.Controllers
 
         #region ProductWork
 
-        public void ProductWorkCreate([FromBody]ProductWork item)
+        public int ProductWorkCreate([FromBody]ProductWork item)
         {
-            _invoiceManager.ProductWorkCreate(item);
+            return _invoiceManager.ProductWorkCreate(item);
         }
 
         public void ProductWorkUpdate([FromBody]ProductWork item)
         {
             _invoiceManager.ProductWorkUpdate(item);
         }
-
-        public IEnumerable<ProductWork> GetProductByPurchaseInvoice([FromBody]PurchaseInvoice item)
+        
+        public IEnumerable<ProductWork> GetProductByPurchaseInvoice(int id)
         {
-            return _invoiceManager.GetProductByPurchaseInvoice(item);
+            return _invoiceManager.GetProductByPurchaseInvoice(id);
         }
 
-        public IEnumerable<ProductWork> GetProductByInvoice([FromBody]Invoice item)
+        public IEnumerable<ProductWork> GetProductByInvoice(int id)
         {
-            return _invoiceManager.GetProductByInvoice(item);
+            return _invoiceManager.GetProductByInvoice(id);
         }
 
-        public IEnumerable<ProductWork> GetProductByInventory([FromBody]Inventory item)
+        public IEnumerable<ProductWork> GetProductByInventory(int id)
         {
-            return _invoiceManager.GetProductByInventory(item);
+            return _invoiceManager.GetProductByInventory(id);
         }
         
         #endregion ProductWork
@@ -123,9 +123,9 @@ namespace InventorySystem.WebApi.Controllers
             return _guideManager.GetPurchaseInvoices();
         }
 
-        public void PurchaseInvoiceCreate([FromBody]PurchaseInvoice item)
+        public int PurchaseInvoiceCreate([FromBody]PurchaseInvoice item)
         {
-            _invoiceManager.PurchaseInvoiceUpdate(item);
+            return _invoiceManager.PurchaseInvoiceCreate(item);
         }
 
         public void PurchaseInvoiceUpdate([FromBody]PurchaseInvoice item)
@@ -142,9 +142,9 @@ namespace InventorySystem.WebApi.Controllers
             return _guideManager.GetInvoices();
         }
 
-        public void InvoiceCreate([FromBody]Invoice item)
+        public int InvoiceCreate([FromBody]Invoice item)
         {
-            _invoiceManager.InvoiceCreate(item);
+            return _invoiceManager.InvoiceCreate(item);
         }
 
         public void InvoiceUpdate([FromBody]Invoice item)
@@ -156,14 +156,14 @@ namespace InventorySystem.WebApi.Controllers
 
         #region Inventory
 
-        public List<Inventory> GetInventories()
+        public IEnumerable<Inventory> GetInventories()
         {
-            return _guideManager.GetInventories().ToList();
+            return _guideManager.GetInventories();
         }
 
-        public void InventoryCreate([FromBody]Inventory item)
+        public int InventoryCreate([FromBody]Inventory item)
         {
-            _invoiceManager.InventoryCreate(item);
+            return _invoiceManager.InventoryCreate(item);
         }
 
         public void InventoryUpdate([FromBody]Inventory item)
@@ -177,6 +177,5 @@ namespace InventorySystem.WebApi.Controllers
         {
             return _engine.GetWarehouseProducts();
         }
-        
     }
 }

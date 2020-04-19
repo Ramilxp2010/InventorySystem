@@ -41,12 +41,12 @@ namespace InventorySystem
                 if (_provider == null)
                 {
                     _apiManager.CreateProvider(provider);
-                    MessageBox.Show("Поставщик добавлен!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Поставщик добавлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     _apiManager.UpdateProvider(provider);
-                    MessageBox.Show("Поставщик обновлен!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Поставщик обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 this.Close();

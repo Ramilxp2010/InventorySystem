@@ -207,6 +207,15 @@ namespace InventorySystem
                     Number =  tb_PurchaseNumber.Text
                 };
 
+                var purchaseInvoiceId = _apiManager.PurchaseInvoiceCreate(purchaseInvoice);
+                if (purchaseInvoiceId == -1)
+                {
+                    MessageBox.Show("Ну удалось добавить запись, обратись к системному администратору",
+                        "Ошибка!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+
                 foreach (DataGridViewRow row in dgv_Products.Rows)
                 {
                     var prod = row.Tag as Product;
@@ -214,7 +223,7 @@ namespace InventorySystem
                     {
                         ProductId = prod.Id,
                         Count = decimal.Parse(row.Cells[2].Value.ToString()),
-                        PurchaseInvoice = purchaseInvoice,
+                        PurchaseInvoiceId = purchaseInvoiceId,
                         Cost = 0
                     };
                     _apiManager.ProductWorkCreate(product);

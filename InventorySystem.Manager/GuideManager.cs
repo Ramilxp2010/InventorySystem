@@ -44,9 +44,9 @@ namespace InventorySystem.Manager
             }
         }
 
-        public void CreateProduct(Product item)
+        public int CreateProduct(Product item)
         {
-            _productRepository.Create(item);
+            return _productRepository.Create(item).Id;
         }
 
         public void UpdateProduct(Product item)
@@ -85,9 +85,9 @@ namespace InventorySystem.Manager
             }
         }
 
-        public void CreateUnit(Unit item)
+        public int CreateUnit(Unit item)
         {
-            _unitRepository.Create(item);
+            return _unitRepository.Create(item).Id;
         }
 
         public void UpdateUnit(Unit item)
@@ -113,9 +113,9 @@ namespace InventorySystem.Manager
 
         #region Providers
         
-        public void CreateProvider(Provider item)
+        public int CreateProvider(Provider item)
         {
-            _providerRepository.Create(item);
+            return _providerRepository.Create(item).Id;
         }
 
         public IEnumerable<Provider> GetProviders(bool showIsDelete = false)
@@ -152,19 +152,35 @@ namespace InventorySystem.Manager
 
         #endregion Providers
 
-        public IEnumerable<PurchaseInvoice> GetPurchaseInvoices()
+        public IEnumerable<PurchaseInvoice> GetPurchaseInvoicesWithProducts()
         {
             return _purchaseInvoiceRepository.GetWithInclude(x => x.Products, invoice => invoice.Provider);
         }
 
-        public IEnumerable<Invoice> GetInvoices()
+        public IEnumerable<PurchaseInvoice> GetPurchaseInvoices()
+        {
+            return _purchaseInvoiceRepository.GetWithInclude(invoice => invoice.Provider);
+        }
+
+        public IEnumerable<Invoice> GetInvoicesWithProducts()
         {
             return _invoiceRepository.GetWithInclude(x => x.Products);
         }
 
-        public IEnumerable<Inventory> GetInventories()
+        public IEnumerable<Invoice> GetInvoices()
+        {
+            return _invoiceRepository.Get();
+        }
+
+        public IEnumerable<Inventory> GetInventoriesWithProducts()
         {
             return _inventoryRepository.GetWithInclude(x => x.Products);
         }
+
+        public IEnumerable<Inventory> GetInventories()
+        {
+            return _inventoryRepository.Get();
+        }
+
     }
 }

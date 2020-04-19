@@ -16,7 +16,6 @@ namespace InventorySystem.DataAccess.Implementation
 
         public GenericRepository()
         {
-            //string conString = "Data Source=.\InventorySystem.db"
             _context = new InventoryContext();
             _dbSet = _context.Set<TEntity>();
         }
@@ -35,12 +34,13 @@ namespace InventorySystem.DataAccess.Implementation
             return _dbSet.Find(id);
         }
 
-        public void Create(TEntity item)
+        public TEntity Create(TEntity item)
         {
             try
             {
-                _dbSet.Add(item);
+                var entity = _dbSet.Add(item);
                 _context.SaveChanges();
+                return entity;
             }
             catch (Exception e)
             {

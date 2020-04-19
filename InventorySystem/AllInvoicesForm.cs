@@ -196,7 +196,7 @@ namespace InventorySystem
 
         #endregion Invoice
 
-        #region Invoice
+        #region Inventory
 
         private void ShowInventories(IEnumerable<Inventory> inventories)
         {
@@ -266,6 +266,6 @@ namespace InventorySystem
             dtp_ToInventory.Enabled = value;
         }
 
-        #endregion Invoice
+        #endregion Inventory
     }
 }
