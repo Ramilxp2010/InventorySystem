@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Windows.Forms;
 using InventorySystem.Contract;
 using InventorySystem.Core;
@@ -18,7 +21,7 @@ namespace InventorySystem
             Application.SetCompatibleTextRenderingDefault(false);
             
             RootContainer.Container.RegisterInstance<WarehouseForm>(new WarehouseForm());
-
+            
             var warehouse = RootContainer.Container.Resolve<WarehouseForm>();
             Application.Run(warehouse);
         }

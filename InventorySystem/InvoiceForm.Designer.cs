@@ -78,7 +78,7 @@
             this.btn_Save.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_Save.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_Save.ForeColor = System.Drawing.Color.White;
-            this.btn_Save.Location = new System.Drawing.Point(633, 330);
+            this.btn_Save.Location = new System.Drawing.Point(633, 487);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(203, 30);
@@ -90,7 +90,7 @@
             // tb_Count
             // 
             this.tb_Count.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_Count.Location = new System.Drawing.Point(404, 162);
+            this.tb_Count.Location = new System.Drawing.Point(404, 247);
             this.tb_Count.Margin = new System.Windows.Forms.Padding(4);
             this.tb_Count.Name = "tb_Count";
             this.tb_Count.Size = new System.Drawing.Size(169, 26);
@@ -113,7 +113,7 @@
             this.dgv_Products.Location = new System.Drawing.Point(0, 0);
             this.dgv_Products.Name = "dgv_Products";
             this.dgv_Products.ReadOnly = true;
-            this.dgv_Products.Size = new System.Drawing.Size(827, 126);
+            this.dgv_Products.Size = new System.Drawing.Size(827, 198);
             this.dgv_Products.TabIndex = 10;
             this.dgv_Products.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataGrid_KeyDown);
             // 
@@ -142,7 +142,7 @@
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label6.Location = new System.Drawing.Point(318, 162);
+            this.label6.Location = new System.Drawing.Point(318, 247);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 19);
@@ -239,7 +239,7 @@
             this.btn_AddProduct.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_AddProduct.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_AddProduct.ForeColor = System.Drawing.Color.White;
-            this.btn_AddProduct.Location = new System.Drawing.Point(631, 160);
+            this.btn_AddProduct.Location = new System.Drawing.Point(631, 245);
             this.btn_AddProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btn_AddProduct.Name = "btn_AddProduct";
             this.btn_AddProduct.Size = new System.Drawing.Size(205, 30);
@@ -317,7 +317,7 @@
             this.panel2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.panel2.Location = new System.Drawing.Point(11, 203);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(861, 373);
+            this.panel2.Size = new System.Drawing.Size(861, 525);
             this.panel2.TabIndex = 18;
             // 
             // panel4
@@ -325,7 +325,7 @@
             this.panel4.Controls.Add(this.dgv_Warehouse);
             this.panel4.Location = new System.Drawing.Point(7, 61);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(829, 96);
+            this.panel4.Size = new System.Drawing.Size(829, 181);
             this.panel4.TabIndex = 23;
             // 
             // dgv_Warehouse
@@ -350,7 +350,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dgv_Warehouse.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_Warehouse.Size = new System.Drawing.Size(829, 96);
+            this.dgv_Warehouse.Size = new System.Drawing.Size(829, 181);
             this.dgv_Warehouse.TabIndex = 0;
             // 
             // tb_Searh
@@ -398,7 +398,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
-            this.label8.Location = new System.Drawing.Point(12, 162);
+            this.label8.Location = new System.Drawing.Point(12, 247);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(264, 19);
@@ -408,9 +408,9 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.dgv_Products);
-            this.panel3.Location = new System.Drawing.Point(9, 197);
+            this.panel3.Location = new System.Drawing.Point(9, 282);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(827, 126);
+            this.panel3.Size = new System.Drawing.Size(827, 198);
             this.panel3.TabIndex = 18;
             // 
             // ErrorProvider
@@ -422,12 +422,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(884, 581);
+            this.ClientSize = new System.Drawing.Size(884, 740);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(900, 620);
-            this.MinimumSize = new System.Drawing.Size(900, 620);
+            this.MaximumSize = new System.Drawing.Size(900, 779);
+            this.MinimumSize = new System.Drawing.Size(900, 779);
             this.Name = "InvoiceForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Накладная форма № 264-АНК (ф 87)";

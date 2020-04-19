@@ -7,6 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,7 +30,6 @@ namespace InventorySystem
 
         private void TransactionDetailForm_Load(object sender, EventArgs e)
         {
-
         }
 
         public void HandleTransaction(object selectedItem)
@@ -110,7 +111,9 @@ namespace InventorySystem
             dictonary.Add("InvoiceGoal", _invoice.Goal);
             dictonary.Add("InvoiceDate", _invoice.Date.ToShortDateString());
             
-            string productPart = File.ReadAllText($@"{path}\{fileProductPart}");
+            //string productPart = File.ReadAllText($@"{path}\{fileProductPart}");
+            string productPart = Resource.productPart;
+
             var productTable = new StringBuilder();
             foreach (var product in _products)
             {
@@ -121,8 +124,9 @@ namespace InventorySystem
             }
 
             dictonary.Add("AllInvoiceProducts", productTable.ToString());
-            
-            string contents = File.ReadAllText($@"{path}\{fileName}");
+
+            //string contents = File.ReadAllText($@"{path}\{fileName}");
+            string contents = Resource.printTemplate;
             foreach (var pair in dictonary)
             {
                 contents = contents.Replace(pair.Key, pair.Value);
