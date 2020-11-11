@@ -14,7 +14,7 @@ namespace InventorySystem.Mobile.ViewModels
 {
     public class WarehouseViewModel : BaseViewModel
     {
-        public WarehouseItemDataSource WarehouseItemStore => new WarehouseItemDataSource(new ApiManager(ConfigurationManager.AppSettings["serverUrl"]));
+        public WarehouseItemDataSource WarehouseItemStore => new WarehouseItemDataSource(new ApiManager());
 
         public ObservableCollection<WarehouseItemModel> WarehouseItems;
         public Command LoadWarehouseItemsCommand { get; set; }
