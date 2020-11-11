@@ -7,13 +7,14 @@ using System.Net.Http.Formatting;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace InventorySystem.Api
 {
     public class ApiManager
     {
         //private string APP_PATH = "http://localhost:61510/";
-        private string APP_PATH = "http://ramilxp2010-001-site1.ctempurl.com/";
+        private string APP_PATH = ConfigurationManager.AppSettings["serverUrl"];
 
         public bool CheckServer()
         {
