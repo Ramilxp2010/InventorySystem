@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.WebApi", "I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.Api", "InventorySystem.Api\InventorySystem.Api.csproj", "{62ECD251-CC8A-4B59-B9D5-44AF513BD93C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.Mobile.Android", "InventorySystem.Mobile\InventorySystem.Mobile.Android\InventorySystem.Mobile.Android.csproj", "{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.Mobile", "InventorySystem.Mobile\InventorySystem.Mobile\InventorySystem.Mobile.csproj", "{9C28288B-D47B-4A27-BEF4-96230386A330}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,16 @@ Global
 		{62ECD251-CC8A-4B59-B9D5-44AF513BD93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62ECD251-CC8A-4B59-B9D5-44AF513BD93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62ECD251-CC8A-4B59-B9D5-44AF513BD93C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24CE3C36-16B9-426D-AA0C-5961ECF8D88C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9C28288B-D47B-4A27-BEF4-96230386A330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C28288B-D47B-4A27-BEF4-96230386A330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C28288B-D47B-4A27-BEF4-96230386A330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C28288B-D47B-4A27-BEF4-96230386A330}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
