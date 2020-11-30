@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Unity;
+using NLog;
 
 namespace InventorySystem.Manager
 {
     public class PurchaseInvoiceManager
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         private IGenericRepository<ProductWork> _productWorkRepository;
         private IGenericRepository<PurchaseInvoice> _purchaseRepository;
         private IGenericRepository<Invoice> _invoiceRepository;
@@ -37,10 +39,19 @@ namespace InventorySystem.Manager
 
         public IEnumerable<ProductWork> GetProductByPurchaseInvoice(int id)
         {
-            return _productWorkRepository.GetWithInclude(x => x.PurchaseInvoiceId == id,
-                work => work.Product,
-                work => work.Product.Unit,
-                work => work.PurchaseInvoice.Provider);
+            try
+            {
+                Logger.Info($"Try to get ProductWorks by Id {id}");
+                return _productWorkRepository.GetWithInclude(x => x.PurchaseInvoiceId == id,
+                    work => work.Product,
+                    work => work.Product.Unit,
+                    work => work.PurchaseInvoice.Provider);
+            }
+            catch (Exception ex) 
+            {
+                Logger.Error($"Try to get ProductWorks by Id {id}. Error = {ex.ToString()}");
+                return null;
+            }
         }
 
         public IEnumerable<ProductWork> GetProductByInvoice(int id)

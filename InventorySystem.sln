@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.779
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem", "InventorySystem\InventorySystem.csproj", "{36AB6E36-2743-4E8F-87B4-7DA82594DF3A}"
 EndProject
@@ -12,8 +12,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.Manager", "InventorySystem.Manager\InventorySystem.Manager.csproj", "{94484310-D3F0-4BDE-9883-78B363476059}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.Core", "InventorySystem.Core\InventorySystem.Core.csproj", "{98092816-7DDC-45FD-88ED-C1D8A25DCC08}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{9076959A-D760-42BF-87A7-865A57EBC128}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.WebApi", "InventorySystem.WebApi\InventorySystem.WebApi.csproj", "{EB847D35-186F-4F87-BA9E-B02D5D68315B}"
 EndProject
@@ -45,8 +43,6 @@ Global
 		{98092816-7DDC-45FD-88ED-C1D8A25DCC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98092816-7DDC-45FD-88ED-C1D8A25DCC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98092816-7DDC-45FD-88ED-C1D8A25DCC08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9076959A-D760-42BF-87A7-865A57EBC128}.Debug|Any CPU.ActiveCfg = Debug
-		{9076959A-D760-42BF-87A7-865A57EBC128}.Release|Any CPU.ActiveCfg = Release
 		{EB847D35-186F-4F87-BA9E-B02D5D68315B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB847D35-186F-4F87-BA9E-B02D5D68315B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB847D35-186F-4F87-BA9E-B02D5D68315B}.Release|Any CPU.ActiveCfg = Release|Any CPU
