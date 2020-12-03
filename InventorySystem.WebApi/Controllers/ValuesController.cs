@@ -21,6 +21,16 @@ namespace InventorySystem.WebApi.Controllers
             return true;
         }
 
+        /// <summary>
+        /// Logging
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public void Logging([FromBody] string message)
+        {
+            _guideManager.MessageFromUI(message);
+        }
+
         #region Product
 
         public IEnumerable<Product> GetProducts(bool showIsDelete = false)

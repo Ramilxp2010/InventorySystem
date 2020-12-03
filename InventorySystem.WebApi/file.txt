@@ -1,0 +1,9 @@
+2020-11-30 21:03:24.4289|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-01 21:51:50.1300|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-01 21:53:22.9223|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-01 21:56:10.5782|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-01 21:57:12.9915|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-01 21:57:34.9435|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-01 21:57:52.7488|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-01 21:59:56.6315|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-01 22:00:17.9026|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9

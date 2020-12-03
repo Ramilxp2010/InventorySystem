@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Configuration;
+using System.Linq;
 
 namespace InventorySystem.Api
 {
@@ -36,11 +37,22 @@ namespace InventorySystem.Api
 
         public IEnumerable<Product> GetProducts(bool showIsDelete = false)
         {
-            using (var client = new HttpClient())
+            try
             {
-                var response = client.GetAsync(APP_PATH + $"/api/values/GetProducts/{showIsDelete}").Result;
-                var result = response.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<IEnumerable<Product>>(result);
+                using (var client = new HttpClient())
+                {
+                    var response = client.GetAsync(APP_PATH + $"/api/values/GetProducts/{showIsDelete}").Result;
+                    var result = response.Content.ReadAsStringAsync().Result;
+                    return JsonConvert.DeserializeObject<IEnumerable<Product>>(result);
+                }
+            }
+            catch(Exception ex)
+            {
+                using (var client = new HttpClient())
+                {
+                    var response = client.PostAsJsonAsync(APP_PATH + $"/api/values/Logging", ex.ToString());
+                }
+                return Enumerable.Empty<Product>();
             }
         }
 
@@ -180,11 +192,22 @@ namespace InventorySystem.Api
         
         public IEnumerable<ProductWork> GetProductByPurchaseInvoice(PurchaseInvoice item)
         {
-            using (var client = new HttpClient())
+            try
             {
-                var response = client.GetAsync(APP_PATH + $"/api/values/GetProductByPurchaseInvoice/byid/{item.Id}").Result;
-                var result = response.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<IEnumerable<ProductWork>>(result);
+                using (var client = new HttpClient())
+                {
+                    var response = client.GetAsync(APP_PATH + $"/api/values/GetProductByPurchaseInvoice/byid/{item.Id}").Result;
+                    var result = response.Content.ReadAsStringAsync().Result;
+                    return JsonConvert.DeserializeObject<IEnumerable<ProductWork>>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                using (var client = new HttpClient())
+                {
+                    var response = client.GetAsync(APP_PATH + $"/api/values/Logging/{ex.ToString()}");
+                }
+                return Enumerable.Empty<ProductWork>();
             }
         }
 

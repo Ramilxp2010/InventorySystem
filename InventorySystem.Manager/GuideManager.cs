@@ -5,11 +5,13 @@ using InventorySystem.Core;
 using InventorySystem.DataAccess.Implementation;
 using InventorySystem.DataAccess.Interfaces;
 using Unity;
+using NLog;
 
 namespace InventorySystem.Manager
 {
     public class GuideManager
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         private IGenericRepository<Product> _productRepository;
         private IGenericRepository<ProductWork> _productWorkRepository;
         private IGenericRepository<Unit> _unitRepository;
@@ -28,6 +30,18 @@ namespace InventorySystem.Manager
             _inventoryRepository = RootContainer.Container.Resolve<IGenericRepository<Inventory>>();
             _productWorkRepository = RootContainer.Container.Resolve<IGenericRepository<ProductWork>>();
         }
+
+        /// <summary>
+        /// Logging
+        /// </summary>
+        /// <param name="showIsDelete"></param>
+        /// <returns></returns>
+
+        public void MessageFromUI(string message)
+        {
+            Logger.Info($"Message from UI: {message}");
+        }
+
 
         #region Product
 
