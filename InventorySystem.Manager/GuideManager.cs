@@ -40,6 +40,10 @@ namespace InventorySystem.Manager
         public void MessageFromUI(string message)
         {
             Logger.Info($"Message from UI: {message}");
+            Logger.Error($"Message from UI: {message}");
+            Logger.Fatal($"Message from UI: {message}");
+            Logger.Trace($"Message from UI: {message}");
+            Logger.Warn($"Message from UI: {message}");
         }
 
 

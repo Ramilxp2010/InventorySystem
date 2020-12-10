@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Inventory.cs" />
     <Compile Include="Invoice.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

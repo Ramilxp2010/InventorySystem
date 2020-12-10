@@ -26,9 +26,11 @@ namespace InventorySystem.WebApi.Controllers
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public void Logging([FromBody] string message)
+        [HttpPost]
+        public IHttpActionResult Logging([FromBody]Log item)
         {
-            _guideManager.MessageFromUI(message);
+            _guideManager.MessageFromUI(item.Text + " " + item.Exception.ToString());
+            return Ok();
         }
 
         #region Product
