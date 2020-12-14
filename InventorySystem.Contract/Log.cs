@@ -8,7 +8,7 @@ namespace InventorySystem.Contract
 {
     public enum LogType 
     {
-        Info = 1, Error, Warning
+        Info = 1, Error, Warning, Trace
     }
 
     public class Log

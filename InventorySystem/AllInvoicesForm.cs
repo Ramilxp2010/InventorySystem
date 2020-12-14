@@ -22,15 +22,15 @@ namespace InventorySystem
         public AllInvoicesForm()
         {
             InitializeComponent();
-            _purchaseInvoices = ApiManager.GetPurchaseInvoices();
+            _purchaseInvoices = InventorySystemApi.GetPurchaseInvoices();
             ShowPurchaseInvoices(_purchaseInvoices);
             EnablePurchaseDate(false);
 
-            _invoices = ApiManager.GetInvoices();
+            _invoices = InventorySystemApi.GetInvoices();
             ShowInvoices(_invoices);
             EnableInvoiceDate(false);
 
-            _inventories = ApiManager.GetInventories();
+            _inventories = InventorySystemApi.GetInventories();
             ShowInventories(_inventories);
             EnableInventoryDate(false);
         }

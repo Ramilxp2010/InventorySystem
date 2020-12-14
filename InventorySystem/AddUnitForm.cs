@@ -38,12 +38,12 @@ namespace InventorySystem
 
                 if (_unit == null)
                 {
-                    ApiManager.CreateUnit(unit);
+                    InventorySystemApi.CreateUnit(unit);
                     MessageBox.Show("Ед.изм добавлена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    ApiManager.UpdateUnit(unit);
+                    InventorySystemApi.UpdateUnit(unit);
                     MessageBox.Show("Ед.изм обновлена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

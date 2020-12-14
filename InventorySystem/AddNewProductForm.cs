@@ -36,7 +36,7 @@ namespace InventorySystem
         private void LoadComponents()
         {
             bs_Units = new BindingSource();
-            _units = ApiManager.GetUnits();
+            _units = InventorySystemApi.GetUnits();
 
             bs_Units.DataSource = _units;
             cmb_Unit.DataSource = bs_Units;
@@ -61,12 +61,12 @@ namespace InventorySystem
 
                 if (_product == null)
                 {
-                    var status = ApiManager.CreateProduct(product);
+                    var status = InventorySystemApi.CreateProduct(product);
                     MessageBox.Show($"Продукт обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    ApiManager.UpdateProduct(product);
+                    InventorySystemApi.UpdateProduct(product);
                     MessageBox.Show("Продукт обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 
