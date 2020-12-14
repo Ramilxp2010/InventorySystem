@@ -15,7 +15,6 @@ namespace InventorySystem
     public partial class AddProviderForm : Form
     {
         private Provider _provider;
-        ApiManager _apiManager = new ApiManager();
 
         public AddProviderForm(Provider provider)
         {
@@ -40,12 +39,12 @@ namespace InventorySystem
 
                 if (_provider == null)
                 {
-                    _apiManager.CreateProvider(provider);
+                    ApiManager.CreateProvider(provider);
                     MessageBox.Show("Поставщик добавлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    _apiManager.UpdateProvider(provider);
+                    ApiManager.UpdateProvider(provider);
                     MessageBox.Show("Поставщик обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

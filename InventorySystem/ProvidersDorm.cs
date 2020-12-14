@@ -14,7 +14,6 @@ namespace InventorySystem
 {
     public partial class ProvidersForm : Form
     {
-        ApiManager _apiManager = new ApiManager();
         private IEnumerable<Provider> _providers;
 
         public ProvidersForm()
@@ -26,7 +25,7 @@ namespace InventorySystem
         private void ShowProviders()
         {
             dgv_Providers.Rows.Clear();
-            _providers = _apiManager.GetProviders();
+            _providers = ApiManager.GetProviders();
             foreach (var provider in _providers)
             {
                 AddNewProvider(provider);
@@ -72,7 +71,7 @@ namespace InventorySystem
             var seletedItem = dgv_Providers.CurrentRow.Tag as Provider;
             if (seletedItem != null)
             {
-                _apiManager.DeleteProvider(seletedItem);
+                ApiManager.DeleteProvider(seletedItem);
                 ShowProviders();
                 MessageBox.Show("Удалено!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

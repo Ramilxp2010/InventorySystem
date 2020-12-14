@@ -13,10 +13,10 @@ using System.Runtime.CompilerServices;
 
 namespace InventorySystem.Api
 {
-    public class ApiManager
+    public static class ApiManager
     {
-        private string APP_PATH = ConfigurationManager.AppSettings["serverUrl"];
-        private IEnumerable<T> GetResponseResult<T>(string request, [CallerMemberName] string callerName = "")
+        private static string APP_PATH = ConfigurationManager.AppSettings["serverUrl"];
+        private static IEnumerable<T> GetResponseResult<T>(string request, [CallerMemberName] string callerName = "")
         {
             try
             {
@@ -36,7 +36,7 @@ namespace InventorySystem.Api
             }
         }
         
-        private int PostResponseResult(string request, object item, [CallerMemberName] string callerName = "")
+        private static int PostResponseResult<T>(string request, T item, [CallerMemberName] string callerName = "")
         {
             try
             {
@@ -60,7 +60,7 @@ namespace InventorySystem.Api
             }
         }
 
-        private HttpStatusCode PostResponse(string request, object item, [CallerMemberName] string callerName = "")
+        private static HttpStatusCode PostResponse<T>(string request, T item, [CallerMemberName] string callerName = "")
         {
             try
             {
@@ -81,7 +81,7 @@ namespace InventorySystem.Api
             }
         }
 
-        public bool CheckServer()
+        public static bool CheckServer()
         {
             using (var client = new HttpClient())
             {
@@ -99,22 +99,22 @@ namespace InventorySystem.Api
 
         #region Product
 
-        public IEnumerable<Product> GetProducts(bool showIsDelete = false)
+        public static IEnumerable<Product> GetProducts(bool showIsDelete = false)
         {
             return GetResponseResult<Product>($"GetProducts/{showIsDelete}");
         }
 
-        public int CreateProduct(Product item)
+        public static int CreateProduct(Product item)
         {
             return PostResponseResult("CreateProduct", item);
         }
 
-        public string UpdateProduct(Product item)
+        public static string UpdateProduct(Product item)
         {
             return PostResponse("UpdateProduct", item).ToString();
         }
 
-        public string DeleteProduct(Product item)
+        public static string DeleteProduct(Product item)
         {
             return PostResponse("RemoveProduct", item).ToString();
         }
@@ -123,22 +123,22 @@ namespace InventorySystem.Api
 
         #region Unit
 
-        public IEnumerable<Unit> GetUnits(bool showIsDelete = false)
+        public static IEnumerable<Unit> GetUnits(bool showIsDelete = false)
         {
             return GetResponseResult<Unit>($"GetUnits/{showIsDelete}");
         }
 
-        public int CreateUnit(Unit item)
+        public static int CreateUnit(Unit item)
         {
             return PostResponseResult("CreateUnit", item);
         }
 
-        public string UpdateUnit(Unit item)
+        public static string UpdateUnit(Unit item)
         {
             return PostResponse("UpdateUnit", item).ToString();
         }
 
-        public string DeleteUnit(Unit item)
+        public static string DeleteUnit(Unit item)
         {
             return PostResponse("RemoveUnit", item).ToString();
         }
@@ -147,22 +147,22 @@ namespace InventorySystem.Api
 
         #region Providers
 
-        public IEnumerable<Provider> GetProviders(bool showIsDelete = false)
+        public static IEnumerable<Provider> GetProviders(bool showIsDelete = false)
         {
             return GetResponseResult<Provider>($"GetProviders/{showIsDelete}");
         }
 
-        public int CreateProvider(Provider item)
+        public static int CreateProvider(Provider item)
         {
             return PostResponseResult("CreateProvider", item);
         }
 
-        public string UpdateProvider(Provider item)
+        public static string UpdateProvider(Provider item)
         {
             return PostResponse("UpdateProvider", item).ToString();
         }
 
-        public string DeleteProvider(Provider item)
+        public static string DeleteProvider(Provider item)
         {
             return PostResponse("RemoveProvider", item).ToString();
         }
@@ -171,27 +171,27 @@ namespace InventorySystem.Api
 
         #region ProductWork
         
-        public IEnumerable<ProductWork> GetProductByPurchaseInvoice(PurchaseInvoice item)
+        public static IEnumerable<ProductWork> GetProductByPurchaseInvoice(PurchaseInvoice item)
         {
             return GetResponseResult<ProductWork>($"GetProductByPurchaseInvoice/byid/{item.Id}");
         }
 
-        public IEnumerable<ProductWork> GetProductByInvoice(Invoice item)
+        public static IEnumerable<ProductWork> GetProductByInvoice(Invoice item)
         {
             return GetResponseResult<ProductWork>($"GetProductByInvoice/byid/{item.Id}");
         }
 
-        public IEnumerable<ProductWork> GetProductByInventory(Inventory item)
+        public static IEnumerable<ProductWork> GetProductByInventory(Inventory item)
         {
             return GetResponseResult<ProductWork>($"GetProductByInventory/byid/{item.Id}");
         }
 
-        public int ProductWorkCreate(ProductWork item)
+        public static int ProductWorkCreate(ProductWork item)
         {
             return PostResponseResult("ProductWorkCreate", item);
         }
 
-        public string ProductWorkUpdate(ProductWork item)
+        public static string ProductWorkUpdate(ProductWork item)
         {
             return PostResponse("ProductWorkUpdate", item).ToString();
         }
@@ -200,7 +200,7 @@ namespace InventorySystem.Api
 
         #region PurchaseInvoice
 
-        public IEnumerable<PurchaseInvoice> GetPurchaseInvoices()
+        public static IEnumerable<PurchaseInvoice> GetPurchaseInvoices()
         {
             return GetResponseResult<PurchaseInvoice>($"GetPurchaseInvoices");
         }
@@ -210,12 +210,12 @@ namespace InventorySystem.Api
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public int PurchaseInvoiceCreate(PurchaseInvoice item)
+        public static int PurchaseInvoiceCreate(PurchaseInvoice item)
         {
             return PostResponseResult("PurchaseInvoiceCreate", item);
         }
 
-        public string PurchaseInvoiceUpdate(PurchaseInvoice item)
+        public static string PurchaseInvoiceUpdate(PurchaseInvoice item)
         {
             return PostResponse("PurchaseInvoiceUpdate", item).ToString();
         }
@@ -224,17 +224,17 @@ namespace InventorySystem.Api
 
         #region Invoice
 
-        public IEnumerable<Invoice> GetInvoices()
+        public static IEnumerable<Invoice> GetInvoices()
         {
             return GetResponseResult<Invoice>($"GetInvoices");
         }
 
-        public int InvoiceCreate(Invoice item)
+        public static int InvoiceCreate(Invoice item)
         {
             return PostResponseResult("InvoiceCreate", item);
         }
 
-        public string InvoiceUpdate(Invoice item)
+        public static string InvoiceUpdate(Invoice item)
         {
             return PostResponse("InvoiceUpdate", item).ToString();
         }
@@ -243,24 +243,24 @@ namespace InventorySystem.Api
 
         #region Inventory
 
-        public List<Inventory> GetInventories()
+        public static List<Inventory> GetInventories()
         {
             return GetResponseResult<Inventory>($"GetInventories").ToList();
         }
 
-        public string InventoryUpdate(Inventory item)
+        public static string InventoryUpdate(Inventory item)
         {
             return PostResponse("InventoryUpdate", item).ToString();
         }
 
-        public int InventoryCreate(Inventory item)
+        public static int InventoryCreate(Inventory item)
         {
             return PostResponseResult("InventoryCreate", item);
         }
 
         #endregion Invoice
 
-        public List<WarehouseProduct> GetWarehouseProducts()
+        public static List<WarehouseProduct> GetWarehouseProducts()
         {
             return GetResponseResult<WarehouseProduct>($"GetWarehouseProducts").ToList();
         }

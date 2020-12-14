@@ -17,7 +17,6 @@ namespace InventorySystem
 {
     public partial class TransactionDetailForm : Form
     {
-        ApiManager _apiManager = new ApiManager();
         
         private IEnumerable<ProductWork> _products;
         private Invoice _invoice;
@@ -55,7 +54,7 @@ namespace InventorySystem
 
         private void HandlePurchaseInvoice(PurchaseInvoice invoice)
         {
-            _products = _apiManager.GetProductByPurchaseInvoice(invoice);
+            _products = ApiManager.GetProductByPurchaseInvoice(invoice);
             SetFields(invoice.Number, invoice.Provider.Name, invoice.Date);
             label7.Text = "Поставщик ";
             this.Text = $"Приходная накладная, №{invoice.Number}";
@@ -63,14 +62,14 @@ namespace InventorySystem
 
         private void HandleInvoice(Invoice invoice)
         {
-            _products = _apiManager.GetProductByInvoice(invoice);
+            _products = ApiManager.GetProductByInvoice(invoice);
             SetFields(invoice.Number, invoice.ResponsibleName, invoice.Date, invoice.Goal);
             this.Text = $"Накладная, №{invoice.Number}";
         }
 
         private void HandleInventory(Inventory inventory)
         {
-            _products = _apiManager.GetProductByInventory(inventory);
+            _products = ApiManager.GetProductByInventory(inventory);
             SetFields(inventory.Number, inventory.ResponsibleName, inventory.Date);
             label7.Text = "Ответственный ";
             this.Text = $"Инвентаризация, №{inventory.Number}";

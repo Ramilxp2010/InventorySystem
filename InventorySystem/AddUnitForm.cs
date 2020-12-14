@@ -15,8 +15,6 @@ namespace InventorySystem
     public partial class AddUnitForm : Form
     {
         private Unit _unit;
-        ApiManager _apiManager = new ApiManager();
-
         public AddUnitForm(Unit unit)
         {
             _unit = unit;
@@ -40,12 +38,12 @@ namespace InventorySystem
 
                 if (_unit == null)
                 {
-                    _apiManager.CreateUnit(unit);
+                    ApiManager.CreateUnit(unit);
                     MessageBox.Show("Ед.изм добавлена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    _apiManager.UpdateUnit(unit);
+                    ApiManager.UpdateUnit(unit);
                     MessageBox.Show("Ед.изм обновлена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

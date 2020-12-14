@@ -14,7 +14,6 @@ namespace InventorySystem
 {
     public partial class AllInvoicesForm : Form
     {
-        ApiManager _apiManager = new ApiManager();
         
         private IEnumerable<PurchaseInvoice> _purchaseInvoices;
         private IEnumerable<Invoice> _invoices;
@@ -23,15 +22,15 @@ namespace InventorySystem
         public AllInvoicesForm()
         {
             InitializeComponent();
-            _purchaseInvoices = _apiManager.GetPurchaseInvoices();
+            _purchaseInvoices = ApiManager.GetPurchaseInvoices();
             ShowPurchaseInvoices(_purchaseInvoices);
             EnablePurchaseDate(false);
 
-            _invoices = _apiManager.GetInvoices();
+            _invoices = ApiManager.GetInvoices();
             ShowInvoices(_invoices);
             EnableInvoiceDate(false);
 
-            _inventories = _apiManager.GetInventories();
+            _inventories = ApiManager.GetInventories();
             ShowInventories(_inventories);
             EnableInventoryDate(false);
         }

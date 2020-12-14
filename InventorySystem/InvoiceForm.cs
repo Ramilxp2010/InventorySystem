@@ -16,7 +16,6 @@ namespace InventorySystem
 {
     public partial class InvoiceForm : Form
     {
-        ApiManager _apiManager = new ApiManager();
 
         private WarehouseForm _warehouse;
         private BindingSource bs_Products;
@@ -28,7 +27,7 @@ namespace InventorySystem
             _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
             bs_Products = new BindingSource();
 
-            _products = _apiManager.GetWarehouseProducts().ToList();
+            _products = ApiManager.GetWarehouseProducts().ToList();
             SetWareHouse(_products);
 
             dgv_Warehouse.DataSource = bs_Products;
@@ -116,7 +115,7 @@ namespace InventorySystem
                     Number = tb_InvoiceNumber.Text
                 };
 
-                var invoiceId = _apiManager.InvoiceCreate(invoice);
+                var invoiceId = ApiManager.InvoiceCreate(invoice);
                 if (invoiceId == -1)
                 {
                     MessageBox.Show("Ну удалось добавить запись, обратись к системному администратору",
@@ -135,7 +134,7 @@ namespace InventorySystem
                         InvoiceId = invoiceId,
                         Cost = 0
                     };
-                    _apiManager.ProductWorkCreate(product);
+                    ApiManager.ProductWorkCreate(product);
                 }
 
                 var result = MessageBox.Show("Накладная добавлена! Добавить новую накладную?",

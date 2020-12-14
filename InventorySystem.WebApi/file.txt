@@ -33,3 +33,53 @@ Path 'Message', line 1, position 11.
    в Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
    в Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
    в InventorySystem.Api.ApiManager.GetProductByPurchaseInvoice(PurchaseInvoice item) в C:\Users\ramil\Source\Repos\InventorySystem\InventorySystem.Api\ApiManager.cs:строка 203
+2020-12-11 07:38:46.5208|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-11 07:40:07.1475|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-11 07:45:21.0593|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-11 07:45:41.5062|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-11 07:54:03.4329|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-11 08:00:21.2316|INFO|InventorySystem.Manager.PurchaseInvoiceManager|Try to get ProductWorks by Id 9
+2020-12-11 08:00:21.5347|INFO|InventorySystem.Manager.GuideManager|Message from UI: GetProductByPurchaseInvoice Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'System.Collections.Generic.IEnumerable`1[InventorySystem.Contract.ProductWork]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+Path 'Message', line 1, position 11.
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   в Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   в InventorySystem.Api.ApiManager.GetResponseResult[T](String request, String callerName) в C:\Users\ramil\Source\Repos\InventorySystem\InventorySystem.Api\ApiManager.cs:строка 29
+2020-12-11 08:00:21.5347|ERROR|InventorySystem.Manager.GuideManager|Message from UI: GetProductByPurchaseInvoice Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'System.Collections.Generic.IEnumerable`1[InventorySystem.Contract.ProductWork]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+Path 'Message', line 1, position 11.
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   в Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   в InventorySystem.Api.ApiManager.GetResponseResult[T](String request, String callerName) в C:\Users\ramil\Source\Repos\InventorySystem\InventorySystem.Api\ApiManager.cs:строка 29
+2020-12-11 08:00:21.5387|FATAL|InventorySystem.Manager.GuideManager|Message from UI: GetProductByPurchaseInvoice Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'System.Collections.Generic.IEnumerable`1[InventorySystem.Contract.ProductWork]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+Path 'Message', line 1, position 11.
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   в Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   в InventorySystem.Api.ApiManager.GetResponseResult[T](String request, String callerName) в C:\Users\ramil\Source\Repos\InventorySystem\InventorySystem.Api\ApiManager.cs:строка 29
+2020-12-11 08:00:21.5387|WARN|InventorySystem.Manager.GuideManager|Message from UI: GetProductByPurchaseInvoice Newtonsoft.Json.JsonSerializationException: Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'System.Collections.Generic.IEnumerable`1[InventorySystem.Contract.ProductWork]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+Path 'Message', line 1, position 11.
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   в Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   в Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   в Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   в InventorySystem.Api.ApiManager.GetResponseResult[T](String request, String callerName) в C:\Users\ramil\Source\Repos\InventorySystem\InventorySystem.Api\ApiManager.cs:строка 29

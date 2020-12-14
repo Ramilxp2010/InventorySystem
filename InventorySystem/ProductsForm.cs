@@ -14,7 +14,6 @@ namespace InventorySystem
 {
     public partial class ProductsForm : Form
     {
-        ApiManager _apiManager = new ApiManager();
         private IEnumerable<Product> _products;
 
         public ProductsForm()
@@ -26,7 +25,7 @@ namespace InventorySystem
         private void ShowProducts()
         {
             dgv_Products.Rows.Clear();
-            _products = _apiManager.GetProducts();
+            _products = ApiManager.GetProducts();
             foreach (var product in _products)
             {
                 AddNewProduct(product);
@@ -75,7 +74,7 @@ namespace InventorySystem
             var seletedItem = dgv_Products.CurrentRow.Tag as Product;
             if (seletedItem != null)
             {
-                _apiManager.DeleteProduct(seletedItem);
+                ApiManager.DeleteProduct(seletedItem);
                 ShowProducts();
                 MessageBox.Show("Удалено!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

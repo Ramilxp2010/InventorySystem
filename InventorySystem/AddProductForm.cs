@@ -16,7 +16,6 @@ namespace InventorySystem
 {
     public partial class AddProductForm : Form
     {
-        ApiManager _apiManager = new ApiManager();
 
         private IEnumerable<Unit> _units;
         private BindingSource bs_Units;
@@ -25,7 +24,7 @@ namespace InventorySystem
         {
             InitializeComponent();
             bs_Units = new BindingSource();
-            _units = _apiManager.GetUnits();
+            _units = ApiManager.GetUnits();
             bs_Units.DataSource = _units;
 
             cmb_Unit.DataSource = bs_Units;
@@ -48,7 +47,7 @@ namespace InventorySystem
                     Description = tb_Description.Text,
                     UnitId = unit.Id
                 };
-                _apiManager.CreateProduct(product);
+                ApiManager.CreateProduct(product);
                 
                 var purshase = RootContainer.Container.Resolve<IInvoice>();
                 purshase.AddProduct(product, count, unit);

@@ -13,6 +13,17 @@ namespace InventorySystem.Contract
 
     public class Log
     {
+        public Log() 
+        {
+
+        }
+
+        public Log(string text, LogType logType)
+        {
+            Text = text;
+            LogType = logType;
+        }
+
         public Log(string text, LogType logType, Exception ex) 
         {
             Text = text;
@@ -20,10 +31,10 @@ namespace InventorySystem.Contract
             Exception = ex;
         }
 
-        public string Text;
+        public string Text { get; set; }
 
-        public LogType LogType;
+        public LogType LogType { get; set; }
 
-        public Exception Exception;
+        public Exception Exception { get; set; }
     }
 }

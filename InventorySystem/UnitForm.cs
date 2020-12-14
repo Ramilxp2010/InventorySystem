@@ -14,7 +14,6 @@ namespace InventorySystem
 {
     public partial class UnitForm : Form
     {
-        ApiManager _apiManager = new ApiManager();
         private IEnumerable<Unit> _units;
 
         public UnitForm()
@@ -26,7 +25,7 @@ namespace InventorySystem
         private void ShowUnits()
         {
             dgv_Units.Rows.Clear();
-            _units = _apiManager.GetUnits();
+            _units = ApiManager.GetUnits();
             foreach (var unit in _units)
             {
                 AddNewUnit(unit);
@@ -72,7 +71,7 @@ namespace InventorySystem
             var seletedItem = dgv_Units.CurrentRow.Tag as Unit;
             if (seletedItem != null)
             {
-                _apiManager.DeleteUnit(seletedItem);
+                ApiManager.DeleteUnit(seletedItem);
                 ShowUnits();
                 MessageBox.Show("Удалено!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
