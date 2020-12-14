@@ -37,13 +37,31 @@ namespace InventorySystem.Manager
         /// <param name="showIsDelete"></param>
         /// <returns></returns>
 
-        public void MessageFromUI(string message)
+        public void MessageFromUI(Log item)
         {
-            Logger.Info($"Message from UI: {message}");
-            Logger.Error($"Message from UI: {message}");
-            Logger.Fatal($"Message from UI: {message}");
-            Logger.Trace($"Message from UI: {message}");
-            Logger.Warn($"Message from UI: {message}");
+            switch (item.LogType)
+            {
+                case LogType.Warning:
+                    {
+                        Logger.Warn($"{item.Text}");
+                        break;
+                    }
+                case LogType.Trace: 
+                    {
+                        Logger.Trace($"{item.Text}");
+                        break;
+                    }
+                case LogType.Info:
+                    {
+                        Logger.Info($"{item.Text}");
+                        break;
+                    }
+                case LogType.Error:
+                    {
+                        Logger.Error($"{item.Text};[Exception]:{item.Exception}");
+                        break;
+                    }
+            }
         }
 
 

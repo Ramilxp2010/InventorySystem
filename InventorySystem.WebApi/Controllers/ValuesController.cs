@@ -29,7 +29,7 @@ namespace InventorySystem.WebApi.Controllers
         [HttpPost]
         public IHttpActionResult Logging([FromBody]Log item)
         {
-            _guideManager.MessageFromUI(item.Text + " " + item.Exception.ToString());
+            _guideManager.MessageFromUI(item);
             return Ok();
         }
 
