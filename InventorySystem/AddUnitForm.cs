@@ -1,5 +1,6 @@
 ﻿using InventorySystem.Api;
 using InventorySystem.Contract;
+using InventorySystem.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Unity;
 
 namespace InventorySystem
 {
@@ -38,12 +40,12 @@ namespace InventorySystem
 
                 if (_unit == null)
                 {
-                    InventorySystemApi.CreateUnit(unit);
+                    RootContainer.Container.Resolve<IInventorySystemApi>().CreateUnit(unit);
                     MessageBox.Show("Ед.изм добавлена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    InventorySystemApi.UpdateUnit(unit);
+                    RootContainer.Container.Resolve<IInventorySystemApi>().UpdateUnit(unit);
                     MessageBox.Show("Ед.изм обновлена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

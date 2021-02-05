@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventorySystem.Core;
+using Unity;
 
 namespace InventorySystem
 {
@@ -22,15 +24,15 @@ namespace InventorySystem
         public AllInvoicesForm()
         {
             InitializeComponent();
-            _purchaseInvoices = InventorySystemApi.GetPurchaseInvoices();
+            _purchaseInvoices = RootContainer.Container.Resolve<IInventorySystemApi>().GetPurchaseInvoices();
             ShowPurchaseInvoices(_purchaseInvoices);
             EnablePurchaseDate(false);
 
-            _invoices = InventorySystemApi.GetInvoices();
+            _invoices = RootContainer.Container.Resolve<IInventorySystemApi>().GetInvoices();
             ShowInvoices(_invoices);
             EnableInvoiceDate(false);
 
-            _inventories = InventorySystemApi.GetInventories();
+            _inventories = RootContainer.Container.Resolve<IInventorySystemApi>().GetInventories();
             ShowInventories(_inventories);
             EnableInventoryDate(false);
         }

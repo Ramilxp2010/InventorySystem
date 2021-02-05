@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventorySystem.Contract;
+using InventorySystem.Core;
+using Unity;
 
 namespace InventorySystem
 {
@@ -25,7 +27,7 @@ namespace InventorySystem
         private void ShowUnits()
         {
             dgv_Units.Rows.Clear();
-            _units = InventorySystemApi.GetUnits();
+            _units = RootContainer.Container.Resolve<IInventorySystemApi>().GetUnits();
             foreach (var unit in _units)
             {
                 AddNewUnit(unit);
@@ -71,7 +73,7 @@ namespace InventorySystem
             var seletedItem = dgv_Units.CurrentRow.Tag as Unit;
             if (seletedItem != null)
             {
-                InventorySystemApi.DeleteUnit(seletedItem);
+                RootContainer.Container.Resolve<IInventorySystemApi>().DeleteUnit(seletedItem);
                 ShowUnits();
                 MessageBox.Show("Удалено!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

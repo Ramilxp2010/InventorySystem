@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventorySystem.Api;
 using InventorySystem.Contract;
+using InventorySystem.Core;
+using Unity;
 
 namespace InventorySystem
 {
@@ -39,12 +41,12 @@ namespace InventorySystem
 
                 if (_provider == null)
                 {
-                    InventorySystemApi.CreateProvider(provider);
+                    RootContainer.Container.Resolve<IInventorySystemApi>().CreateProvider(provider);
                     MessageBox.Show("Поставщик добавлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    InventorySystemApi.UpdateProvider(provider);
+                    RootContainer.Container.Resolve<IInventorySystemApi>().UpdateProvider(provider);
                     MessageBox.Show("Поставщик обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

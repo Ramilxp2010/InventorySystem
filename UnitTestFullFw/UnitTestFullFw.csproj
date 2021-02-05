@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{32702B7B-6561-4819-93CA-9F54DF8A7ADB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitTestFullFw</RootNamespace>
+    <AssemblyName>UnitTestFullFw</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.2.0" />
+    <PackageReference Include="Moq">
+      <Version>4.15.2</Version>
+    </PackageReference>
+    <PackageReference Include="Moq.EntityFramework">
+      <Version>1.0.10</Version>
+    </PackageReference>
+    <PackageReference Include="Unity">
+      <Version>5.11.9</Version>
+    </PackageReference>
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    <PackageReference Include="coverlet.collector" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TestFixture.cs" />
+    <Compile Include="Tests\GuideManagerTests.cs" />
+    <Compile Include="Tests\InventoryFormTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventorySystem.Api\InventorySystem.Api.csproj">
+      <Project>{62ecd251-cc8a-4b59-b9d5-44af513bd93c}</Project>
+      <Name>InventorySystem.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventorySystem.Contract\InventorySystem.Contract.csproj">
+      <Project>{07729941-4e89-4776-ac09-91f3a6fd872b}</Project>
+      <Name>InventorySystem.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventorySystem.Core\InventorySystem.Core.csproj">
+      <Project>{98092816-7ddc-45fd-88ed-c1d8a25dcc08}</Project>
+      <Name>InventorySystem.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventorySystem.DataAccess\InventorySystem.DataAccess.csproj">
+      <Project>{98ba231f-9401-424a-9280-5435b6819c59}</Project>
+      <Name>InventorySystem.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventorySystem.Manager\InventorySystem.Manager.csproj">
+      <Project>{94484310-d3f0-4bde-9883-78b363476059}</Project>
+      <Name>InventorySystem.Manager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventorySystem.WebApi\InventorySystem.WebApi.csproj">
+      <Project>{eb847d35-186f-4f87-ba9e-b02d5d68315b}</Project>
+      <Name>InventorySystem.WebApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventorySystem\InventorySystem.csproj">
+      <Project>{36ab6e36-2743-4e8f-87b4-7da82594df3a}</Project>
+      <Name>InventorySystem</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

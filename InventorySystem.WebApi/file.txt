@@ -24,3 +24,125 @@ Path 'Message', line 1, position 11.
 2020-12-14 14:53:49.9453|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetPurchaseInvoices;[Request]:GetPurchaseInvoices;[Result]:[{"Id":9,"Number":"12","Date":"2020-11-30T20:58:33.922141","ProviderId":12,"Provider":{"Id":12,"Name":"a","IsDelete":null},"Products":[]}]
 2020-12-14 14:53:49.9662|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetInvoices;[Request]:GetInvoices;[Result]:[{"Id":6,"Number":"1","OrganizationName":"———ŒœŒ  ¡¿À¿Õƒ€ÿ","ResponsibleName":"1","Goal":"1","Date":"2020-11-30T20:58:49.8797581","Products":[]}]
 2020-12-14 14:53:49.9867|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetInventories;[Request]:GetInventories;[Result]:[{"Id":8,"Number":"a","ResponsibleName":"a","Date":"2020-11-30T20:58:09.9165189","Products":[]}]
+2020-12-14 15:59:26.1109|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetWarehouseProducts;[Request]:GetWarehouseProducts;[Result]:[{"Product":{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":1.0}]
+2020-12-14 15:59:31.4708|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetProducts;[Request]:GetProducts/False;[Result]:[{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null}]
+2020-12-14 15:59:33.8072|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetUnits;[Request]:GetUnits/False;[Result]:[{"Id":9,"Name":"1","IsDelete":null}]
+2020-12-14 15:59:38.1642|INFO|InventorySystem.Manager.GuideManager|[CallerName]:CreateProduct;[Request]:CreateProduct;[StatusCode]:OK
+2020-12-14 15:59:38.1642|INFO|InventorySystem.Manager.GuideManager|[CallerName]:CreateProduct;[Request]:CreateProduct;[Result]:StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Pragma: no-cache
+  X-SourceFiles: =?UTF-8?B?QzpcVXNlcnNccmFtaWxcU291cmNlXFJlcG9zXEludmVudG9yeVN5c3RlbVxJbnZlbnRvcnlTeXN0ZW0uV2ViQXBpXGFwaVx2YWx1ZXNcQ3JlYXRlUHJvZHVjdA==?=
+  Cache-Control: no-cache
+  Date: Mon, 14 Dec 2020 12:59:37 GMT
+  Server: Microsoft-IIS/10.0
+  X-AspNet-Version: 4.0.30319
+  X-Powered-By: ASP.NET
+  Content-Length: 2
+  Content-Type: application/json; charset=utf-8
+  Expires: -1
+}
+2020-12-14 15:59:39.8234|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetProducts;[Request]:GetProducts/False;[Result]:[{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null}]
+2020-12-14 15:59:41.3337|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetWarehouseProducts;[Request]:GetWarehouseProducts;[Result]:[{"Product":{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":1.0},{"Product":{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":0.0}]
+2020-12-14 15:59:49.5900|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetProducts;[Request]:GetProducts/False;[Result]:[{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null}]
+2020-12-14 15:59:52.5941|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetWarehouseProducts;[Request]:GetWarehouseProducts;[Result]:[{"Product":{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":1.0},{"Product":{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":0.0}]
+2020-12-14 15:59:56.6920|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetProviders;[Request]:GetProviders/False;[Result]:[{"Id":12,"Name":"a","IsDelete":null}]
+2020-12-14 15:59:59.1168|INFO|InventorySystem.Manager.GuideManager|[CallerName]:CreateProvider;[Request]:CreateProvider;[StatusCode]:OK
+2020-12-14 15:59:59.1298|INFO|InventorySystem.Manager.GuideManager|[CallerName]:CreateProvider;[Request]:CreateProvider;[Result]:StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Pragma: no-cache
+  X-SourceFiles: =?UTF-8?B?QzpcVXNlcnNccmFtaWxcU291cmNlXFJlcG9zXEludmVudG9yeVN5c3RlbVxJbnZlbnRvcnlTeXN0ZW0uV2ViQXBpXGFwaVx2YWx1ZXNcQ3JlYXRlUHJvdmlkZXI=?=
+  Cache-Control: no-cache
+  Date: Mon, 14 Dec 2020 12:59:59 GMT
+  Server: Microsoft-IIS/10.0
+  X-AspNet-Version: 4.0.30319
+  X-Powered-By: ASP.NET
+  Content-Length: 2
+  Content-Type: application/json; charset=utf-8
+  Expires: -1
+}
+2020-12-14 16:00:00.0333|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetProviders;[Request]:GetProviders/False;[Result]:[{"Id":12,"Name":"a","IsDelete":null},{"Id":13,"Name":"q","IsDelete":null}]
+2020-12-14 16:00:01.6050|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetWarehouseProducts;[Request]:GetWarehouseProducts;[Result]:[{"Product":{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":1.0},{"Product":{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":0.0}]
+2020-12-14 16:00:04.4227|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetUnits;[Request]:GetUnits/False;[Result]:[{"Id":9,"Name":"1","IsDelete":null}]
+2020-12-14 16:00:07.5147|INFO|InventorySystem.Manager.GuideManager|[CallerName]:CreateUnit;[Request]:CreateUnit;[StatusCode]:OK
+2020-12-14 16:00:07.5277|INFO|InventorySystem.Manager.GuideManager|[CallerName]:CreateUnit;[Request]:CreateUnit;[Result]:StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Pragma: no-cache
+  X-SourceFiles: =?UTF-8?B?QzpcVXNlcnNccmFtaWxcU291cmNlXFJlcG9zXEludmVudG9yeVN5c3RlbVxJbnZlbnRvcnlTeXN0ZW0uV2ViQXBpXGFwaVx2YWx1ZXNcQ3JlYXRlVW5pdA==?=
+  Cache-Control: no-cache
+  Date: Mon, 14 Dec 2020 13:00:07 GMT
+  Server: Microsoft-IIS/10.0
+  X-AspNet-Version: 4.0.30319
+  X-Powered-By: ASP.NET
+  Content-Length: 2
+  Content-Type: application/json; charset=utf-8
+  Expires: -1
+}
+2020-12-14 16:00:08.4758|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetUnits;[Request]:GetUnits/False;[Result]:[{"Id":9,"Name":"1","IsDelete":null},{"Id":10,"Name":"w","IsDelete":null}]
+2020-12-14 16:00:09.1425|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetWarehouseProducts;[Request]:GetWarehouseProducts;[Result]:[{"Product":{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":1.0},{"Product":{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":0.0}]
+2020-12-14 16:00:16.7594|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetProducts;[Request]:GetProducts/False;[Result]:[{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null}]
+2020-12-14 16:00:16.7797|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetProviders;[Request]:GetProviders/False;[Result]:[{"Id":12,"Name":"a","IsDelete":null},{"Id":13,"Name":"q","IsDelete":null}]
+2020-12-14 16:00:33.0212|INFO|InventorySystem.Manager.GuideManager|[CallerName]:PurchaseInvoiceCreate;[Request]:PurchaseInvoiceCreate;[StatusCode]:OK
+2020-12-14 16:00:33.0212|INFO|InventorySystem.Manager.GuideManager|[CallerName]:PurchaseInvoiceCreate;[Request]:PurchaseInvoiceCreate;[Result]:StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Pragma: no-cache
+  X-SourceFiles: =?UTF-8?B?QzpcVXNlcnNccmFtaWxcU291cmNlXFJlcG9zXEludmVudG9yeVN5c3RlbVxJbnZlbnRvcnlTeXN0ZW0uV2ViQXBpXGFwaVx2YWx1ZXNcUHVyY2hhc2VJbnZvaWNlQ3JlYXRl?=
+  Cache-Control: no-cache
+  Date: Mon, 14 Dec 2020 13:00:32 GMT
+  Server: Microsoft-IIS/10.0
+  X-AspNet-Version: 4.0.30319
+  X-Powered-By: ASP.NET
+  Content-Length: 2
+  Content-Type: application/json; charset=utf-8
+  Expires: -1
+}
+2020-12-14 16:00:33.0822|INFO|InventorySystem.Manager.GuideManager|[CallerName]:ProductWorkCreate;[Request]:ProductWorkCreate;[StatusCode]:OK
+2020-12-14 16:00:33.0932|INFO|InventorySystem.Manager.GuideManager|[CallerName]:ProductWorkCreate;[Request]:ProductWorkCreate;[Result]:StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Pragma: no-cache
+  X-SourceFiles: =?UTF-8?B?QzpcVXNlcnNccmFtaWxcU291cmNlXFJlcG9zXEludmVudG9yeVN5c3RlbVxJbnZlbnRvcnlTeXN0ZW0uV2ViQXBpXGFwaVx2YWx1ZXNcUHJvZHVjdFdvcmtDcmVhdGU=?=
+  Cache-Control: no-cache
+  Date: Mon, 14 Dec 2020 13:00:32 GMT
+  Server: Microsoft-IIS/10.0
+  X-AspNet-Version: 4.0.30319
+  X-Powered-By: ASP.NET
+  Content-Length: 2
+  Content-Type: application/json; charset=utf-8
+  Expires: -1
+}
+2020-12-14 16:00:34.8379|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetWarehouseProducts;[Request]:GetWarehouseProducts;[Result]:[{"Product":{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":2.0},{"Product":{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":0.0}]
+2020-12-14 16:00:37.4164|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetWarehouseProducts;[Request]:GetWarehouseProducts;[Result]:[{"Product":{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":2.0},{"Product":{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":0.0}]
+2020-12-14 16:01:01.8662|INFO|InventorySystem.Manager.GuideManager|[CallerName]:InvoiceCreate;[Request]:InvoiceCreate;[StatusCode]:OK
+2020-12-14 16:01:01.8662|INFO|InventorySystem.Manager.GuideManager|[CallerName]:InvoiceCreate;[Request]:InvoiceCreate;[Result]:StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Pragma: no-cache
+  X-SourceFiles: =?UTF-8?B?QzpcVXNlcnNccmFtaWxcU291cmNlXFJlcG9zXEludmVudG9yeVN5c3RlbVxJbnZlbnRvcnlTeXN0ZW0uV2ViQXBpXGFwaVx2YWx1ZXNcSW52b2ljZUNyZWF0ZQ==?=
+  Cache-Control: no-cache
+  Date: Mon, 14 Dec 2020 13:01:01 GMT
+  Server: Microsoft-IIS/10.0
+  X-AspNet-Version: 4.0.30319
+  X-Powered-By: ASP.NET
+  Content-Length: 1
+  Content-Type: application/json; charset=utf-8
+  Expires: -1
+}
+2020-12-14 16:01:01.9122|INFO|InventorySystem.Manager.GuideManager|[CallerName]:ProductWorkCreate;[Request]:ProductWorkCreate;[StatusCode]:OK
+2020-12-14 16:01:01.9122|INFO|InventorySystem.Manager.GuideManager|[CallerName]:ProductWorkCreate;[Request]:ProductWorkCreate;[Result]:StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+  Pragma: no-cache
+  X-SourceFiles: =?UTF-8?B?QzpcVXNlcnNccmFtaWxcU291cmNlXFJlcG9zXEludmVudG9yeVN5c3RlbVxJbnZlbnRvcnlTeXN0ZW0uV2ViQXBpXGFwaVx2YWx1ZXNcUHJvZHVjdFdvcmtDcmVhdGU=?=
+  Cache-Control: no-cache
+  Date: Mon, 14 Dec 2020 13:01:01 GMT
+  Server: Microsoft-IIS/10.0
+  X-AspNet-Version: 4.0.30319
+  X-Powered-By: ASP.NET
+  Content-Length: 2
+  Content-Type: application/json; charset=utf-8
+  Expires: -1
+}
+2020-12-14 16:01:03.1802|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetWarehouseProducts;[Request]:GetWarehouseProducts;[Result]:[{"Product":{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":1.0},{"Product":{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":0.0}]
+2020-12-14 16:01:04.3611|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetProducts;[Request]:GetProducts/False;[Result]:[{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null}]
+2020-12-14 16:01:05.4189|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetWarehouseProducts;[Request]:GetWarehouseProducts;[Result]:[{"Product":{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":1.0},{"Product":{"Id":13,"Name":"q","Code":"q","Article":"q","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"Count":0.0}]
+2020-12-14 16:01:05.8882|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetPurchaseInvoices;[Request]:GetPurchaseInvoices;[Result]:[{"Id":9,"Number":"12","Date":"2020-11-30T20:58:33.922141","ProviderId":12,"Provider":{"Id":12,"Name":"a","IsDelete":null},"Products":[]},{"Id":10,"Number":"qq","Date":"2020-12-14T16:00:16.8258003","ProviderId":12,"Provider":{"Id":12,"Name":"a","IsDelete":null},"Products":[]}]
+2020-12-14 16:01:05.9254|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetInvoices;[Request]:GetInvoices;[Result]:[{"Id":6,"Number":"1","OrganizationName":"———ŒœŒ  ¡¿À¿Õƒ€ÿ","ResponsibleName":"1","Goal":"1","Date":"2020-11-30T20:58:49.8797581","Products":[]},{"Id":7,"Number":"22","OrganizationName":"———ŒœŒ  ¡¿À¿Õƒ€ÿ","ResponsibleName":"22","Goal":"22","Date":"2020-12-14T16:00:37.4424456","Products":[]}]
+2020-12-14 16:01:05.9578|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetInventories;[Request]:GetInventories;[Result]:[{"Id":8,"Number":"a","ResponsibleName":"a","Date":"2020-11-30T20:58:09.9165189","Products":[]}]
+2020-12-14 16:01:10.8139|INFO|InventorySystem.Manager.GuideManager|[CallerName]:GetProductByInvoice;[Request]:GetProductByInvoice/byid/6;[Result]:[{"Id":82,"Count":1.0,"Cost":0.0,"ProductId":12,"Product":{"Id":12,"Name":"a","Code":"a","Article":"a","Description":"","UnitId":9,"Unit":{"Id":9,"Name":"1","IsDelete":null},"IsDelete":null},"PurchaseInvoiceId":null,"PurchaseInvoice":null,"InvoiceId":6,"Invoice":null,"InventoryId":null,"Inventory":null}]

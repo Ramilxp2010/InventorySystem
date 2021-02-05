@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventorySystem.Contract;
 using InventorySystem.Api;
+using InventorySystem.Core;
+using Unity;
 
 namespace InventorySystem
 {
@@ -25,7 +27,7 @@ namespace InventorySystem
         private void ShowProviders()
         {
             dgv_Providers.Rows.Clear();
-            _providers = InventorySystemApi.GetProviders();
+            _providers = RootContainer.Container.Resolve<IInventorySystemApi>().GetProviders();
             foreach (var provider in _providers)
             {
                 AddNewProvider(provider);
@@ -71,7 +73,7 @@ namespace InventorySystem
             var seletedItem = dgv_Providers.CurrentRow.Tag as Provider;
             if (seletedItem != null)
             {
-                InventorySystemApi.DeleteProvider(seletedItem);
+                RootContainer.Container.Resolve<IInventorySystemApi>().DeleteProvider(seletedItem);
                 ShowProviders();
                 MessageBox.Show("Удалено!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

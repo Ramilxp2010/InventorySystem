@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventorySystem.Core;
+using Unity;
 
 namespace InventorySystem
 {
@@ -25,7 +27,7 @@ namespace InventorySystem
         private void ShowProducts()
         {
             dgv_Products.Rows.Clear();
-            _products = InventorySystemApi.GetProducts();
+            _products = RootContainer.Container.Resolve<IInventorySystemApi>().GetProducts();
             foreach (var product in _products)
             {
                 AddNewProduct(product);
@@ -74,7 +76,7 @@ namespace InventorySystem
             var seletedItem = dgv_Products.CurrentRow.Tag as Product;
             if (seletedItem != null)
             {
-                InventorySystemApi.DeleteProduct(seletedItem);
+                RootContainer.Container.Resolve<IInventorySystemApi>().DeleteProduct(seletedItem);
                 ShowProducts();
                 MessageBox.Show("Удалено!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

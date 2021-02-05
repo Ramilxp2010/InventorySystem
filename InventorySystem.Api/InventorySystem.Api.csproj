@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiManager.cs" />
+    <Compile Include="IInventorySystemApi.cs" />
     <Compile Include="InventorySystemApi.cs" />
     <Compile Include="LoggingApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

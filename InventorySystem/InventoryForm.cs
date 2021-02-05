@@ -16,7 +16,6 @@ namespace InventorySystem
 {
     public partial class InventoryForm : Form, IInvoice
     {
-
         private WarehouseForm _warehouse;
         private BindingSource bs_Products;
         private IEnumerable<Product> _products;
@@ -27,7 +26,7 @@ namespace InventorySystem
             _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
 
             bs_Products = new BindingSource();
-            _products = InventorySystemApi.GetProducts();
+            _products = RootContainer.Container.Resolve<IInventorySystemApi>().GetProducts();
 
             bs_Products.DataSource = _products;
 
@@ -98,7 +97,7 @@ namespace InventorySystem
                     Number = tb_InvoiceNumber.Text
                 };
 
-                var inventoryId = InventorySystemApi.InventoryCreate(inventory);
+                var inventoryId = RootContainer.Container.Resolve<IInventorySystemApi>().InventoryCreate(inventory);
                 if (inventoryId == -1)
                 {
                     MessageBox.Show("Ну удалось добавить запись, обратись к системному администратору",
@@ -117,7 +116,7 @@ namespace InventorySystem
                         InventoryId = inventoryId,
                         Cost = 0
                     };
-                    InventorySystemApi.ProductWorkCreate(product);
+                    RootContainer.Container.Resolve<IInventorySystemApi>().ProductWorkCreate(product);
                 }
 
                 var result = MessageBox.Show("Накладная добавлена! Добавить новую накладную?",

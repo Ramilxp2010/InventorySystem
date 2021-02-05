@@ -31,8 +31,8 @@ namespace InventorySystem
 
             bs_Products = new BindingSource();
             bs_Providers = new BindingSource();
-            _products = InventorySystemApi.GetProducts();
-            _providers = InventorySystemApi.GetProviders();
+            _products = RootContainer.Container.Resolve<IInventorySystemApi>().GetProducts();
+            _providers = RootContainer.Container.Resolve<IInventorySystemApi>().GetProviders();
 
             bs_Products.DataSource = _products;
             bs_Providers.DataSource = _providers;
@@ -206,7 +206,7 @@ namespace InventorySystem
                     Number =  tb_PurchaseNumber.Text
                 };
 
-                var purchaseInvoiceId = InventorySystemApi.PurchaseInvoiceCreate(purchaseInvoice);
+                var purchaseInvoiceId = RootContainer.Container.Resolve<IInventorySystemApi>().PurchaseInvoiceCreate(purchaseInvoice);
                 if (purchaseInvoiceId == -1)
                 {
                     MessageBox.Show("Ну удалось добавить запись, обратись к системному администратору",
@@ -225,7 +225,7 @@ namespace InventorySystem
                         PurchaseInvoiceId = purchaseInvoiceId,
                         Cost = 0
                     };
-                    InventorySystemApi.ProductWorkCreate(product);
+                    RootContainer.Container.Resolve<IInventorySystemApi>().ProductWorkCreate(product);
                 }
 
                 var result = MessageBox.Show("Накладная добавлена! Добавить новую накладную?",
