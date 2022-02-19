@@ -13,7 +13,7 @@ using System.Runtime.CompilerServices;
 
 namespace InventorySystem.Api
 {
-    public class InventorySystemApi : IInventorySystemApi
+    public class InventorySystemApi : IInventorySystemApi 
     {
         public bool CheckServer()
         {
