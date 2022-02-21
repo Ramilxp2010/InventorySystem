@@ -16,7 +16,6 @@ namespace InventorySystem
 {
     public partial class InvoiceForm : Form
     {
-
         private WarehouseForm _warehouse;
         private BindingSource bs_Products;
         private List<WarehouseProduct> _products;

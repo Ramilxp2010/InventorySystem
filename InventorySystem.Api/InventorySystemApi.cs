@@ -17,16 +17,25 @@ namespace InventorySystem.Api
     {
         public bool CheckServer()
         {
-            using (var client = new HttpClient())
+            try
             {
-                var response = client.GetAsync(ApiManager.APP_PATH + $"/api/values/GetServerStatus/status");
-                var result = response.Result;
-                if (result.StatusCode == HttpStatusCode.OK)
+                using (var client = new HttpClient())
                 {
-                    var content = JsonConvert.DeserializeObject<bool>(result.Content.ReadAsStringAsync().Result); ;
-                    return content;
+                    var response = client.GetAsync(ApiManager.APP_PATH + $"/api/values/GetServerStatus/status");
+
+                    var result = response.Result;
+                    if (result?.StatusCode == HttpStatusCode.OK)
+                    {
+                        var content = JsonConvert.DeserializeObject<bool>(result.Content.ReadAsStringAsync().Result); ;
+                        return content;
+                    }
+
+                    return false;
                 }
 
+            }
+            catch
+            {
                 return false;
             }
         }
