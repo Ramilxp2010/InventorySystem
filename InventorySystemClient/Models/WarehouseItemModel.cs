@@ -20,6 +20,28 @@ namespace InventorySystemClient.Models
             }
         }
 
+        private string _productCode;
+        public string ProductCode
+        {
+            get => _productCode;
+            set
+            {
+                _productCode = value;
+                OnPropertyChanged("ProductCode");
+            }
+        }
+
+        private string _productMeasure;
+        public string ProductMeasure
+        {
+            get => _productMeasure;
+            set
+            {
+                _productMeasure = value;
+                OnPropertyChanged("ProductMeasure");
+            }
+        }
+
         private decimal _productCount;
         public decimal ProductCount
         {

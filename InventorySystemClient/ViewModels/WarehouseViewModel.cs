@@ -43,22 +43,31 @@ namespace InventorySystemClient.ViewModels
                  new WarehouseItemModel
                  {
                      ProductName = "Product 1",
-                     ProductCount = 1
+                     ProductCount = 1,
+                     ProductCode = "1010",
+                     ProductMeasure = "kg"
+
                  },
                  new WarehouseItemModel
                  {
                      ProductName = "Product 10",
-                     ProductCount = 10
+                     ProductCount = 10,
+                     ProductCode = "1010",
+                     ProductMeasure = "kg"
                  },
                  new WarehouseItemModel
                  {
                      ProductName = "Product 20",
-                     ProductCount = 20
+                     ProductCount = 20,
+                     ProductCode = "1010",
+                     ProductMeasure = "kg"
                  },
                  new WarehouseItemModel
                  {
                      ProductName = "Product 100",
-                     ProductCount = 100
+                     ProductCount = 100,
+                     ProductCode = "1010",
+                     ProductMeasure = "kg"
                  }
             };
         }
