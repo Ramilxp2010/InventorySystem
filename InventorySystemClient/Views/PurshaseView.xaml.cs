@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventorySystemClient.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace InventorySystemClient.Views
     /// </summary>
     public partial class PurshaseView : Page
     {
-        public PurshaseView()
+        public PurshaseView(Frame mainFrame)
         {
             InitializeComponent();
+            DataContext = new PurshaseViewModel(mainFrame);
         }
     }
 }

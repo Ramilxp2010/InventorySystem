@@ -39,5 +39,18 @@ namespace InventorySystemClient.ViewModels
                     }));
             }
         }
+
+        private RelayCommand _goToPurshaseCommand;
+        public RelayCommand GoToPurshaseCommand
+        {
+            get
+            {
+                return _goToPurshaseCommand ??
+                    (_goToPurshaseCommand = new RelayCommand(obj =>
+                    {
+                        MainFrame.Navigate(new PurshaseView(_mainFrame));
+                    }));
+            }
+        }
     }
 }

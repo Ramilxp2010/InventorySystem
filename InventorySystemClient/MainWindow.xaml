@@ -15,7 +15,7 @@
         <StackPanel Grid.Column="0" VerticalAlignment="Top" >
             <Button Content="Склад" Command="{Binding GoToWarehouseCommand}"
               Style="{StaticResource BtnStyle}"/>
-            <Button Content="Оприходовать товар" Command="{Binding GoToWarehouseCommand}"
+            <Button Content="Оприходовать товар" Command="{Binding GoToPurshaseCommand}"
               Style="{StaticResource BtnStyle}"/>
             <Button Content="Выдать товар" Command="{Binding GoToWarehouseCommand}"
               Style="{StaticResource BtnStyle}"/>

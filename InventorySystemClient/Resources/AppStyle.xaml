@@ -21,14 +21,15 @@
         <Setter Property="BorderBrush" Value="#edebeb"/>
     </Style>
     <Style x:Key="BtnStyle" TargetType="Button">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border BorderThickness="1" 
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border BorderThickness="1" 
                                 BorderBrush="#2da44e" 
                                 Background="#2da44e"
                                 CornerRadius="6">
-                        <TextBlock Text="{TemplateBinding Content}" 
+                            <TextBlock Text="{TemplateBinding Content}" 
                                        TextWrapping="Wrap"  
                                        HorizontalAlignment="Center" 
                                        VerticalAlignment="Center" 
@@ -37,12 +38,66 @@
                                        Foreground="#ffffff"
                                        FontWeight="Medium"
                                        />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="Height" Value="55"/>
-        <Setter Property="Margin" Value="10 10 10 0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="55"/>
+            <Setter Property="Margin" Value="10 10 10 0"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True" >
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border BorderThickness="1" 
+                                BorderBrush="Green" 
+                                Background="Green"
+                                CornerRadius="6" x:Name="border">
+                                <TextBlock Text="{TemplateBinding Content}" 
+                                       TextWrapping="Wrap"  
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center" 
+                                       Background="Green"
+                                       FontSize="14"
+                                       Foreground="#ffffff"
+                                       FontWeight="Medium"
+                                       />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="Gray"/>
+                                    <Setter Property="BorderThickness" TargetName="border" Value="3"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="TextBoxBaseStyle" TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+        <Style.Resources>
+            <VisualBrush x:Key="CueBannerBrush" 
+                                     AlignmentX="Left" 
+                                     AlignmentY="Center" 
+                                     Stretch="UniformToFill">
+                <VisualBrush.Visual>
+                    <Label Background="White" Content="Search" Foreground="LightGray" HorizontalContentAlignment="Left"/>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Style.Triggers>
+            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="Text" Value="{x:Null}">
+                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+            </Trigger>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter Property="Background" Value="White" />
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
