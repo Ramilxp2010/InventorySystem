@@ -6,26 +6,6 @@
              xmlns:local="clr-namespace:InventorySystemClient.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style x:Key="TextBoxSearchStyle" TargetType="TextBox">
-            <Style.Setters>
-                <Setter Property="Text" Value="Search" />
-            </Style.Setters>
-            <Style.Triggers>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsKeyboardFocused" Value="True" />
-                    </MultiTrigger.Conditions>
-                    <MultiTrigger.Setters>
-                        <Setter Property="FontSize" Value="14" />
-                        <Setter Property="Foreground" Value="Red" />
-                        <Setter Property="Text" Value="" />
-                    </MultiTrigger.Setters>
-                </MultiTrigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Resources>
-    
     <Grid>
         <TextBox  
             Padding="5 5" 

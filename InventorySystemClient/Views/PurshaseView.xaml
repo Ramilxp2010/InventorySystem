@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PurshaseView">
 
-    <Grid>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -16,26 +16,67 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.6*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBoxBaseStyle}"/>
-        <TextBox Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="2" Style="{StaticResource TextBoxBaseStyle}"/>
-        <TextBox Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBoxBaseStyle}"/>
-        <TextBox Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="2" Style="{StaticResource TextBoxBaseStyle}"/>
-        <TextBox Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBoxBaseStyle}"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxBaseStyle}"/>
-        <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource BtnStyle}"/>
-        <Button Grid.Row="2" Grid.Column="3" Style="{StaticResource BtnStyle}"/>
-        <Button Grid.Row="2" Grid.Column="3" Style="{StaticResource BtnStyle}"/>
-        <ListView Grid.Row="3" Grid.ColumnSpan="4"  ItemsSource="{Binding WarehouseItems}" 
+        <Label Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0"
+               VerticalAlignment="Bottom"
+               Content="Поставщик"/>
+        <TextBox Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="0"  
+                 Style="{StaticResource TextBoxBaseStyle}"/>
+
+        <Label Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="2"
+               VerticalAlignment="Bottom"
+               Content="Дата"/>
+        <DatePicker Grid.ColumnSpan="2" Grid.Row="1" Grid.Column="2" 
+                    Style="{StaticResource DatePickerStyle}" Margin="5 0 5 0"/>
+        <Label Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="0"
+               VerticalAlignment="Bottom"
+               Content="Номер накладной"/>
+        <TextBox Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="0"
+                 Style="{StaticResource TextBoxBaseStyle}"/>
+
+        <Label Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="2"
+               VerticalAlignment="Bottom"
+               Content="Назначение"/>
+        <TextBox Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="2" 
+                 Style="{StaticResource TextBoxBaseStyle}"/>
+
+        <Label Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="0"
+               VerticalAlignment="Bottom"
+               Content="Товар"/>
+        <TextBox Grid.Row="5" Grid.Column="0" 
+                 Style="{StaticResource TextBoxBaseStyle}"/>
+
+        <Label Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="1"
+               VerticalAlignment="Bottom"
+               Content="Кол-во"/>
+        <TextBox Grid.Row="5" Grid.Column="1" 
+                 Style="{StaticResource TextBoxBaseStyle}"/>
+
+        <Button Grid.Row="4" Grid.Column="2" Grid.RowSpan="2" 
+                Content="Add item"
+                Style="{StaticResource BtnStyle}"
+                VerticalAlignment="Bottom"
+                Margin="10 0 10 0"/>
+        <Button Grid.Row="4" Grid.Column="3" Grid.RowSpan="2"
+                Content="Create new item"
+                Style="{StaticResource BtnStyle}"
+                Margin="10 0 10 0"
+                VerticalAlignment="Bottom"
+                Background="#0a95ff"/>
+        <ListView Grid.Row="6" Grid.ColumnSpan="4"  ItemsSource="{Binding WarehouseItems}" 
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                 BorderThickness="0"
                 SelectedItem="{Binding SelectedWarehouseItem}"
                 HorizontalAlignment="Stretch"
-                HorizontalContentAlignment="Stretch">
+                HorizontalContentAlignment="Stretch"
+                  Margin="10">
             <ListView.Background>
                 <LinearGradientBrush EndPoint="0.511,0.996" StartPoint="0.51,0.002">
                     <GradientStop Color="#e6f7ff" Offset="0"/>
