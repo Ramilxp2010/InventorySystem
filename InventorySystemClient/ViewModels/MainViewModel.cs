@@ -52,5 +52,18 @@ namespace InventorySystemClient.ViewModels
                     }));
             }
         }
+
+        private RelayCommand _goToInvoiceCommand;
+        public RelayCommand GoToInvoiceCommand
+        {
+            get
+            {
+                return _goToInvoiceCommand ??
+                    (_goToInvoiceCommand = new RelayCommand(obj =>
+                    {
+                        MainFrame.Navigate(new InvoiceView(_mainFrame));
+                    }));
+            }
+        }
     }
 }

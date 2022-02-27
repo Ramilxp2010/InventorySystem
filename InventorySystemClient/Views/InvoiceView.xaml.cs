@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace InventorySystemClient.Views
 {
     /// <summary>
-    /// Interaction logic for PurshaseView.xaml
+    /// Interaction logic for InvoiceView.xaml
     /// </summary>
-    public partial class PurshaseView : Page
+    public partial class InvoiceView : Page
     {
-        public PurshaseView(Frame mainFrame)
+        public InvoiceView(Frame mainFrame)
         {
             InitializeComponent();
-            DataContext = new PurshaseViewModel(mainFrame);
+            DataContext = new InvoiceViewModel(mainFrame);
         }
     }
 }

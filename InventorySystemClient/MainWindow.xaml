@@ -17,7 +17,7 @@
               Style="{StaticResource BtnStyle}"/>
             <Button Content="Оприходовать товар" Command="{Binding GoToPurshaseCommand}"
               Style="{StaticResource BtnStyle}"/>
-            <Button Content="Выдать товар" Command="{Binding GoToWarehouseCommand}"
+            <Button Content="Выдать товар" Command="{Binding GoToInvoiceCommand}"
               Style="{StaticResource BtnStyle}"/>
             <Button Content="Инвентаризация" Command="{Binding GoToWarehouseCommand}"
               Style="{StaticResource BtnStyle}"/>
@@ -28,7 +28,7 @@
                NavigationUIVisibility="Hidden" 
                Name="_mainFrame"  
                Background="#FF7ABAF1"
-               Source="{Binding Path=MainFrame}">
+               Source="{Binding Path=MainFrame.Source}">
         </Frame>
     </Grid>
 </Window>
