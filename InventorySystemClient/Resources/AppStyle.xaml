@@ -316,8 +316,7 @@
                                         <ColorAnimationUsingKeyFrames BeginTime="0"
                                                 Duration="00:00:00.001"
                                                 Storyboard.TargetName="BackgroundGradient"
-                                                Storyboard.TargetProperty="(Border.Background).
-                    (GradientBrush.GradientStops)[3].(GradientStop.Color)">
+                                                Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[3].(GradientStop.Color)">
                                             <SplineColorKeyFrame KeyTime="0"
                                          Value="#6BFFFFFF" />
                                         </ColorAnimationUsingKeyFrames>
@@ -327,12 +326,12 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Grid Background="#11FFFFFF"
-                FlowDirection="LeftToRight"
-                HorizontalAlignment="Center"
-                Height="18"
-                Margin="0"
-                VerticalAlignment="Center"
-                Width="19">
+                            FlowDirection="LeftToRight"
+                            HorizontalAlignment="Center"
+                            Height="18"
+                            Margin="0"
+                            VerticalAlignment="Center"
+                            Width="19">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20*" />
                                 <ColumnDefinition Width="20*" />

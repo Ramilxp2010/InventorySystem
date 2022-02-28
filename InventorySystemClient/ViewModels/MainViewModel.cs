@@ -53,15 +53,15 @@ namespace InventorySystemClient.ViewModels
             }
         }
 
-        private RelayCommand _goToInvoiceCommand;
-        public RelayCommand GoToInvoiceCommand
+        private RelayCommand _goToInvoiceAddItemCommand;
+        public RelayCommand GoToInvoiceAddItemCommand
         {
             get
             {
-                return _goToInvoiceCommand ??
-                    (_goToInvoiceCommand = new RelayCommand(obj =>
+                return _goToInvoiceAddItemCommand ??
+                    (_goToInvoiceAddItemCommand = new RelayCommand(obj =>
                     {
-                        MainFrame.Navigate(new InvoiceView(_mainFrame));
+                        MainFrame.Navigate(new InvoiceAddItemView(_mainFrame));
                     }));
             }
         }
