@@ -27,7 +27,7 @@ namespace InventorySystem
         private void ShowUnits()
         {
             dgv_Units.Rows.Clear();
-            _units = RootContainer.Container.Resolve<IInventorySystemApi>().GetUnits();
+            _units = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetUnits();
             foreach (var unit in _units)
             {
                 AddNewUnit(unit);
@@ -73,7 +73,7 @@ namespace InventorySystem
             var seletedItem = dgv_Units.CurrentRow.Tag as Unit;
             if (seletedItem != null)
             {
-                RootContainer.Container.Resolve<IInventorySystemApi>().DeleteUnit(seletedItem);
+                RootContainer.Instance.Container.Resolve<IInventorySystemApi>().DeleteUnit(seletedItem);
                 ShowUnits();
                 MessageBox.Show("Удалено!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

@@ -23,10 +23,10 @@ namespace InventorySystem
         public InventoryForm()
         {
             InitializeComponent();
-            _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
+            _warehouse = RootContainer.Instance.Container.Resolve<WarehouseForm>();
 
             bs_Products = new BindingSource();
-            _products = RootContainer.Container.Resolve<IInventorySystemApi>().GetProducts();
+            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetProducts();
 
             bs_Products.DataSource = _products;
 
@@ -97,7 +97,7 @@ namespace InventorySystem
                     Number = tb_InvoiceNumber.Text
                 };
 
-                var inventoryId = RootContainer.Container.Resolve<IInventorySystemApi>().InventoryCreate(inventory);
+                var inventoryId = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().InventoryCreate(inventory);
                 if (inventoryId == -1)
                 {
                     MessageBox.Show("Ну удалось добавить запись, обратись к системному администратору",
@@ -116,7 +116,7 @@ namespace InventorySystem
                         InventoryId = inventoryId,
                         Cost = 0
                     };
-                    RootContainer.Container.Resolve<IInventorySystemApi>().ProductWorkCreate(product);
+                    RootContainer.Instance.Container.Resolve<IInventorySystemApi>().ProductWorkCreate(product);
                 }
 
                 var result = MessageBox.Show("Накладная добавлена! Добавить новую накладную?",
@@ -171,7 +171,7 @@ namespace InventorySystem
 
         private void btn_AddNewProduct_Click(object sender, EventArgs e)
         {
-            RootContainer.Container.RegisterInstance<IInvoice>(this);
+            RootContainer.Instance.Container.RegisterInstance<IInvoice>(this);
             new AddProductForm().Show();
         }
     }

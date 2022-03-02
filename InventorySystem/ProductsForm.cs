@@ -27,7 +27,7 @@ namespace InventorySystem
         private void ShowProducts()
         {
             dgv_Products.Rows.Clear();
-            _products = RootContainer.Container.Resolve<IInventorySystemApi>().GetProducts();
+            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetProducts();
             foreach (var product in _products)
             {
                 AddNewProduct(product);
@@ -76,7 +76,7 @@ namespace InventorySystem
             var seletedItem = dgv_Products.CurrentRow.Tag as Product;
             if (seletedItem != null)
             {
-                RootContainer.Container.Resolve<IInventorySystemApi>().DeleteProduct(seletedItem);
+                RootContainer.Instance.Container.Resolve<IInventorySystemApi>().DeleteProduct(seletedItem);
                 ShowProducts();
                 MessageBox.Show("Удалено!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

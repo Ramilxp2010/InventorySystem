@@ -40,12 +40,12 @@ namespace InventorySystem
 
                 if (_unit == null)
                 {
-                    RootContainer.Container.Resolve<IInventorySystemApi>().CreateUnit(unit);
+                    RootContainer.Instance.Container.Resolve<IInventorySystemApi>().CreateUnit(unit);
                     MessageBox.Show("Ед.изм добавлена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    RootContainer.Container.Resolve<IInventorySystemApi>().UpdateUnit(unit);
+                    RootContainer.Instance.Container.Resolve<IInventorySystemApi>().UpdateUnit(unit);
                     MessageBox.Show("Ед.изм обновлена!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

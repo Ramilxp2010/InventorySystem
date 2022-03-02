@@ -62,6 +62,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GuideManager.cs" />
+    <Compile Include="Interfaces\IInventoryManager.cs" />
+    <Compile Include="Interfaces\IInvoiceManager.cs" />
+    <Compile Include="Interfaces\IProductManager.cs" />
+    <Compile Include="Interfaces\IProductWorkManager.cs" />
+    <Compile Include="Interfaces\IProviderManager.cs" />
+    <Compile Include="Interfaces\IPurchaseInvoiceManager.cs" />
+    <Compile Include="Interfaces\IUnitManager.cs" />
+    <Compile Include="Interfaces\IWarehouseProductManager.cs" />
     <Compile Include="InventorySystemEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseInvoiceManager.cs" />

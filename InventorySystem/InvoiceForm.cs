@@ -23,10 +23,10 @@ namespace InventorySystem
         public InvoiceForm()
         {
             InitializeComponent();
-            _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
+            _warehouse = RootContainer.Instance.Container.Resolve<WarehouseForm>();
             bs_Products = new BindingSource();
 
-            _products = RootContainer.Container.Resolve<IInventorySystemApi>().GetWarehouseProducts().ToList();
+            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetWarehouseProducts().ToList();
             SetWareHouse(_products);
 
             dgv_Warehouse.DataSource = bs_Products;
@@ -114,7 +114,7 @@ namespace InventorySystem
                     Number = tb_InvoiceNumber.Text
                 };
 
-                var invoiceId = RootContainer.Container.Resolve<IInventorySystemApi>().InvoiceCreate(invoice);
+                var invoiceId = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().InvoiceCreate(invoice);
                 if (invoiceId == -1)
                 {
                     MessageBox.Show("Ну удалось добавить запись, обратись к системному администратору",
@@ -133,7 +133,7 @@ namespace InventorySystem
                         InvoiceId = invoiceId,
                         Cost = 0
                     };
-                    RootContainer.Container.Resolve<IInventorySystemApi>().ProductWorkCreate(product);
+                    RootContainer.Instance.Container.Resolve<IInventorySystemApi>().ProductWorkCreate(product);
                 }
 
                 var result = MessageBox.Show("Накладная добавлена! Добавить новую накладную?",

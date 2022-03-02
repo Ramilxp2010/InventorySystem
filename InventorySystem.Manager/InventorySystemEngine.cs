@@ -21,11 +21,11 @@ namespace InventorySystem.Manager
 
         public InventorySystemEngine()
         {
-            _productRepository = RootContainer.Container.Resolve<IGenericRepository<Product>>();
-            _productWorkRepository = RootContainer.Container.Resolve<IGenericRepository<ProductWork>>();
-            _purchaseRepository = RootContainer.Container.Resolve<IGenericRepository<PurchaseInvoice>>();
-            _invoiceRepository = RootContainer.Container.Resolve<IGenericRepository<Invoice>>();
-            _inventoryRepository = RootContainer.Container.Resolve<IGenericRepository<Inventory>>();
+            _productRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Product>>();
+            _productWorkRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<ProductWork>>();
+            _purchaseRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<PurchaseInvoice>>();
+            _invoiceRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Invoice>>();
+            _inventoryRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Inventory>>();
         }
 
         public List<WarehouseProduct> GetWarehouseProducts()

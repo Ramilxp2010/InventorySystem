@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using InventorySystem.Api;
 using InventorySystem.Contract;
 using InventorySystem.Core;
+using InventorySystem.Manager.Interfaces;
 using Unity;
 
 namespace InventorySystem
@@ -38,7 +39,7 @@ namespace InventorySystem
         private void LoadComponents()
         {
             bs_Units = new BindingSource();
-            _units = RootContainer.Container.Resolve<IInventorySystemApi>().GetUnits();
+            _units = RootContainer.Instance.Container.Resolve<IUnitManager>().GetUnits();
 
             bs_Units.DataSource = _units;
             cmb_Unit.DataSource = bs_Units;
@@ -63,12 +64,12 @@ namespace InventorySystem
 
                 if (_product == null)
                 {
-                    var status = RootContainer.Container.Resolve<IInventorySystemApi>().CreateProduct(product);
+                    var status = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().CreateProduct(product);
                     MessageBox.Show($"Продукт обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    RootContainer.Container.Resolve<IInventorySystemApi>().UpdateProduct(product);
+                    RootContainer.Instance.Container.Resolve<IInventorySystemApi>().UpdateProduct(product);
                     MessageBox.Show("Продукт обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 

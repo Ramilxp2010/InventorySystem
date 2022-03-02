@@ -7,13 +7,30 @@ using Unity;
 
 namespace InventorySystem.Core
 {
-    public static class RootContainer
+    public class RootContainer
     {
-        public static UnityContainer Container;
+        public UnityContainer Container;
 
-        static RootContainer()
+        private RootContainer()
         {
             Container = new UnityContainer();
+        }
+
+        private static RootContainer _instance;
+        public static RootContainer Instance 
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new RootContainer();
+
+                return _instance;
+            }
+        }
+
+        public void Register()
+        {
+
         }
     }
 }

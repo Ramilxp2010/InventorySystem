@@ -54,6 +54,10 @@
       <Project>{07729941-4e89-4776-ac09-91f3a6fd872b}</Project>
       <Name>InventorySystem.Contract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InventorySystem.Manager\InventorySystem.Manager.csproj">
+      <Project>{94484310-D3F0-4BDE-9883-78B363476059}</Project>
+      <Name>InventorySystem.Manager</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

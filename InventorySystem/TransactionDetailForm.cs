@@ -56,7 +56,7 @@ namespace InventorySystem
 
         private void HandlePurchaseInvoice(PurchaseInvoice invoice)
         {
-            _products = RootContainer.Container.Resolve<IInventorySystemApi>().GetProductByPurchaseInvoice(invoice);
+            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetProductByPurchaseInvoice(invoice);
             SetFields(invoice.Number, invoice.Provider.Name, invoice.Date);
             label7.Text = "Поставщик ";
             this.Text = $"Приходная накладная, №{invoice.Number}";
@@ -64,14 +64,14 @@ namespace InventorySystem
 
         private void HandleInvoice(Invoice invoice)
         {
-            _products = RootContainer.Container.Resolve<IInventorySystemApi>().GetProductByInvoice(invoice);
+            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetProductByInvoice(invoice);
             SetFields(invoice.Number, invoice.ResponsibleName, invoice.Date, invoice.Goal);
             this.Text = $"Накладная, №{invoice.Number}";
         }
 
         private void HandleInventory(Inventory inventory)
         {
-            _products = RootContainer.Container.Resolve<IInventorySystemApi>().GetProductByInventory(inventory);
+            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetProductByInventory(inventory);
             SetFields(inventory.Number, inventory.ResponsibleName, inventory.Date);
             label7.Text = "Ответственный ";
             this.Text = $"Инвентаризация, №{inventory.Number}";

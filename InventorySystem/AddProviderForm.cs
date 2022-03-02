@@ -41,12 +41,12 @@ namespace InventorySystem
 
                 if (_provider == null)
                 {
-                    RootContainer.Container.Resolve<IInventorySystemApi>().CreateProvider(provider);
+                    RootContainer.Instance.Container.Resolve<IInventorySystemApi>().CreateProvider(provider);
                     MessageBox.Show("Поставщик добавлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    RootContainer.Container.Resolve<IInventorySystemApi>().UpdateProvider(provider);
+                    RootContainer.Instance.Container.Resolve<IInventorySystemApi>().UpdateProvider(provider);
                     MessageBox.Show("Поставщик обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

@@ -1,4 +1,5 @@
-﻿using InventorySystemClient.Models;
+﻿using InventorySystemClient.Commands;
+using InventorySystemClient.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +12,17 @@ namespace InventorySystemClient.ViewModels
 {
     public class WarehouseViewModel : BaseViewModel
     {
+        private ObservableCollection<WarehouseItemModel> _warehouseItems;
+        public ObservableCollection<WarehouseItemModel> WarehouseItems 
+        {
+            get { return _warehouseItems; }
+            set 
+            {
+                _warehouseItems = value;
+                OnPropertyChanged("WarehouseItems");
+            }
+        }
+
         private Frame _mainFrame;
         public Frame MainFrame
         {
@@ -33,7 +45,33 @@ namespace InventorySystemClient.ViewModels
             }
         }
 
-        public ObservableCollection<WarehouseItemModel> WarehouseItems { get; set; }
+        private string _text;
+        public string Text 
+        {
+            get { return _text; }
+            set
+            {
+                _text = value;
+                OnPropertyChanged("Text");
+
+                if (_text.Length > 3)
+                    WarehouseItems = new ObservableCollection<WarehouseItemModel>(WarehouseItems.Where(x => x.ProductName.Contains(_text)));
+            }
+        }
+
+        private RelayCommand _mouseEnterItem;
+        public RelayCommand MouseEnterCommand
+        {
+            get => _mouseEnterItem ??
+                (
+                    _mouseEnterItem = new RelayCommand(obj=> 
+                    {
+                        int a = 20;
+                        int b = 2;
+                        int c = a + b;
+                    })
+                );
+        }
 
         public WarehouseViewModel(Frame mainFrame) 
         {
@@ -42,7 +80,7 @@ namespace InventorySystemClient.ViewModels
             {
                  new WarehouseItemModel
                  {
-                     ProductName = "Product 1",
+                     ProductName = "Apple 1",
                      ProductCount = 1,
                      ProductCode = "1010",
                      ProductMeasure = "kg"
@@ -50,14 +88,14 @@ namespace InventorySystemClient.ViewModels
                  },
                  new WarehouseItemModel
                  {
-                     ProductName = "Product 10",
+                     ProductName = "Apple juice 10",
                      ProductCount = 10,
                      ProductCode = "1010",
                      ProductMeasure = "kg"
                  },
                  new WarehouseItemModel
                  {
-                     ProductName = "Product 20",
+                     ProductName = "Banana 20",
                      ProductCount = 20,
                      ProductCode = "1010",
                      ProductMeasure = "kg"

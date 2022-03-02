@@ -277,6 +277,10 @@
       <Project>{98092816-7ddc-45fd-88ed-c1d8a25dcc08}</Project>
       <Name>InventorySystem.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\InventorySystem.Manager\InventorySystem.Manager.csproj">
+      <Project>{94484310-D3F0-4BDE-9883-78B363476059}</Project>
+      <Name>InventorySystem.Manager</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="702455.ico" />

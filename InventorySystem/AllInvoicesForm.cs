@@ -24,15 +24,15 @@ namespace InventorySystem
         public AllInvoicesForm()
         {
             InitializeComponent();
-            _purchaseInvoices = RootContainer.Container.Resolve<IInventorySystemApi>().GetPurchaseInvoices();
+            _purchaseInvoices = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetPurchaseInvoices();
             ShowPurchaseInvoices(_purchaseInvoices);
             EnablePurchaseDate(false);
 
-            _invoices = RootContainer.Container.Resolve<IInventorySystemApi>().GetInvoices();
+            _invoices = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetInvoices();
             ShowInvoices(_invoices);
             EnableInvoiceDate(false);
 
-            _inventories = RootContainer.Container.Resolve<IInventorySystemApi>().GetInventories();
+            _inventories = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetInventories();
             ShowInventories(_inventories);
             EnableInventoryDate(false);
         }

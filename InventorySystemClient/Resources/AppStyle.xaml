@@ -517,7 +517,7 @@
                                 VerticalContentAlignment="Center"
                                 VerticalAlignment="Center"
                                 Margin="5" 
-                                FontSize="14"
+                                FontSize="{TemplateBinding FontSize}"
                                 FontWeight="Medium"
                                 Background="#f6f8fa" Style="{StaticResource DatePickerTextBoxStyle}">
                             </DatePickerTextBox>

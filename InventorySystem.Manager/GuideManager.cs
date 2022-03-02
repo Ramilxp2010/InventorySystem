@@ -22,13 +22,13 @@ namespace InventorySystem.Manager
 
         public GuideManager()
         {
-            _productRepository = RootContainer.Container.Resolve<IGenericRepository<Product>>();
-            _unitRepository = RootContainer.Container.Resolve<IGenericRepository<Unit>>();
-            _providerRepository = RootContainer.Container.Resolve<IGenericRepository<Provider>>();
-            _purchaseInvoiceRepository = RootContainer.Container.Resolve<IGenericRepository<PurchaseInvoice>>();
-            _invoiceRepository = RootContainer.Container.Resolve<IGenericRepository<Invoice>>();
-            _inventoryRepository = RootContainer.Container.Resolve<IGenericRepository<Inventory>>();
-            _productWorkRepository = RootContainer.Container.Resolve<IGenericRepository<ProductWork>>();
+            _productRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Product>>();
+            _unitRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Unit>>();
+            _providerRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Provider>>();
+            _purchaseInvoiceRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<PurchaseInvoice>>();
+            _invoiceRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Invoice>>();
+            _inventoryRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Inventory>>();
+            _productWorkRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<ProductWork>>();
         }
 
         /// <summary>

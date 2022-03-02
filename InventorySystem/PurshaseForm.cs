@@ -27,12 +27,12 @@ namespace InventorySystem
         {
             InitializeComponent();
 
-            _warehouse = RootContainer.Container.Resolve<WarehouseForm>();
+            _warehouse = RootContainer.Instance.Container.Resolve<WarehouseForm>();
 
             bs_Products = new BindingSource();
             bs_Providers = new BindingSource();
-            _products = RootContainer.Container.Resolve<IInventorySystemApi>().GetProducts();
-            _providers = RootContainer.Container.Resolve<IInventorySystemApi>().GetProviders();
+            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetProducts();
+            _providers = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetProviders();
 
             bs_Products.DataSource = _products;
             bs_Providers.DataSource = _providers;
@@ -206,7 +206,7 @@ namespace InventorySystem
                     Number =  tb_PurchaseNumber.Text
                 };
 
-                var purchaseInvoiceId = RootContainer.Container.Resolve<IInventorySystemApi>().PurchaseInvoiceCreate(purchaseInvoice);
+                var purchaseInvoiceId = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().PurchaseInvoiceCreate(purchaseInvoice);
                 if (purchaseInvoiceId == -1)
                 {
                     MessageBox.Show("Ну удалось добавить запись, обратись к системному администратору",
@@ -225,7 +225,7 @@ namespace InventorySystem
                         PurchaseInvoiceId = purchaseInvoiceId,
                         Cost = 0
                     };
-                    RootContainer.Container.Resolve<IInventorySystemApi>().ProductWorkCreate(product);
+                    RootContainer.Instance.Container.Resolve<IInventorySystemApi>().ProductWorkCreate(product);
                 }
 
                 var result = MessageBox.Show("Накладная добавлена! Добавить новую накладную?",
@@ -287,7 +287,7 @@ namespace InventorySystem
 
         private void btn_AddNewProduct_Click(object sender, EventArgs e)
         {
-            RootContainer.Container.RegisterInstance<IInvoice>(this);
+            RootContainer.Instance.Container.RegisterInstance<IInvoice>(this);
             new AddProductForm().Show();
         }
     }

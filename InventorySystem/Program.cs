@@ -21,10 +21,10 @@ namespace InventorySystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            RootContainer.Container.RegisterType<IInventorySystemApi, InventorySystemApi>();
-            RootContainer.Container.RegisterInstance<WarehouseForm>(new WarehouseForm());
+            RootContainer.Instance.Container.RegisterType<IInventorySystemApi, InventorySystemApi>();
+            RootContainer.Instance.Container.RegisterInstance<WarehouseForm>(new WarehouseForm());
 
-            var warehouse = RootContainer.Container.Resolve<WarehouseForm>();
+            var warehouse = RootContainer.Instance.Container.Resolve<WarehouseForm>();
 
             Application.Run(warehouse);
         }

@@ -16,7 +16,7 @@ namespace InventorySystem.DataAccess.Implementation
 
         public GenericRepository()
         {
-            _context = RootContainer.Container.Resolve<InventoryContext>();
+            _context = RootContainer.Instance.Container.Resolve<InventoryContext>();
             _dbSet = _context.Set<TEntity>();
         }
         
