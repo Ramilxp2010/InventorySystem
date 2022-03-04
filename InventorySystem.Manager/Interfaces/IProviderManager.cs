@@ -7,8 +7,8 @@ namespace InventorySystem.Manager.Interfaces
     {
         int CreateProvider(Provider item);
         IEnumerable<Provider> GetProviders(bool showIsDelete = false);
-        string UpdateProvider(Provider item);
-        string DeleteProvider(Provider item);
+        void UpdateProvider(Provider item);
+        void DeleteProvider(Provider item);
 
     }
 }

@@ -10,7 +10,8 @@ namespace InventorySystem.Manager.Interfaces
     public interface IPurchaseInvoiceManager
     {
         int PurchaseInvoiceCreate(PurchaseInvoice item);
-        string PurchaseInvoiceUpdate(PurchaseInvoice item);
+        void PurchaseInvoiceUpdate(PurchaseInvoice item);
         IEnumerable<PurchaseInvoice> GetPurchaseInvoices();
+        IEnumerable<PurchaseInvoice> GetPurchaseInvoicesWithProducts();
     }
 }

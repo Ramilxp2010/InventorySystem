@@ -6,8 +6,8 @@ namespace InventorySystem.Manager.Interfaces
     public interface IProductManager
     {
         int CreateProduct(Product item);
+        void UpdateProduct(Product item);
+        void DeleteProduct(Product item);
         IEnumerable<Product> GetProducts(bool showIsDelete = false);
-        string UpdateProduct(Product item);
-        string DeleteProduct(Product item);
     }
 }

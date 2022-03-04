@@ -61,7 +61,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GuideManager.cs" />
+    <Compile Include="Implementations\WarehouseProductManager.cs" />
+    <Compile Include="LoggingManager.cs" />
+    <Compile Include="Implementations\ProductManager.cs" />
+    <Compile Include="Implementations\ProductWorkManager.cs" />
+    <Compile Include="Implementations\InvoiceManager.cs" />
+    <Compile Include="Implementations\InventoryManager.cs" />
+    <Compile Include="Implementations\ProviderManager.cs" />
+    <Compile Include="Implementations\UnitManager.cs" />
     <Compile Include="Interfaces\IInventoryManager.cs" />
     <Compile Include="Interfaces\IInvoiceManager.cs" />
     <Compile Include="Interfaces\IProductManager.cs" />
@@ -70,9 +77,8 @@
     <Compile Include="Interfaces\IPurchaseInvoiceManager.cs" />
     <Compile Include="Interfaces\IUnitManager.cs" />
     <Compile Include="Interfaces\IWarehouseProductManager.cs" />
-    <Compile Include="InventorySystemEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurchaseInvoiceManager.cs" />
+    <Compile Include="Implementations\PurchaseInvoiceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InventorySystem.Contract\InventorySystem.Contract.csproj">
@@ -99,5 +105,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

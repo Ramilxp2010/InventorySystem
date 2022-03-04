@@ -7,7 +7,7 @@ namespace InventorySystem.Manager.Interfaces
     {
         int CreateUnit(Unit item);
         IEnumerable<Unit> GetUnits(bool showIsDelete = false);
-        string UpdateUnit(Unit item);
-        string DeleteUnit(Unit item);
+        void UpdateUnit(Unit item);
+        void DeleteUnit(Unit item);
     }
 }

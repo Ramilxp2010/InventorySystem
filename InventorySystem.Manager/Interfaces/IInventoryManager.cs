@@ -10,7 +10,8 @@ namespace InventorySystem.Manager.Interfaces
     public interface IInventoryManager
     {
         int InventoryCreate(Inventory item);
+        void InventoryUpdate(Inventory item);
         List<Inventory> GetInventories();
-        string InventoryUpdate(Inventory item);
+        List<Inventory> GetInventoriesWithProducts();
     }
 }

@@ -8,23 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity;
 using NLog;
+using InventorySystem.Manager.Interfaces;
 
 namespace InventorySystem.Manager
 {
-    public class PurchaseInvoiceManager
+    public class ProductWorkManager : IProductWorkManager
     {
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         private IGenericRepository<ProductWork> _productWorkRepository;
-        private IGenericRepository<PurchaseInvoice> _purchaseRepository;
-        private IGenericRepository<Invoice> _invoiceRepository;
-        private IGenericRepository<Inventory> _inventoryRepository;
 
-        public PurchaseInvoiceManager()
+        public ProductWorkManager()
         {
             _productWorkRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<ProductWork>>();
-            _purchaseRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<PurchaseInvoice>>();
-            _invoiceRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Invoice>>();
-            _inventoryRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Inventory>>();
         }
 
         public int ProductWorkCreate(ProductWork item)
@@ -68,34 +63,25 @@ namespace InventorySystem.Manager
                 work => work.Product.Unit);
         }
 
-        public int PurchaseInvoiceCreate(PurchaseInvoice item)
+        public IEnumerable<ProductWork> GetProductByInventory(Inventory item)
         {
-            return _purchaseRepository.Create(item).Id;
+            return _productWorkRepository.GetWithInclude(x => x.InventoryId == item.Id,
+                work => work.Product,
+                work => work.Product.Unit);
         }
 
-        public void PurchaseInvoiceUpdate(PurchaseInvoice item)
+        public IEnumerable<ProductWork> GetProductByInvoice(Invoice item)
         {
-            _purchaseRepository.Update(item);
-        }
-        
-        public int InvoiceCreate(Invoice item)
-        {
-            return _invoiceRepository.Create(item).Id;
+            return _productWorkRepository.GetWithInclude(x => x.InvoiceId == item.Id,
+                work => work.Product,
+                work => work.Product.Unit);
         }
 
-        public void InvoiceUpdate(Invoice item)
+        public IEnumerable<ProductWork> GetProductByPurchaseInvoice(PurchaseInvoice item)
         {
-            _invoiceRepository.Update(item);
-        }
-
-        public int InventoryCreate(Inventory item)
-        {
-            return _inventoryRepository.Create(item).Id;
-        }
-
-        public void InventoryUpdate(Inventory item)
-        {
-            _inventoryRepository.Update(item);
+            return _productWorkRepository.GetWithInclude(x => x.PurchaseInvoiceId == item.Id,
+                work => work.Product,
+                work => work.Product.Unit);
         }
     }
 }

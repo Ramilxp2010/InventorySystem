@@ -6,7 +6,8 @@ namespace InventorySystem.Manager.Interfaces
     public interface IInvoiceManager
     {
         int InvoiceCreate(Invoice item);
+        void InvoiceUpdate(Invoice item);
         IEnumerable<Invoice> GetInvoices();
-        string InvoiceUpdate(Invoice item);
+        IEnumerable<Invoice> GetInvoicesWithProducts();
     }
 }
