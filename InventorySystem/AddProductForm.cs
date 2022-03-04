@@ -11,6 +11,7 @@ using InventorySystem.Contract;
 using InventorySystem.Core;
 using Unity;
 using InventorySystem.Api;
+using InventorySystem.Manager.Interfaces;
 
 namespace InventorySystem
 {
@@ -24,7 +25,7 @@ namespace InventorySystem
         {
             InitializeComponent();
             bs_Units = new BindingSource();
-            _units = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetUnits();
+            _units = RootContainer.Instance.Container.Resolve<IUnitManager>().GetUnits();
             bs_Units.DataSource = _units;
 
             cmb_Unit.DataSource = bs_Units;
@@ -47,7 +48,7 @@ namespace InventorySystem
                     Description = tb_Description.Text,
                     UnitId = unit.Id
                 };
-                RootContainer.Instance.Container.Resolve<IInventorySystemApi>().CreateProduct(product);
+                RootContainer.Instance.Container.Resolve<IProductManager>().CreateProduct(product);
                 
                 var purshase = RootContainer.Instance.Container.Resolve<IInvoice>();
                 purshase.AddProduct(product, count, unit);

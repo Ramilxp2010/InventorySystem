@@ -11,6 +11,7 @@ using InventorySystem.Contract;
 using InventorySystem.Core;
 using InventorySystem.Api;
 using Unity;
+using InventorySystem.Manager.Interfaces;
 
 namespace InventorySystem
 {
@@ -42,7 +43,7 @@ namespace InventorySystem
         private void btn_Purshase_Click(object sender, EventArgs e)
         {
             new PurshaseForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetWarehouseProducts().ToList();
+            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
@@ -54,14 +55,14 @@ namespace InventorySystem
         private void brn_Invoice_Click(object sender, EventArgs e)
         {
             new InvoiceForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetWarehouseProducts().ToList();
+            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
         private void btn_Inventory_Click(object sender, EventArgs e)
         {
             new InventoryForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetWarehouseProducts().ToList();
+            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
@@ -73,21 +74,21 @@ namespace InventorySystem
         private void продуктToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ProductsForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetWarehouseProducts().ToList();
+            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
         private void поставщикToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ProvidersForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetWarehouseProducts().ToList();
+            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
         private void едизмToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new UnitForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetWarehouseProducts().ToList();
+            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
             LoadComponents(_products);
         }
 
@@ -110,7 +111,7 @@ namespace InventorySystem
             if (RootContainer.Instance.Container.Resolve<IInventorySystemApi>().CheckServer())
             {
                 bs_Products = new BindingSource();
-                _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetWarehouseProducts().ToList();
+                _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
                 LoadComponents(_products);
 
                 dgv_products.DataSource = bs_Products;

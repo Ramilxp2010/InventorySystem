@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
+using InventorySystem.Manager.Interfaces;
 
 namespace InventorySystem
 {
@@ -26,7 +27,7 @@ namespace InventorySystem
             _warehouse = RootContainer.Instance.Container.Resolve<WarehouseForm>();
             bs_Products = new BindingSource();
 
-            _products = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetWarehouseProducts().ToList();
+            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
             SetWareHouse(_products);
 
             dgv_Warehouse.DataSource = bs_Products;
@@ -114,7 +115,7 @@ namespace InventorySystem
                     Number = tb_InvoiceNumber.Text
                 };
 
-                var invoiceId = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().InvoiceCreate(invoice);
+                var invoiceId = RootContainer.Instance.Container.Resolve<IInvoiceManager>().InvoiceCreate(invoice);
                 if (invoiceId == -1)
                 {
                     MessageBox.Show("Ну удалось добавить запись, обратись к системному администратору",
@@ -133,7 +134,7 @@ namespace InventorySystem
                         InvoiceId = invoiceId,
                         Cost = 0
                     };
-                    RootContainer.Instance.Container.Resolve<IInventorySystemApi>().ProductWorkCreate(product);
+                    RootContainer.Instance.Container.Resolve<IProductWorkManager>().ProductWorkCreate(product);
                 }
 
                 var result = MessageBox.Show("Накладная добавлена! Добавить новую накладную?",

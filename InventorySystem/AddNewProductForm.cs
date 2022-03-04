@@ -64,12 +64,12 @@ namespace InventorySystem
 
                 if (_product == null)
                 {
-                    var status = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().CreateProduct(product);
+                    var status = RootContainer.Instance.Container.Resolve<IProductManager>().CreateProduct(product);
                     MessageBox.Show($"Продукт обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    RootContainer.Instance.Container.Resolve<IInventorySystemApi>().UpdateProduct(product);
+                    RootContainer.Instance.Container.Resolve<IProductManager>().UpdateProduct(product);
                     MessageBox.Show("Продукт обновлен!", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 

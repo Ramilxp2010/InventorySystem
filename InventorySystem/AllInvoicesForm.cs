@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InventorySystem.Core;
 using Unity;
+using InventorySystem.Manager.Interfaces;
 
 namespace InventorySystem
 {
@@ -24,15 +25,15 @@ namespace InventorySystem
         public AllInvoicesForm()
         {
             InitializeComponent();
-            _purchaseInvoices = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetPurchaseInvoices();
+            _purchaseInvoices = RootContainer.Instance.Container.Resolve<IPurchaseInvoiceManager>().GetPurchaseInvoices();
             ShowPurchaseInvoices(_purchaseInvoices);
             EnablePurchaseDate(false);
 
-            _invoices = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetInvoices();
+            _invoices = RootContainer.Instance.Container.Resolve<IInvoiceManager>().GetInvoices();
             ShowInvoices(_invoices);
             EnableInvoiceDate(false);
 
-            _inventories = RootContainer.Instance.Container.Resolve<IInventorySystemApi>().GetInventories();
+            _inventories = RootContainer.Instance.Container.Resolve<IInventoryManager>().GetInventories();
             ShowInventories(_inventories);
             EnableInventoryDate(false);
         }
