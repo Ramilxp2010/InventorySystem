@@ -10,7 +10,7 @@ using Unity;
 using NLog;
 using InventorySystem.Manager.Interfaces;
 
-namespace InventorySystem.Manager
+namespace InventorySystem.Manager.Implementations
 {
     public class PurchaseInvoiceManager : IPurchaseInvoiceManager
     {
