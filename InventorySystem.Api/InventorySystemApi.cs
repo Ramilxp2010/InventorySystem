@@ -222,5 +222,20 @@ namespace InventorySystem.Api
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<ProductWork> GetProductByInventory(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ProductWork> GetProductByInvoice(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<ProductWork> GetProductByPurchaseInvoice(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

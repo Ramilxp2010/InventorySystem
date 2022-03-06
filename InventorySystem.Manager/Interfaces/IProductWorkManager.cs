@@ -10,5 +10,8 @@ namespace InventorySystem.Manager.Interfaces
         IEnumerable<ProductWork> GetProductByInventory(Inventory item);
         IEnumerable<ProductWork> GetProductByInvoice(Invoice item);
         IEnumerable<ProductWork> GetProductByPurchaseInvoice(PurchaseInvoice item);
+        IEnumerable<ProductWork> GetProductByInventory(int id);
+        IEnumerable<ProductWork> GetProductByInvoice(int id);
+        IEnumerable<ProductWork> GetProductByPurchaseInvoice(int id);
     }
 }

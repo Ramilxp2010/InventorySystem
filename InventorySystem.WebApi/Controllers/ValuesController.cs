@@ -1,19 +1,34 @@
-﻿using InventorySystem.Manager;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using InventorySystem.Contract;
+using InventorySystem.Core;
+using Unity;
+using InventorySystem.Manager.Interfaces;
 
 namespace InventorySystem.WebApi.Controllers
 {
     public class ValuesController : ApiController
     {
-        GuideManager _guideManager = new GuideManager();
-        PurchaseInvoiceManager _invoiceManager = new PurchaseInvoiceManager();
-        InventorySystemEngine _engine = new InventorySystemEngine();
+        private IInvoiceManager _invoiceManager;
+        private IUnitManager _unitManager;
+        private IProductManager _productManager;
+        private IInventoryManager _inventoryManager;
+        private IPurchaseInvoiceManager _purchaseInvoiceManager;
+        private IProductWorkManager _productWorkManager;
+        private IProviderManager _providerManager;
+        private IWarehouseProductManager _warehouseProductManager;
+
+        public ValuesController()
+        {
+            _invoiceManager = RootContainer.Instance.Container.Resolve<IInvoiceManager>();
+            _unitManager = RootContainer.Instance.Container.Resolve<IUnitManager>();
+            _productManager = RootContainer.Instance.Container.Resolve<IProductManager>();
+            _inventoryManager = RootContainer.Instance.Container.Resolve<IInventoryManager>();
+            _purchaseInvoiceManager = RootContainer.Instance.Container.Resolve<IPurchaseInvoiceManager>();
+            _productWorkManager = RootContainer.Instance.Container.Resolve<IProductWorkManager>();
+            _providerManager = RootContainer.Instance.Container.Resolve<IProviderManager>();
+            _warehouseProductManager = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>();
+        }
 
         [HttpGet]
         public bool GetServerStatus([FromBody]string status)
@@ -29,7 +44,7 @@ namespace InventorySystem.WebApi.Controllers
         [HttpPost]
         public IHttpActionResult Logging([FromBody]Log item)
         {
-            _guideManager.MessageFromUI(item);
+            //RootContainer.Instance.Container.MessageFromUI(item);
             return Ok();
         }
 
@@ -37,22 +52,22 @@ namespace InventorySystem.WebApi.Controllers
 
         public IEnumerable<Product> GetProducts(bool showIsDelete = false)
         {
-            return _guideManager.GetProducts(showIsDelete);
+            return _productManager.GetProducts(showIsDelete);
         }
 
         public int CreateProduct([FromBody]Product item)
         {
-            return _guideManager.CreateProduct(item);
+            return _productManager.CreateProduct(item);
         }
 
         public void UpdateProduct([FromBody]Product item)
         {
-            _guideManager.UpdateProduct(item);
+            _productManager.UpdateProduct(item);
         }
 
         public void RemoveProduct([FromBody]Product item)
         {
-            _guideManager.DeleteProduct(item);
+            _productManager.DeleteProduct(item);
         }
 
         #endregion Product
@@ -61,22 +76,22 @@ namespace InventorySystem.WebApi.Controllers
 
         public IEnumerable<Unit> GetUnits(bool showIsDelete = false)
         {
-            return _guideManager.GetUnits(showIsDelete);
+            return _unitManager.GetUnits(showIsDelete);
         }
 
         public int CreateUnit([FromBody]Unit item)
         {
-            return _guideManager.CreateUnit(item);
+            return _unitManager.CreateUnit(item);
         }
 
         public void UpdateUnit([FromBody]Unit item)
         {
-            _guideManager.UpdateUnit(item);
+            _unitManager.UpdateUnit(item);
         }
 
         public void RemoveUnit([FromBody]Unit item)
         {
-            _guideManager.DeleteUnit(item);
+            _unitManager.DeleteUnit(item);
         }
 
         #endregion Unit
@@ -85,22 +100,22 @@ namespace InventorySystem.WebApi.Controllers
 
         public IEnumerable<Provider> GetProviders(bool showIsDelete = false)
         {
-            return _guideManager.GetProviders(showIsDelete);
+            return _providerManager.GetProviders(showIsDelete);
         }
 
         public int CreateProvider([FromBody]Provider item)
         {
-            return _guideManager.CreateProvider(item);
+            return _providerManager.CreateProvider(item);
         }
 
         public void UpdateProvider([FromBody]Provider item)
         {
-            _guideManager.UpdateProvider(item);
+            _providerManager.UpdateProvider(item);
         }
 
         public void RemoveProvider([FromBody]Provider item)
         {
-            _guideManager.DeleteProvider(item);
+            _providerManager.DeleteProvider(item);
         }
 
         #endregion Provider
@@ -109,27 +124,27 @@ namespace InventorySystem.WebApi.Controllers
 
         public int ProductWorkCreate([FromBody]ProductWork item)
         {
-            return _invoiceManager.ProductWorkCreate(item);
+            return _productWorkManager.ProductWorkCreate(item);
         }
 
         public void ProductWorkUpdate([FromBody]ProductWork item)
         {
-            _invoiceManager.ProductWorkUpdate(item);
+            _productWorkManager.ProductWorkUpdate(item);
         }
         
         public IEnumerable<ProductWork> GetProductByPurchaseInvoice(int id)
         {
-            return _invoiceManager.GetProductByPurchaseInvoice(id);
+            return _productWorkManager.GetProductByPurchaseInvoice(id);
         }
 
         public IEnumerable<ProductWork> GetProductByInvoice(int id)
         {
-            return _invoiceManager.GetProductByInvoice(id);
+            return _productWorkManager.GetProductByInvoice(id);
         }
 
         public IEnumerable<ProductWork> GetProductByInventory(int id)
         {
-            return _invoiceManager.GetProductByInventory(id);
+            return _productWorkManager.GetProductByInventory(id);
         }
         
         #endregion ProductWork
@@ -138,17 +153,17 @@ namespace InventorySystem.WebApi.Controllers
 
         public IEnumerable<PurchaseInvoice> GetPurchaseInvoices()
         {
-            return _guideManager.GetPurchaseInvoices();
+            return _purchaseInvoiceManager.GetPurchaseInvoices();
         }
 
         public int PurchaseInvoiceCreate([FromBody]PurchaseInvoice item)
         {
-            return _invoiceManager.PurchaseInvoiceCreate(item);
+            return _purchaseInvoiceManager.PurchaseInvoiceCreate(item);
         }
 
         public void PurchaseInvoiceUpdate([FromBody]PurchaseInvoice item)
         {
-            _invoiceManager.PurchaseInvoiceUpdate(item);
+            _purchaseInvoiceManager.PurchaseInvoiceUpdate(item);
         }
 
         #endregion PurchaseInvoice
@@ -157,7 +172,7 @@ namespace InventorySystem.WebApi.Controllers
 
         public IEnumerable<Invoice> GetInvoices()
         {
-            return _guideManager.GetInvoices();
+            return _invoiceManager.GetInvoices();
         }
 
         public int InvoiceCreate([FromBody]Invoice item)
@@ -176,24 +191,24 @@ namespace InventorySystem.WebApi.Controllers
 
         public IEnumerable<Inventory> GetInventories()
         {
-            return _guideManager.GetInventories();
+            return _inventoryManager.GetInventories();
         }
 
         public int InventoryCreate([FromBody]Inventory item)
         {
-            return _invoiceManager.InventoryCreate(item);
+            return _inventoryManager.InventoryCreate(item);
         }
 
         public void InventoryUpdate([FromBody]Inventory item)
         {
-            _invoiceManager.InventoryUpdate(item);
+            _inventoryManager.InventoryUpdate(item);
         }
 
         #endregion Inventory
         
         public List<WarehouseProduct> GetWarehouseProducts()
         {
-            return _engine.GetWarehouseProducts();
+            return _warehouseProductManager.GetWarehouseProducts();
         }
     }
 }

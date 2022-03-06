@@ -108,7 +108,7 @@ namespace InventorySystem
 
         private void WarehouseForm_Load(object sender, EventArgs e)
         {
-            if (RootContainer.Instance.Container.Resolve<IInventorySystemApi>().CheckServer())
+            if (true)//(RootContainer.Instance.Container.Resolve<IInventorySystemApi>().CheckServer())
             {
                 bs_Products = new BindingSource();
                 _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
