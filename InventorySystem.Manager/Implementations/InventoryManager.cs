@@ -32,7 +32,7 @@ namespace InventorySystem.Manager
             _inventoryRepository.Update(item);
         }
 
-        public List<Inventory> GetInventories()
+        public IEnumerable<Inventory> GetInventories()
         {
             return _inventoryRepository.Get();
         }
@@ -41,6 +41,5 @@ namespace InventorySystem.Manager
         {
             return _inventoryRepository.GetWithInclude(x => x.Products);
         }
-
     }
 }

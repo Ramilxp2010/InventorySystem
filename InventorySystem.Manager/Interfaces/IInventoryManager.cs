@@ -11,7 +11,7 @@ namespace InventorySystem.Manager.Interfaces
     {
         int InventoryCreate(Inventory item);
         void InventoryUpdate(Inventory item);
-        List<Inventory> GetInventories();
-        List<Inventory> GetInventoriesWithProducts();
+        IEnumerable<Inventory> GetInventories();
+        IEnumerable<Inventory> GetInventoriesWithProducts();
     }
 }

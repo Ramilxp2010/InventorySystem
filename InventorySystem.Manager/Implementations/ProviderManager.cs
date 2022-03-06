@@ -14,10 +14,12 @@ namespace InventorySystem.Manager.Implementations
     public class ProviderManager : IProviderManager
     {
         private IGenericRepository<Provider> _providerRepository;
+        private IGenericRepository<PurchaseInvoice> _purchaseInvoiceRepository;
 
         public ProviderManager()
         {
             _providerRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Provider>>();
+            _purchaseInvoiceRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<PurchaseInvoice>>();
         }
 
         public int CreateProvider(Provider item)

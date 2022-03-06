@@ -52,14 +52,14 @@ namespace InventorySystem.Api
             return ApiManager.PostResponseResult("CreateProduct", item);
         }
 
-        public string UpdateProduct(Product item)
+        public void UpdateProduct(Product item)
         {
-            return ApiManager.PostResponse("UpdateProduct", item).ToString();
+            ApiManager.PostResponse("UpdateProduct", item).ToString();
         }
 
-        public string DeleteProduct(Product item)
+        public void DeleteProduct(Product item)
         {
-            return ApiManager.PostResponse("RemoveProduct", item).ToString();
+            ApiManager.PostResponse("RemoveProduct", item).ToString();
         }
 
         #endregion Product
@@ -76,14 +76,14 @@ namespace InventorySystem.Api
             return ApiManager.PostResponseResult("CreateUnit", item);
         }
 
-        public string UpdateUnit(Unit item)
+        public void UpdateUnit(Unit item)
         {
-            return ApiManager.PostResponse("UpdateUnit", item).ToString();
+            ApiManager.PostResponse("UpdateUnit", item).ToString();
         }
 
-        public string DeleteUnit(Unit item)
+        public void DeleteUnit(Unit item)
         {
-            return ApiManager.PostResponse("RemoveUnit", item).ToString();
+            ApiManager.PostResponse("RemoveUnit", item).ToString();
         }
 
         #endregion Unit
@@ -100,14 +100,14 @@ namespace InventorySystem.Api
             return ApiManager.PostResponseResult("CreateProvider", item);
         }
 
-        public string UpdateProvider(Provider item)
+        public void UpdateProvider(Provider item)
         {
-            return ApiManager.PostResponse("UpdateProvider", item).ToString();
+            ApiManager.PostResponse("UpdateProvider", item).ToString();
         }
 
-        public string DeleteProvider(Provider item)
+        public void DeleteProvider(Provider item)
         {
-            return ApiManager.PostResponse("RemoveProvider", item).ToString();
+            ApiManager.PostResponse("RemoveProvider", item).ToString();
         }
 
         #endregion Providers
@@ -134,9 +134,9 @@ namespace InventorySystem.Api
             return ApiManager.PostResponseResult("ProductWorkCreate", item);
         }
 
-        public string ProductWorkUpdate(ProductWork item)
+        public void ProductWorkUpdate(ProductWork item)
         {
-            return ApiManager.PostResponse("ProductWorkUpdate", item).ToString();
+            ApiManager.PostResponse("ProductWorkUpdate", item).ToString();
         }
 
         #endregion ProductWork
@@ -158,9 +158,9 @@ namespace InventorySystem.Api
             return ApiManager.PostResponseResult("PurchaseInvoiceCreate", item);
         }
 
-        public string PurchaseInvoiceUpdate(PurchaseInvoice item)
+        public void PurchaseInvoiceUpdate(PurchaseInvoice item)
         {
-            return ApiManager.PostResponse("PurchaseInvoiceUpdate", item).ToString();
+            ApiManager.PostResponse("PurchaseInvoiceUpdate", item).ToString();
         }
 
         #endregion PurchaseInvoice
@@ -177,23 +177,23 @@ namespace InventorySystem.Api
             return ApiManager.PostResponseResult("InvoiceCreate", item);
         }
 
-        public string InvoiceUpdate(Invoice item)
+        public void InvoiceUpdate(Invoice item)
         {
-            return ApiManager.PostResponse("InvoiceUpdate", item).ToString();
+             ApiManager.PostResponse("InvoiceUpdate", item).ToString();
         }
 
         #endregion Invoice
 
         #region Inventory
 
-        public List<Inventory> GetInventories()
+        public IEnumerable<Inventory> GetInventories()
         {
-            return ApiManager.GetResponseResult<Inventory>($"GetInventories").ToList();
+            return ApiManager.GetResponseResult<Inventory>($"GetInventories");
         }
 
-        public string InventoryUpdate(Inventory item)
+        public void InventoryUpdate(Inventory item)
         {
-            return ApiManager.PostResponse("InventoryUpdate", item).ToString();
+            ApiManager.PostResponse("InventoryUpdate", item).ToString();
         }
 
         public int InventoryCreate(Inventory item)
@@ -208,5 +208,19 @@ namespace InventorySystem.Api
             return ApiManager.GetResponseResult<WarehouseProduct>($"GetWarehouseProducts").ToList();
         }
 
+        public IEnumerable<Inventory> GetInventoriesWithProducts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Invoice> GetInvoicesWithProducts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<PurchaseInvoice> GetPurchaseInvoicesWithProducts()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

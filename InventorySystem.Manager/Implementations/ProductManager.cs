@@ -15,10 +15,12 @@ namespace InventorySystem.Manager.Implementations
     {
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
         private IGenericRepository<Product> _productRepository;
+        private IGenericRepository<ProductWork> _productWorkRepository;
 
         public ProductManager()
         {
             _productRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Product>>();
+            _productWorkRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<ProductWork>>();
         }
 
         public IEnumerable<Product> GetProducts(bool showIsDelete = false)

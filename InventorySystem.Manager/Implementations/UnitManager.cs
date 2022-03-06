@@ -14,9 +14,11 @@ namespace InventorySystem.Manager.Implementations
     public class UnitManager : IUnitManager
     {
         private IGenericRepository<Unit> _unitRepository;
+        private IGenericRepository<Product> _productRepository;
 
         public UnitManager()
         {
+            _productRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Product>>();
             _unitRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<Unit>>();
         }
 
