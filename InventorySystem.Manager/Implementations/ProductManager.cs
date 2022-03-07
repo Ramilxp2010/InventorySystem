@@ -1,12 +1,9 @@
-﻿using InventorySystem.Contract;
+﻿using System.Linq;
+using System.Collections.Generic;
+using InventorySystem.Contract;
 using InventorySystem.Core;
 using InventorySystem.DataAccess.Interfaces;
 using InventorySystem.Manager.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Unity;
 
 namespace InventorySystem.Manager.Implementations
@@ -60,6 +57,5 @@ namespace InventorySystem.Manager.Implementations
                 _productRepository.Remove(item);
             }
         }
-
     }
 }

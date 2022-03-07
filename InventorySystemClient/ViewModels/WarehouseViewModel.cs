@@ -1,4 +1,6 @@
-﻿using InventorySystemClient.Commands;
+﻿using InventorySystem.Core;
+using InventorySystem.Manager.Interfaces;
+using InventorySystemClient.Commands;
 using InventorySystemClient.Models;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using Unity;
 
 namespace InventorySystemClient.ViewModels
 {
@@ -76,38 +79,19 @@ namespace InventorySystemClient.ViewModels
         public WarehouseViewModel(Frame mainFrame) 
         {
             _mainFrame = mainFrame;
-            WarehouseItems = new ObservableCollection<WarehouseItemModel>
-            {
-                 new WarehouseItemModel
-                 {
-                     ProductName = "Apple 1",
-                     ProductCount = 1,
-                     ProductCode = "1010",
-                     ProductMeasure = "kg"
 
-                 },
-                 new WarehouseItemModel
-                 {
-                     ProductName = "Apple juice 10",
-                     ProductCount = 10,
-                     ProductCode = "1010",
-                     ProductMeasure = "kg"
-                 },
-                 new WarehouseItemModel
-                 {
-                     ProductName = "Banana 20",
-                     ProductCount = 20,
-                     ProductCode = "1010",
-                     ProductMeasure = "kg"
-                 },
-                 new WarehouseItemModel
-                 {
-                     ProductName = "Product 100",
-                     ProductCount = 100,
-                     ProductCode = "1010",
-                     ProductMeasure = "kg"
-                 }
-            };
+            WarehouseItems = new ObservableCollection<WarehouseItemModel>();
+            var items = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
+            foreach (var item in items) 
+            {
+                WarehouseItems.Add(new WarehouseItemModel
+                {
+                    ProductName = item.Product.Name,
+                    ProductCount = item.Count,
+                    ProductCode = item.Product.Code,
+                    ProductMeasure = item.Product.Unit.Name
+                });
+            }
         }
     }
 }

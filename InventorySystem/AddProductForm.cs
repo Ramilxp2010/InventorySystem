@@ -44,7 +44,7 @@ namespace InventorySystem
                 {
                     Name = tb_ProductName.Text,
                     Article = tb_Articul.Text,
-                    Code = tb_Count.Text,
+                    Code = tb_Code.Text,
                     Description = tb_Description.Text,
                     UnitId = unit.Id
                 };
