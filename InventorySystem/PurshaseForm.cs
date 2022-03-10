@@ -37,14 +37,19 @@ namespace InventorySystem
 
             bs_Products.DataSource = _products;
             bs_Providers.DataSource = _providers;
-            
-            cmb_Products.DataSource = bs_Products;
-            cmb_Products.DisplayMember = "Name";
-            cmb_Products.ValueMember = "Id";
 
-            cmb_Providers.DataSource = bs_Providers;
-            cmb_Providers.DisplayMember = "Name";
-            cmb_Providers.ValueMember = "Id";
+            if (_products.Any())
+            {
+                cmb_Products.DataSource = bs_Products;
+                cmb_Products.DisplayMember = "Name";
+                cmb_Products.ValueMember = "Id";
+            }
+            if (_providers.Any()) 
+            { 
+                cmb_Providers.DataSource = bs_Providers;
+                cmb_Providers.DisplayMember = "Name";
+                cmb_Providers.ValueMember = "Id";
+            }
         }
 
         private void btn_AddProduct_Click(object sender, EventArgs e)

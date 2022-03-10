@@ -15,6 +15,9 @@ namespace InventorySystemClient.ViewModels
 {
     public class WarehouseViewModel : BaseViewModel
     {
+        protected IWarehouseProductManager _warehouseProductManager;
+        private IEnumerable<WarehouseItemModel> _itemsCached;
+
         private ObservableCollection<WarehouseItemModel> _warehouseItems;
         public ObservableCollection<WarehouseItemModel> WarehouseItems 
         {
@@ -56,41 +59,43 @@ namespace InventorySystemClient.ViewModels
             {
                 _text = value;
                 OnPropertyChanged("Text");
-
-                if (_text.Length > 3)
-                    WarehouseItems = new ObservableCollection<WarehouseItemModel>(WarehouseItems.Where(x => x.ProductName.Contains(_text)));
+                WarehouseItems = new ObservableCollection<WarehouseItemModel>(Search(_text));
             }
-        }
-
-        private RelayCommand _mouseEnterItem;
-        public RelayCommand MouseEnterCommand
-        {
-            get => _mouseEnterItem ??
-                (
-                    _mouseEnterItem = new RelayCommand(obj=> 
-                    {
-                        int a = 20;
-                        int b = 2;
-                        int c = a + b;
-                    })
-                );
         }
 
         public WarehouseViewModel(Frame mainFrame) 
         {
             _mainFrame = mainFrame;
+            _warehouseProductManager = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>();
+            _itemsCached = LoadProducts();
+            _warehouseItems = new ObservableCollection<WarehouseItemModel>(_itemsCached);
+        }
 
-            WarehouseItems = new ObservableCollection<WarehouseItemModel>();
-            var items = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
-            foreach (var item in items) 
+        private IEnumerable<WarehouseItemModel> LoadProducts()
+        {
+            foreach (var item in _warehouseProductManager.GetWarehouseProducts())
             {
-                WarehouseItems.Add(new WarehouseItemModel
+                yield return new WarehouseItemModel
                 {
                     ProductName = item.Product.Name,
                     ProductCount = item.Count,
                     ProductCode = item.Product.Code,
                     ProductMeasure = item.Product.Unit.Name
-                });
+                };
+            }
+        }
+
+        private IEnumerable<WarehouseItemModel> Search(string text)
+        {
+            foreach (var item in _warehouseProductManager.Search(text))
+            {
+                yield return new WarehouseItemModel
+                {
+                    ProductName = item.Product.Name,
+                    ProductCount = item.Count,
+                    ProductCode = item.Product.Code,
+                    ProductMeasure = item.Product.Unit.Name
+                };
             }
         }
     }

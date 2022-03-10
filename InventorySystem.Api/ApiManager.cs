@@ -14,7 +14,6 @@ namespace InventorySystem.Api
 {
     public static class ApiManager
     {
-
         public static string APP_PATH = ConfigurationManager.AppSettings["serverUrl"];
 
         public static IEnumerable<T> GetResponseResult<T>(string request, [CallerMemberName] string callerName = "")

@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Configuration;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using InventorySystem.Manager.Interfaces;
 
 namespace InventorySystem.Api
 {
@@ -234,6 +235,16 @@ namespace InventorySystem.Api
         }
 
         public IEnumerable<ProductWork> GetProductByPurchaseInvoice(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<WarehouseProduct> IWarehouseProductManager.GetWarehouseProducts()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<WarehouseProduct> Search(string text)
         {
             throw new NotImplementedException();
         }

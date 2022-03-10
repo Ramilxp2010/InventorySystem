@@ -17,15 +17,17 @@ namespace InventorySystem
 {
     public partial class WarehouseForm : Form
     {
+        private IWarehouseProductManager _warehouseProductManager;
         private BindingSource bs_Products;
-        private List<WarehouseProduct> _products;
+        private IEnumerable<WarehouseProduct> _products;
 
         public WarehouseForm()
         {
+            _warehouseProductManager = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>();
             InitializeComponent();
         }
 
-        private void LoadComponents(List<WarehouseProduct> products)
+        private void LoadComponents(IEnumerable<WarehouseProduct> products)
         {
             List<ProductViewModel> productView = products.Select(x =>
                 new ProductViewModel
@@ -43,7 +45,7 @@ namespace InventorySystem
         private void btn_Purshase_Click(object sender, EventArgs e)
         {
             new PurshaseForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
+            _products = _warehouseProductManager.GetWarehouseProducts();
             LoadComponents(_products);
         }
 
@@ -55,14 +57,14 @@ namespace InventorySystem
         private void brn_Invoice_Click(object sender, EventArgs e)
         {
             new InvoiceForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
+            _products = _warehouseProductManager.GetWarehouseProducts();
             LoadComponents(_products);
         }
 
         private void btn_Inventory_Click(object sender, EventArgs e)
         {
             new InventoryForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
+            _products = _warehouseProductManager.GetWarehouseProducts();
             LoadComponents(_products);
         }
 
@@ -74,36 +76,28 @@ namespace InventorySystem
         private void продуктToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ProductsForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
+            _products = _warehouseProductManager.GetWarehouseProducts();
             LoadComponents(_products);
         }
 
         private void поставщикToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ProvidersForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
+            _products = _warehouseProductManager.GetWarehouseProducts();
             LoadComponents(_products);
         }
 
         private void едизмToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new UnitForm().ShowDialog();
-            _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
+            _products = _warehouseProductManager.GetWarehouseProducts();
             LoadComponents(_products);
         }
 
         private void tb_Searh_TextChanged(object sender, EventArgs e)
         {
-            if (tb_Searh.Text.Length > 3)
-            {
-                var products = _products.Where(x => x.Product.Name.ToLowerInvariant().Contains(tb_Searh.Text.ToLowerInvariant())).ToList();
-                LoadComponents(products);
-            }
-
-            if (tb_Searh.Text.Length == 0)
-            {
-                LoadComponents(_products);
-            }
+            var products = _warehouseProductManager.Search(tb_Searh.Text);
+            LoadComponents(products);
         }
 
         private void WarehouseForm_Load(object sender, EventArgs e)
@@ -111,7 +105,7 @@ namespace InventorySystem
             if (true)//(RootContainer.Instance.Container.Resolve<IInventorySystemApi>().CheckServer())
             {
                 bs_Products = new BindingSource();
-                _products = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>().GetWarehouseProducts().ToList();
+                _products = _warehouseProductManager.GetWarehouseProducts();
                 LoadComponents(_products);
 
                 dgv_products.DataSource = bs_Products;

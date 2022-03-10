@@ -13,6 +13,8 @@ namespace InventorySystem.Manager.Implementations
 {
     public class WarehouseProductManager : IWarehouseProductManager
     {
+        private IEnumerable<WarehouseProduct> _cache;
+
         private IGenericRepository<Product> _productRepository;
         private IGenericRepository<ProductWork> _productWorkRepository;
 
@@ -22,7 +24,7 @@ namespace InventorySystem.Manager.Implementations
             _productWorkRepository = RootContainer.Instance.Container.Resolve<IGenericRepository<ProductWork>>();
         }
 
-        public List<WarehouseProduct> GetWarehouseProducts()
+        public IEnumerable<WarehouseProduct> GetWarehouseProducts()
         {
             List<WarehouseProduct> goods = new List<WarehouseProduct>();
             foreach (var product in _productRepository.GetWithInclude(x => x.Unit))
@@ -38,7 +40,23 @@ namespace InventorySystem.Manager.Implementations
                 });
             }
 
+            _cache = goods;
             return goods;
+        }
+
+        public IEnumerable<WarehouseProduct> Search(string searchText)
+        {
+            var text = searchText.ToLowerInvariant();
+            if (text.Length > 0 && text.Length <= 3)
+                return _cache.Where(x => x.Product.Name.ToLowerInvariant().StartsWith(text));
+
+            if (text.Length > 3)
+                return _cache.Where(x => x.Product.Name.ToLowerInvariant().Contains(text));
+
+            if (text.Length == 0)
+                return _cache;
+
+            return _cache;
         }
     }
 }

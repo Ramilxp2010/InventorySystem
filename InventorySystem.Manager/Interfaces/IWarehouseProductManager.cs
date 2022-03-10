@@ -5,6 +5,7 @@ namespace InventorySystem.Manager.Interfaces
 {
     public interface IWarehouseProductManager
     {
-        List<WarehouseProduct> GetWarehouseProducts();
+        IEnumerable<WarehouseProduct> GetWarehouseProducts();
+        IEnumerable<WarehouseProduct> Search(string text);
     }
 }
