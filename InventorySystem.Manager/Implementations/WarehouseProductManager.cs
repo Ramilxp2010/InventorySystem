@@ -26,6 +26,9 @@ namespace InventorySystem.Manager.Implementations
 
         public IEnumerable<WarehouseProduct> GetWarehouseProducts()
         {
+            if (_cache != null)
+                return _cache;
+
             List<WarehouseProduct> goods = new List<WarehouseProduct>();
             foreach (var product in _productRepository.GetWithInclude(x => x.Unit))
             {

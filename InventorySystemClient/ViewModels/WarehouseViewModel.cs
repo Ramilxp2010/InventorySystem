@@ -15,6 +15,17 @@ namespace InventorySystemClient.ViewModels
 {
     public class WarehouseViewModel : BaseViewModel
     {
+        private Frame _mainFrame;
+        public Frame MainFrame
+        {
+            get => _mainFrame;
+            set
+            {
+                _mainFrame = value;
+                OnPropertyChanged("MainFrame");
+            }
+        }
+
         protected IWarehouseProductManager _warehouseProductManager;
         private IEnumerable<WarehouseItemModel> _itemsCached;
 
@@ -26,17 +37,6 @@ namespace InventorySystemClient.ViewModels
             {
                 _warehouseItems = value;
                 OnPropertyChanged("WarehouseItems");
-            }
-        }
-
-        private Frame _mainFrame;
-        public Frame MainFrame
-        {
-            get => _mainFrame;
-            set
-            {
-                _mainFrame = value;
-                OnPropertyChanged("MainFrame");
             }
         }
 

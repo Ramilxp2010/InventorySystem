@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Unity;
+using Unity.Lifetime;
 
 namespace InventorySystemClient
 {
@@ -31,7 +32,7 @@ namespace InventorySystemClient
             RootContainer.Instance.Container.RegisterType<IProviderManager, ProviderManager>();
             RootContainer.Instance.Container.RegisterType<IPurchaseInvoiceManager, PurchaseInvoiceManager>();
             RootContainer.Instance.Container.RegisterType<IUnitManager, UnitManager>();
-            RootContainer.Instance.Container.RegisterType<IWarehouseProductManager, WarehouseProductManager>();
+            RootContainer.Instance.Container.RegisterType<IWarehouseProductManager, WarehouseProductManager>(new ContainerControlledLifetimeManager());
         }
     }
 }

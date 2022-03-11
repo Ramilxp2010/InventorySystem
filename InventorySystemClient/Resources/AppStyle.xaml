@@ -16,7 +16,7 @@
     <Style x:Key="TextBlockListStyle" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Foreground" Value="#615d5d"/>
-        <Setter Property="Padding" Value="10 10 0 10"/>
+        <Setter Property="Padding" Value="5 5 0 5"/>
     </Style>
     
     <Style x:Key="BorderBaseStyle" TargetType="Border">
@@ -91,7 +91,7 @@
                             BorderBrush="Black" 
                             CornerRadius="6"
                             Background="#f6f8fa">
-                        <TextBox Text="{TemplateBinding Text}" 
+                        <TextBox Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Path=Text}" 
                             Margin="5" 
                             FontSize="14"
                             FontWeight="Medium"
@@ -552,4 +552,26 @@
         </Setter>
     </Style>
     
+    <DataTemplate x:Key="WarehouseItemTemplate">
+        <Border BorderBrush="#edebeb"
+                    BorderThickness="0 0 0 2"
+                    HorizontalAlignment="Stretch">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding ProductName}" 
+                               Style="{StaticResource TextBlockListStyle}"/>
+                <TextBlock Grid.Column="1" Text="{Binding ProductCode}" 
+                               Style="{StaticResource TextBlockListStyle}"/>
+                <TextBlock Grid.Column="2" Text="{Binding ProductCount}" 
+                               Style="{StaticResource TextBlockListStyle}"/>
+                <TextBlock Grid.Column="3" Text="{Binding ProductMeasure}" 
+                               Style="{StaticResource TextBlockListStyle}"/>
+            </Grid>
+        </Border>
+    </DataTemplate>
 </ResourceDictionary>
