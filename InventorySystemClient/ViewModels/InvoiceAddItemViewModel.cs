@@ -37,7 +37,7 @@ namespace InventorySystemClient.ViewModels
             get { return _itemsAdded; }
             set
             {
-                _warehouseItems = value;
+                _itemsAdded = value;
                 OnPropertyChanged("ItemsAdded");
             }
         }
@@ -59,6 +59,7 @@ namespace InventorySystemClient.ViewModels
             set
             {
                 _selectedWarehouseItem = value;
+                Count = _selectedWarehouseItem.ProductCount.ToString();
                 OnPropertyChanged("SelectedWarehouseItem");
             }
         }
@@ -75,13 +76,13 @@ namespace InventorySystemClient.ViewModels
             }
         }
 
-        private int _count;
+        private decimal _count;
         public string Count
         {
             get { return _count.ToString(); }
             set
             {
-                _count = int.Parse(value);
+                _count = decimal.Parse(value);
                 OnPropertyChanged("Count");
             }
         }
@@ -103,7 +104,7 @@ namespace InventorySystemClient.ViewModels
                 return _goToInvoiceCommand ??
                     (_goToInvoiceCommand = new RelayCommand(obj => 
                     {
-                        MainFrame.Navigate(new InvoiceView(MainFrame));
+                        MainFrame.Navigate(new InvoiceView(MainFrame, ItemsAdded));
                     }));
             }
         }
@@ -142,18 +143,38 @@ namespace InventorySystemClient.ViewModels
             get
             {
                 return _addProductCommand ??
-                    (_addProductCommand = new RelayCommand(obj =>
-                    {
-                        if (SelectedWarehouseItem == null)
-                            return;
-
-                        var item = SelectedWarehouseItem;
-                        item.ProductCount = _count;
-
-                        _itemsAdded.Add(item);
-                    }));
+                    (_addProductCommand = new RelayCommand(obj => AddProductToBasket()));
             }
         }
 
+        private void AddProductToBasket()
+        {
+            if (_count <= 0)
+                return;
+
+            if (SelectedWarehouseItem == null)
+                return;
+
+            if (SelectedWarehouseItem.ProductCount - _count < 0)
+                return;
+
+            SelectedWarehouseItem.ProductCount -= _count;
+
+            var addedItem = _itemsAdded.FirstOrDefault(x => x.ProductCode == SelectedWarehouseItem.ProductCode);
+            if (addedItem != null)
+            {
+                addedItem.ProductCount += _count;
+                return;
+            }
+
+            _itemsAdded.Add(new WarehouseItemModel() 
+            {
+                ProductName = SelectedWarehouseItem.ProductName,
+                ProductCode = SelectedWarehouseItem.ProductCode,
+                ProductMeasure = SelectedWarehouseItem.ProductMeasure, 
+                ProductCount = _count
+            });
+            
+        }
     }
 }

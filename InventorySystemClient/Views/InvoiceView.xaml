@@ -82,7 +82,7 @@
         <TextBox Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" 
                  Style="{StaticResource TextBoxBaseStyle}"/>
 
-        <ListView Grid.Row="6" Grid.ColumnSpan="4"  ItemsSource="{Binding Items}" 
+        <ListView Grid.Row="6" Grid.ColumnSpan="4"  ItemsSource="{Binding AddedItems}" 
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                 BorderThickness="0"
                 SelectedItem="{Binding SelectedItem}"

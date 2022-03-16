@@ -25,12 +25,18 @@
         </Grid.RowDefinitions>
         <uc:SearchTextBox Grid.ColumnSpan="2"
                           Margin="5 0"/>
-        <uc:ProductListView x:Name="ProductListView" Grid.Row="1" Grid.ColumnSpan="3"/>
+        <uc:ProductListView x:Name="ProductListView" Grid.Row="1" Grid.ColumnSpan="3"
+                            ListItems="{Binding WarehouseItems}"
+                            CustomSelectedItem="{Binding SelectedWarehouseItem}"/>
         <Label Grid.Row="2" Content="Count"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxBaseStyle}"
-                 Text="{Binding Path=Count}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxBaseStyle}"  x:Name="TestParent"
+                 PreviewTextInput="TextBox_PreviewTextInput"
+                 Text="{Binding Path=Count}"
+                 MouseDoubleClick="SelectAddress"
+                 GotKeyboardFocus="SelectAddress"
+                 PreviewMouseLeftButtonDown="SelectivelyIgnoreMouseButton"/>
         <Button Grid.Row="2" Grid.Column="2" Content="Add Item"
                 Command="{Binding AddProductCommand}"
                 Style="{StaticResource BtnStyle}"
@@ -38,9 +44,9 @@
                 Margin="10 0"/>
         <Label Grid.Row="3" Content="Goods were added to invoice"
                VerticalAlignment="Bottom"/>
-        <ListView Grid.Row="4" Grid.ColumnSpan="3"
+        <uc:ProductListView Grid.Row="4" Grid.ColumnSpan="3"
                   Margin="10"
-                  ItemsSource="{Binding ItemsAdded}"
+                  ListItems="{Binding ItemsAdded}"
                   />
         <Button Grid.Row="5" Grid.Column="2" Content="Next" 
                 Command="{Binding GoToInvoiceCommand}"

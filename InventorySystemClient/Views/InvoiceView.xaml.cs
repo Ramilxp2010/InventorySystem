@@ -1,5 +1,7 @@
-﻿using InventorySystemClient.ViewModels;
+﻿using InventorySystemClient.Models;
+using InventorySystemClient.ViewModels;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,10 +23,10 @@ namespace InventorySystemClient.Views
     /// </summary>
     public partial class InvoiceView : Page
     {
-        public InvoiceView(Frame mainFrame)
+        public InvoiceView(Frame mainFrame, IEnumerable addedItems)
         {
             InitializeComponent();
-            DataContext = new InvoiceViewModel(mainFrame);
+            DataContext = new InvoiceViewModel(mainFrame, addedItems);
         }
     }
 }

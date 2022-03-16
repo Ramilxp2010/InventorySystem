@@ -91,7 +91,7 @@
                             BorderBrush="Black" 
                             CornerRadius="6"
                             Background="#f6f8fa">
-                        <TextBox Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Path=Text}" 
+                        <TextBox Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Path=Text}"
                             Margin="5" 
                             FontSize="14"
                             FontWeight="Medium"

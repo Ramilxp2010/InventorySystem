@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,25 @@ namespace InventorySystemClient.UserControls
         {
             InitializeComponent();
         }
+
+        public IEnumerable ListItems
+        {
+            get { return (IEnumerable)GetValue(ListItemsProperty); }
+            set { SetValue(ListItemsProperty, value); }
+        }
+
+        public static readonly DependencyProperty ListItemsProperty =
+            DependencyProperty.Register("ListItems", typeof(IEnumerable),
+              typeof(ProductListView), new FrameworkPropertyMetadata((IEnumerable)null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+
+        public object CustomSelectedItem
+        {
+            get { return (IEnumerable)GetValue(CustomSelectedItemProperty); }
+            set { SetValue(CustomSelectedItemProperty, value); }
+        }
+
+        public static readonly DependencyProperty CustomSelectedItemProperty =
+            DependencyProperty.Register("CustomSelectedItem", typeof(object),
+              typeof(ProductListView), new FrameworkPropertyMetadata((object)null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
     }
 }

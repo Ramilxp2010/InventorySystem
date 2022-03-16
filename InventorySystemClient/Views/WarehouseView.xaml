@@ -18,7 +18,9 @@
             <RowDefinition Height="1.1*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <uc:SearchTextBox x:Name="SearchText"/>
-        <uc:ProductListView x:Name="ProductListView" Grid.Row="1"/>
+        <uc:SearchTextBox TextValue="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
+        <uc:ProductListView x:Name="ProductListView" Grid.Row="1" 
+                            ListItems="{Binding WarehouseItems}"
+                            CustomSelectedItem="{Binding SelectedWarehouseItem}"/>
     </Grid>
 </Page>

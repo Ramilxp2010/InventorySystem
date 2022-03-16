@@ -1,6 +1,7 @@
 ﻿using InventorySystemClient.Models;
 using InventorySystemClient.ViewModels;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -35,43 +36,21 @@ namespace InventorySystemClient.ViewModels
             }
         }
 
-        public ObservableCollection<PurshaseItemModel> Items { get; set; }
+        private ObservableCollection<WarehouseItemModel> _addedItems;
+        public ObservableCollection<WarehouseItemModel> AddedItems
+        {
+            get { return _addedItems; }
+            set
+            {
+                _addedItems = value;
+                OnPropertyChanged("AddedItems");
+            }
+        }
 
-        public InvoiceViewModel(Frame mainFrame)
+        public InvoiceViewModel(Frame mainFrame, IEnumerable addedItems)
         {
             _mainFrame = mainFrame;
-            Items = new ObservableCollection<PurshaseItemModel>
-            {
-                 new PurshaseItemModel
-                 {
-                     ProductName = "Product 1",
-                     ProductCount = 1,
-                     ProductCode = "1010",
-                     ProductMeasure = "kg"
-
-                 },
-                 new PurshaseItemModel
-                 {
-                     ProductName = "Product 10",
-                     ProductCount = 10,
-                     ProductCode = "1010",
-                     ProductMeasure = "kg"
-                 },
-                 new PurshaseItemModel
-                 {
-                     ProductName = "Product 20",
-                     ProductCount = 20,
-                     ProductCode = "1010",
-                     ProductMeasure = "kg"
-                 },
-                 new PurshaseItemModel
-                 {
-                     ProductName = "Product 100",
-                     ProductCount = 100,
-                     ProductCode = "1010",
-                     ProductMeasure = "kg"
-                 }
-            };
+            _addedItems = (ObservableCollection<WarehouseItemModel>)addedItems;
         }
 
     }

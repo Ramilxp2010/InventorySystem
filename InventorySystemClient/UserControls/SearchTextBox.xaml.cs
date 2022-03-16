@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,5 +26,16 @@ namespace InventorySystemClient.UserControls
         {
             InitializeComponent();
         }
+
+        public string TextValue
+        {
+            get { return (string)GetValue(TextValueProperty); }
+            set { SetValue(TextValueProperty, value); }
+        }
+
+        public static readonly DependencyProperty TextValueProperty =
+            DependencyProperty.Register("TextValue", typeof(string),
+              typeof(SearchTextBox), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+
     }
 }

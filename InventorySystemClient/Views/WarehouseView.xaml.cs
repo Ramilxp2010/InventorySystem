@@ -1,4 +1,5 @@
-﻿using InventorySystemClient.ViewModels;
+﻿using InventorySystemClient.UserControls;
+using InventorySystemClient.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,8 @@ namespace InventorySystemClient.Views
         public WarehouseView(Frame mainFrame)
         {
             InitializeComponent();
-            DataContext = new WarehouseViewModel(mainFrame);
+            var model = new WarehouseViewModel(mainFrame);
+            DataContext = model;
         }
     }
 }
