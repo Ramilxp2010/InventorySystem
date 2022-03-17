@@ -96,6 +96,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Models\PurshaseItemModel.cs" />
+    <Compile Include="UserControls\CustomTextBox.cs" />
     <Compile Include="UserControls\ProductListView.xaml.cs">
       <DependentUpon>ProductListView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +137,10 @@
     <Page Include="Resources\AppStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\ProductListView.xaml">
       <SubType>Designer</SubType>
@@ -207,8 +212,6 @@
       <Name>InventorySystem.Manager</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Themes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -38,7 +38,7 @@ namespace InventorySystemClient.UserControls
 
         public object CustomSelectedItem
         {
-            get { return (IEnumerable)GetValue(CustomSelectedItemProperty); }
+            get { return (object)GetValue(CustomSelectedItemProperty); }
             set { SetValue(CustomSelectedItemProperty, value); }
         }
 
