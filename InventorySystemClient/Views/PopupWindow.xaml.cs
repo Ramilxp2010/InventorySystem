@@ -1,4 +1,5 @@
-﻿using InventorySystemClient.ViewModels;
+﻿using InventorySystemClient.Commands;
+using InventorySystemClient.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,10 @@ namespace InventorySystemClient.Views
     /// </summary>
     public partial class PopupWindow : Window
     {
-        public PopupWindow(InvoiceAddItemViewModel invoiceViewModel, object obj)
+        public PopupWindow(InvoiceAddItemViewModel invoiceViewModel, object obj, RelayCommand command)
         {
             InitializeComponent();
-            DataContext = new PopupWindowViewModel(invoiceViewModel, obj);
+            DataContext = new PopupWindowViewModel(invoiceViewModel, obj, command);
         }
     }
 }

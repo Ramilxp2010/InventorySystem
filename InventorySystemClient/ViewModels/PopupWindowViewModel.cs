@@ -13,10 +13,11 @@ namespace InventorySystemClient.ViewModels
     {
         private InvoiceAddItemViewModel _invoiceViewModel;
 
-        public PopupWindowViewModel(InvoiceAddItemViewModel invoiceViewModel, object obj)
+        public PopupWindowViewModel(InvoiceAddItemViewModel viewModel, object itemModel, RelayCommand command)
         {
-            _invoiceViewModel = invoiceViewModel;
-            var item = (WarehouseItemModel)obj;
+            _invoiceViewModel = viewModel;
+            var item = (WarehouseItemModel)itemModel;
+            PopupCommand = command;
             _invoiceViewModel.SelectedWarehouseItem = item;
             _count = item.ProductCount;
         }
@@ -32,15 +33,7 @@ namespace InventorySystemClient.ViewModels
             }
         }
 
-        public RelayCommand AddProductCommand
-        {
-            get
-            {
-                return _invoiceViewModel.AddProductCommand;
-            }
-        }
-
-
+        public RelayCommand PopupCommand { get; }
     }
 
 

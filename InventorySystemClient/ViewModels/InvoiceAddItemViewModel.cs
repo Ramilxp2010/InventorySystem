@@ -59,7 +59,6 @@ namespace InventorySystemClient.ViewModels
             set
             {
                 _selectedWarehouseItem = value;
-                Count = _selectedWarehouseItem.ProductCount.ToString();
                 OnPropertyChanged("SelectedWarehouseItem");
             }
         }
@@ -73,17 +72,6 @@ namespace InventorySystemClient.ViewModels
                 _text = value;
                 OnPropertyChanged("Text");
                 WarehouseItems = new ObservableCollection<WarehouseItemModel>(Search(_text));
-            }
-        }
-
-        private decimal _count;
-        public string Count
-        {
-            get { return _count.ToString(); }
-            set
-            {
-                _count = decimal.Parse(value);
-                OnPropertyChanged("Count");
             }
         }
 
@@ -109,15 +97,15 @@ namespace InventorySystemClient.ViewModels
             }
         }
 
-        private RelayCommand _goToPopupCommand;
-        public RelayCommand GoToPopupCommand
+        private RelayCommand _addProductPopupCommand;
+        public RelayCommand AddProductPopupCommand
         {
             get
             {
-                return _goToPopupCommand ??
-                    (_goToPopupCommand = new RelayCommand(obj =>
+                return _addProductPopupCommand ??
+                    (_addProductPopupCommand = new RelayCommand(obj =>
                     {
-                        var popup = new PopupWindow(this, obj);
+                        var popup = new PopupWindow(this, obj, AddProductCommand);
                         popup.ShowDialog();
                     }));
             }
@@ -133,7 +121,7 @@ namespace InventorySystemClient.ViewModels
                     ProductCount = item.Count,
                     ProductCode = item.Product.Code,
                     ProductMeasure = item.Product.Unit.Name,
-                    GoToPopupCommand = GoToPopupCommand
+                    GoToPopupCommand = AddProductPopupCommand
                 };
             }
         }
@@ -148,7 +136,7 @@ namespace InventorySystemClient.ViewModels
                     ProductCount = item.Count,
                     ProductCode = item.Product.Code,
                     ProductMeasure = item.Product.Unit.Name,
-                    GoToPopupCommand = GoToPopupCommand
+                    GoToPopupCommand = AddProductPopupCommand
                 };
             }
         }
@@ -159,27 +147,31 @@ namespace InventorySystemClient.ViewModels
             get
             {
                 return _addProductCommand ??
-                    (_addProductCommand = new RelayCommand(obj => AddProductToBasket()));
+                    (_addProductCommand = new RelayCommand(obj => 
+                    {
+                        var count = Convert.ToDecimal(obj);
+                        AddProductToBasket(count);
+                    }));
             }
         }
 
-        private void AddProductToBasket()
+        private void AddProductToBasket(decimal count)
         {
-            if (_count <= 0)
+            if (count <= 0)
                 return;
 
             if (SelectedWarehouseItem == null)
                 return;
 
-            if (SelectedWarehouseItem.ProductCount - _count < 0)
+            if (SelectedWarehouseItem.ProductCount - count < 0)
                 return;
 
-            SelectedWarehouseItem.ProductCount -= _count;
+            SelectedWarehouseItem.ProductCount -= count;
 
             var addedItem = _itemsAdded.FirstOrDefault(x => x.ProductCode == SelectedWarehouseItem.ProductCode);
             if (addedItem != null)
             {
-                addedItem.ProductCount += _count;
+                addedItem.ProductCount += count;
                 return;
             }
 
@@ -188,8 +180,8 @@ namespace InventorySystemClient.ViewModels
                 ProductName = SelectedWarehouseItem.ProductName,
                 ProductCode = SelectedWarehouseItem.ProductCode,
                 ProductMeasure = SelectedWarehouseItem.ProductMeasure, 
-                ProductCount = _count,
-                GoToPopupCommand = GoToPopupCommand
+                ProductCount = count,
+                GoToPopupCommand = AddProductPopupCommand
             });
             
         }

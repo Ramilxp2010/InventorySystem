@@ -24,7 +24,7 @@
                           Text="{Binding Path=Count}" 
                           OnlyNumber="True"/>
         <Button Grid.Row="2" Grid.Column="0" Content="Ok"
-                Command="{Binding AddProductCommand}"
+                Command="{Binding PopupCommand}" CommandParameter="{Binding Count}" 
                 Style="{StaticResource BtnStyle}"
                 Height="41"
                 Margin="10 0"/>
