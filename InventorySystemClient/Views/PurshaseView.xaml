@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:InventorySystemClient.Views"
       mc:Ignorable="d" 
       d:DesignHeight="540" d:DesignWidth="800"
-      Title="PurshaseView">
+      Title="PurshaseView"  Background="White">
 
     <Page.Resources>
         <DataTemplate x:Key="DataTemplateItemConverter">
@@ -34,7 +34,7 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Grid Background="White">
+    <Grid  Style="{StaticResource GridPageStyle}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>

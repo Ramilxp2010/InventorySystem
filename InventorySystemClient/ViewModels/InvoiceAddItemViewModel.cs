@@ -109,6 +109,20 @@ namespace InventorySystemClient.ViewModels
             }
         }
 
+        private RelayCommand _goToPopupCommand;
+        public RelayCommand GoToPopupCommand
+        {
+            get
+            {
+                return _goToPopupCommand ??
+                    (_goToPopupCommand = new RelayCommand(obj =>
+                    {
+                        var popup = new PopupWindow(this, obj);
+                        popup.ShowDialog();
+                    }));
+            }
+        }
+
         private IEnumerable<WarehouseItemModel> LoadProducts()
         {
             foreach (var item in _warehouseProductManager.GetWarehouseProducts())
@@ -118,7 +132,8 @@ namespace InventorySystemClient.ViewModels
                     ProductName = item.Product.Name,
                     ProductCount = item.Count,
                     ProductCode = item.Product.Code,
-                    ProductMeasure = item.Product.Unit.Name
+                    ProductMeasure = item.Product.Unit.Name,
+                    GoToPopupCommand = GoToPopupCommand
                 };
             }
         }
@@ -132,7 +147,8 @@ namespace InventorySystemClient.ViewModels
                     ProductName = item.Product.Name,
                     ProductCount = item.Count,
                     ProductCode = item.Product.Code,
-                    ProductMeasure = item.Product.Unit.Name
+                    ProductMeasure = item.Product.Unit.Name,
+                    GoToPopupCommand = GoToPopupCommand
                 };
             }
         }
@@ -172,7 +188,8 @@ namespace InventorySystemClient.ViewModels
                 ProductName = SelectedWarehouseItem.ProductName,
                 ProductCode = SelectedWarehouseItem.ProductCode,
                 ProductMeasure = SelectedWarehouseItem.ProductMeasure, 
-                ProductCount = _count
+                ProductCount = _count,
+                GoToPopupCommand = GoToPopupCommand
             });
             
         }

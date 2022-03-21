@@ -1,4 +1,5 @@
-﻿using InventorySystemClient.ViewModels;
+﻿using InventorySystemClient.Commands;
+using InventorySystemClient.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,18 @@ namespace InventorySystemClient.Models
             {
                 _productCount = value;
                 OnPropertyChanged("ProductCount");
+            }
+        }
+
+        private RelayCommand _goToPopupCommand;
+        public RelayCommand GoToPopupCommand
+        {
+
+            get => _goToPopupCommand;
+            set
+            {
+                _goToPopupCommand = value;
+                OnPropertyChanged("GoToPopupCommand");
             }
         }
 

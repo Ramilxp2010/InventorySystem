@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InventorySystemClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="540" Width="800">
-    <Grid Background="#f5fdfd">
+        Title="MainWindow" Height="540" Width="800" Name="Main">
+    <Grid Background="#ffffff">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="159*"/>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="564*"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0" VerticalAlignment="Top" >
@@ -24,11 +25,11 @@
             <Button Content="Посмотреть накладные" Command="{Binding GoToWarehouseCommand}"
               Style="{StaticResource BtnStyle}"/>
         </StackPanel>
-        <Frame Grid.Column="2" 
+        <Frame Grid.Column="1" 
                NavigationUIVisibility="Hidden" 
                Name="_mainFrame"  
-               Background="#FF7ABAF1"
-               Source="{Binding Path=MainFrame.Source}">
+               Background="#f6f8fa"
+               Source="{Binding Path=MainFrame.Source}" Grid.ColumnSpan="2">
         </Frame>
     </Grid>
 </Window>

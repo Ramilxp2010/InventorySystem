@@ -6,10 +6,10 @@
       xmlns:local="clr-namespace:InventorySystemClient.Views"
       xmlns:uc="clr-namespace:InventorySystemClient.UserControls" xmlns:viewmodels="clr-namespace:InventorySystemClient.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:InvoiceAddItemViewModel}"
       mc:Ignorable="d" 
-      d:DesignHeight="540" d:DesignWidth="800"
+      d:DesignHeight="540" d:DesignWidth="800" Background="White"
       Title="InvoiceAddItem">
 
-    <Grid Background="White">
+    <Grid  Style="{StaticResource GridPageStyle}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -18,10 +18,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="0.8*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.3*"/>
         </Grid.RowDefinitions>
         <uc:SearchTextBox Grid.ColumnSpan="2" Margin="5 0" 
                           TextValue="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
@@ -38,16 +38,17 @@
         <Button Grid.Row="2" Grid.Column="2" Content="Add Item"
                 Command="{Binding AddProductCommand}"
                 Style="{StaticResource BtnStyle}"
-                Height="25"
+                Height="41"
                 Margin="10 0"/>
         <Label Grid.Row="3" Content="Goods were added to invoice"
-               VerticalAlignment="Bottom"/>
+               VerticalAlignment="Bottom"
+               Style="{StaticResource TextBase}"/>
         <uc:ProductListView Grid.Row="4" Grid.ColumnSpan="3"
                   ListItems="{Binding ItemsAdded}" />
         <Button Grid.Row="5" Grid.Column="2" Content="Next" 
                 Command="{Binding GoToInvoiceCommand}"
                 Style="{StaticResource BtnStyle}"
-                Height="25"
+                Height="41"
                 Margin="10 0"/>
     </Grid>
 </Page>

@@ -9,9 +9,9 @@
       xmlns:viewmodels="clr-namespace:InventorySystemClient.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:WarehouseViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="540" d:DesignWidth="800"
-      Title="WarehouseView">
+      Title="WarehouseView"  Background="White">
 
-    <Grid Background="#e6f7ff">
+    <Grid Style="{StaticResource GridPageStyle}">
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>

@@ -102,6 +102,7 @@
     </Compile>
     <Compile Include="ViewModels\InvoiceAddItemViewModel.cs" />
     <Compile Include="ViewModels\InvoiceViewModel.cs" />
+    <Compile Include="ViewModels\PopupWindowViewModel.cs" />
     <Compile Include="ViewModels\PurshaseViewModel.cs" />
     <Compile Include="Models\WarehouseItemModel.cs" />
     <Compile Include="UserControls\SearchTextBox.xaml.cs">
@@ -115,6 +116,9 @@
     </Compile>
     <Compile Include="Views\InvoiceView.xaml.cs">
       <DependentUpon>InvoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopupWindow.xaml.cs">
+      <DependentUpon>PopupWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PurshaseView.xaml.cs">
       <DependentUpon>PurshaseView.xaml</DependentUpon>
@@ -155,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InvoiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopupWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

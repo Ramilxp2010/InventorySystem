@@ -48,6 +48,7 @@
                     x:Name="CustomListView"
                     ItemsSource="{Binding ListItems, UpdateSourceTrigger=PropertyChanged}" 
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
                     BorderThickness="0"
                     SelectedItem="{Binding CustomSelectedItem}"
                     HorizontalAlignment="Stretch"
