@@ -21,10 +21,10 @@ namespace InventorySystemClient.Views
     /// </summary>
     public partial class PopupWindow : Window
     {
-        public PopupWindow(InvoiceAddItemViewModel invoiceViewModel, object obj, RelayCommand command)
+        public PopupWindow(RelayCommand command, string labelText, string textBoxDefaultText)
         {
             InitializeComponent();
-            DataContext = new PopupWindowViewModel(invoiceViewModel, obj, command);
+            DataContext = new PopupWindowViewModel(command, labelText, textBoxDefaultText);
         }
     }
 }

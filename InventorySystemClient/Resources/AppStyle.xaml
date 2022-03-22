@@ -591,8 +591,8 @@
                     <Run Text="{Binding ProductMeasure}"/>
                 </TextBlock>
                 <Button Grid.Column="3" x:Name="TogglePopupButton" Height="Auto" Width="Auto"
-                        Style="{StaticResource BtnStyle}" Content="Add"
-                        Margin="0" Command="{Binding GoToPopupCommand}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource Self}}"/>
+                        Style="{StaticResource BtnStyle}" Content="{Binding ActionDisplayName}"
+                        Margin="0" Command="{Binding Action}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource Self}}"/>
             </Grid>
         </Border>
     </DataTemplate>

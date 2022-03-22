@@ -39,7 +39,7 @@
                 </Border>
                 <Border Grid.Column="3" Grid.Row="0"
                 Style="{StaticResource BorderBaseStyle}" BorderThickness="0 0 0 2">
-                    <TextBlock Text="Ед.изм" 
+                    <TextBlock Text="Action" 
                         Style="{StaticResource TextBlockHeaderStyle}" />
                 </Border>
             </Grid>

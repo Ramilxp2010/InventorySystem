@@ -54,15 +54,17 @@ namespace InventorySystemClient.Models
             }
         }
 
-        private RelayCommand _goToPopupCommand;
-        public RelayCommand GoToPopupCommand
+        public string ActionDisplayName { get; set; }
+
+        private RelayCommand _action;
+        public RelayCommand Action
         {
 
-            get => _goToPopupCommand;
+            get => _action;
             set
             {
-                _goToPopupCommand = value;
-                OnPropertyChanged("GoToPopupCommand");
+                _action = value;
+                OnPropertyChanged("Action");
             }
         }
 

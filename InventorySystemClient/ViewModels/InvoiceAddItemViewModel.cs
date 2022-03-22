@@ -105,7 +105,10 @@ namespace InventorySystemClient.ViewModels
                 return _addProductPopupCommand ??
                     (_addProductPopupCommand = new RelayCommand(obj =>
                     {
-                        var popup = new PopupWindow(this, obj, AddProductCommand);
+                        var item = (WarehouseItemModel)obj;
+                        SelectedWarehouseItem = item;
+                        var lableText = $"На складе {item.ProductName} - {item.ProductCount}. Добавить: ";
+                        var popup = new PopupWindow(AddProductCommand, lableText, item.ProductCount.ToString());
                         popup.ShowDialog();
                     }));
             }
@@ -121,7 +124,8 @@ namespace InventorySystemClient.ViewModels
                     ProductCount = item.Count,
                     ProductCode = item.Product.Code,
                     ProductMeasure = item.Product.Unit.Name,
-                    GoToPopupCommand = AddProductPopupCommand
+                    Action = AddProductPopupCommand,
+                    ActionDisplayName = "Add"
                 };
             }
         }
@@ -136,7 +140,8 @@ namespace InventorySystemClient.ViewModels
                     ProductCount = item.Count,
                     ProductCode = item.Product.Code,
                     ProductMeasure = item.Product.Unit.Name,
-                    GoToPopupCommand = AddProductPopupCommand
+                    Action = AddProductPopupCommand,
+                    ActionDisplayName = "Add"
                 };
             }
         }
@@ -181,7 +186,8 @@ namespace InventorySystemClient.ViewModels
                 ProductCode = SelectedWarehouseItem.ProductCode,
                 ProductMeasure = SelectedWarehouseItem.ProductMeasure, 
                 ProductCount = count,
-                GoToPopupCommand = AddProductPopupCommand
+                Action = AddProductPopupCommand,
+                ActionDisplayName = "Delete"
             });
             
         }

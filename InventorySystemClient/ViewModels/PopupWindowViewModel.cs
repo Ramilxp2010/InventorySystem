@@ -11,25 +11,32 @@ namespace InventorySystemClient.ViewModels
 {
     public class PopupWindowViewModel : BaseViewModel
     {
-        private InvoiceAddItemViewModel _invoiceViewModel;
-
-        public PopupWindowViewModel(InvoiceAddItemViewModel viewModel, object itemModel, RelayCommand command)
+        public PopupWindowViewModel(RelayCommand command, string labelText, string textBoxDefaultValue)
         {
-            _invoiceViewModel = viewModel;
-            var item = (WarehouseItemModel)itemModel;
             PopupCommand = command;
-            _invoiceViewModel.SelectedWarehouseItem = item;
-            _count = item.ProductCount;
+            LabelText = labelText;
+            TextBox = textBoxDefaultValue;
         }
 
-        private decimal _count;
-        public string Count
+        private decimal _textBoxValue;
+        public string TextBox
         {
-            get { return _count.ToString(); }
+            get { return _textBoxValue.ToString(); }
             set
             {
-                _count = decimal.Parse(value);
-                OnPropertyChanged("Count");
+                _textBoxValue = decimal.Parse(value);
+                OnPropertyChanged("TextBox");
+            }
+        }
+        
+        private string _labelText;
+        public string LabelText
+        {
+            get { return _labelText.ToString(); }
+            set
+            {
+                _labelText = value;
+                OnPropertyChanged("LabelText");
             }
         }
 

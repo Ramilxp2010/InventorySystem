@@ -16,15 +16,15 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Content="Count"
+        <Label Grid.Row="0" Grid.ColumnSpan="2" Content="{Binding LabelText}"
                VerticalAlignment="Center"
                HorizontalAlignment="Left"/>
-        <uc:CustomTextBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+        <uc:CustomTextBox x:Name="popupTextBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                           Style="{StaticResource TextBoxBaseStyle}" 
-                          Text="{Binding Path=Count}" 
+                          Text="{Binding Path=TextBox}" 
                           OnlyNumber="True"/>
         <Button Grid.Row="2" Grid.Column="0" Content="Ok"
-                Command="{Binding PopupCommand}" CommandParameter="{Binding Count}" 
+                Command="{Binding PopupCommand}" CommandParameter="{Binding ElementName=popupTextBox, Path=Text}" 
                 Style="{StaticResource BtnStyle}"
                 Height="41"
                 Margin="10 0"/>
