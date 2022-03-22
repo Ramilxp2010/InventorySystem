@@ -63,6 +63,17 @@ namespace InventorySystemClient.ViewModels
             }
         }
 
+        private WarehouseItemModel _selectedWarehouseItemToDelete;
+        public WarehouseItemModel SelectedWarehouseItemToDelete
+        {
+            get => _selectedWarehouseItemToDelete;
+            set
+            {
+                _selectedWarehouseItemToDelete = value;
+                OnPropertyChanged("SelectedWarehouseItemToDelete");
+            }
+        }
+
         private string _text;
         public string Text
         {
@@ -97,18 +108,35 @@ namespace InventorySystemClient.ViewModels
             }
         }
 
-        private RelayCommand _addProductPopupCommand;
-        public RelayCommand AddProductPopupCommand
+        private RelayCommand _addtemPopup;
+        public RelayCommand AddItemPopup
         {
             get
             {
-                return _addProductPopupCommand ??
-                    (_addProductPopupCommand = new RelayCommand(obj =>
+                return _addtemPopup ??
+                    (_addtemPopup = new RelayCommand(itemObj =>
                     {
-                        var item = (WarehouseItemModel)obj;
+                        var item = (WarehouseItemModel)itemObj;
                         SelectedWarehouseItem = item;
                         var lableText = $"На складе {item.ProductName} - {item.ProductCount}. Добавить: ";
                         var popup = new PopupWindow(AddProductCommand, lableText, item.ProductCount.ToString());
+                        popup.ShowDialog();
+                    }));
+            }
+        }
+
+        private RelayCommand _deleteItemPopup;
+        public RelayCommand DeleteItemPopup
+        {
+            get
+            {
+                return _deleteItemPopup ??
+                    (_deleteItemPopup = new RelayCommand(itemObj =>
+                    {
+                        var item = (WarehouseItemModel)itemObj;
+                        SelectedWarehouseItemToDelete = item;
+                        var lableText = $"{item.ProductName} - {item.ProductCount}. Убрать: ";
+                        var popup = new PopupWindow(DeleteProductCommand, lableText, item.ProductCount.ToString());
                         popup.ShowDialog();
                     }));
             }
@@ -124,7 +152,7 @@ namespace InventorySystemClient.ViewModels
                     ProductCount = item.Count,
                     ProductCode = item.Product.Code,
                     ProductMeasure = item.Product.Unit.Name,
-                    Action = AddProductPopupCommand,
+                    Action = AddItemPopup,
                     ActionDisplayName = "Add"
                 };
             }
@@ -140,7 +168,7 @@ namespace InventorySystemClient.ViewModels
                     ProductCount = item.Count,
                     ProductCode = item.Product.Code,
                     ProductMeasure = item.Product.Unit.Name,
-                    Action = AddProductPopupCommand,
+                    Action = AddItemPopup,
                     ActionDisplayName = "Add"
                 };
             }
@@ -152,10 +180,24 @@ namespace InventorySystemClient.ViewModels
             get
             {
                 return _addProductCommand ??
-                    (_addProductCommand = new RelayCommand(obj => 
+                    (_addProductCommand = new RelayCommand(countObj => 
                     {
-                        var count = Convert.ToDecimal(obj);
+                        var count = Convert.ToDecimal(countObj);
                         AddProductToBasket(count);
+                    }));
+            }
+        }
+
+        private RelayCommand _deleteProductCommand;
+        public RelayCommand DeleteProductCommand
+        {
+            get
+            {
+                return _deleteProductCommand ??
+                    (_deleteProductCommand = new RelayCommand(countObj =>
+                    {
+                        var count = Convert.ToDecimal(countObj);
+                        DeleteProductFromBasket(count);
                     }));
             }
         }
@@ -186,10 +228,30 @@ namespace InventorySystemClient.ViewModels
                 ProductCode = SelectedWarehouseItem.ProductCode,
                 ProductMeasure = SelectedWarehouseItem.ProductMeasure, 
                 ProductCount = count,
-                Action = AddProductPopupCommand,
+                Action = DeleteItemPopup,
                 ActionDisplayName = "Delete"
             });
-            
+        }
+
+        private void DeleteProductFromBasket(decimal count)
+        {
+            if (count <= 0)
+                return;
+
+            if (SelectedWarehouseItemToDelete == null)
+                return;
+
+            if (SelectedWarehouseItemToDelete.ProductCount - count < 0)
+                return;
+
+            SelectedWarehouseItemToDelete.ProductCount -= count;
+            var item = _warehouseItems.FirstOrDefault(x => x.ProductCode == SelectedWarehouseItemToDelete.ProductCode);
+            item.ProductCount += count;
+
+            if (SelectedWarehouseItemToDelete.ProductCount == 0)
+            {
+                _itemsAdded.Remove(SelectedWarehouseItemToDelete);
+            }
         }
     }
 }
