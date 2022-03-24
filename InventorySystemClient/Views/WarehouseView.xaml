@@ -15,10 +15,10 @@
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="45"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <uc:SearchTextBox TextValue="{Binding Text, UpdateSourceTrigger=PropertyChanged}"/>
+        <uc:SearchTextBox TextValue="{Binding Text, UpdateSourceTrigger=PropertyChanged}" Margin="5 0"/>
         <uc:ProductListView x:Name="ProductListView" Grid.Row="1" 
                             ListItems="{Binding WarehouseItems}"
                             CustomSelectedItem="{Binding SelectedWarehouseItem}"/>
