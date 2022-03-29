@@ -1,4 +1,5 @@
-﻿using InventorySystemClient.Models;
+﻿using InventorySystemClient.Commands;
+using InventorySystemClient.Models;
 using InventorySystemClient.ViewModels;
 using System;
 using System.Collections;
@@ -53,5 +54,16 @@ namespace InventorySystemClient.ViewModels
             _addedItems = (ObservableCollection<WarehouseItemModel>)addedItems;
         }
 
+        private RelayCommand _goBackCommand;
+        public RelayCommand GoBackCommand
+        {
+            get
+            {
+                return _goBackCommand ?? (_goBackCommand = new RelayCommand(obj =>
+                {
+                    MainFrame.GoBack();
+                }));
+            }
+        }
     }
 }

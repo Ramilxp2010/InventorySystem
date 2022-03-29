@@ -15,19 +15,8 @@ using Unity;
 
 namespace InventorySystemClient.ViewModels
 {
-    public class InvoiceAddItemViewModel : BaseViewModel
+    public class InvoiceAddItemViewModel : BasePage
     {
-        private Frame _mainFrame;
-        public Frame MainFrame 
-        {
-            get { return _mainFrame; }
-            set 
-            { 
-                value = _mainFrame;
-                OnPropertyChanged("MainFrame");
-            }
-        }
-
         protected IWarehouseProductManager _warehouseProductManager;
         private IEnumerable<WarehouseItemModel> _itemsCached;
 
@@ -87,8 +76,8 @@ namespace InventorySystemClient.ViewModels
         }
 
         public InvoiceAddItemViewModel(Frame mainFrame)
+            : base(mainFrame)
         {
-            _mainFrame = mainFrame;
             _itemsAdded = new ObservableCollection<WarehouseItemModel>();
             _warehouseProductManager = RootContainer.Instance.Container.Resolve<IWarehouseProductManager>();
             _itemsCached = LoadProducts();
@@ -103,6 +92,12 @@ namespace InventorySystemClient.ViewModels
                 return _goToInvoiceCommand ??
                     (_goToInvoiceCommand = new RelayCommand(obj => 
                     {
+                        if (MainFrame.CanGoForward)
+                        {
+                            MainFrame.GoForward();
+                            return;
+                        }
+
                         MainFrame.Navigate(new InvoiceView(MainFrame, ItemsAdded));
                     }));
             }

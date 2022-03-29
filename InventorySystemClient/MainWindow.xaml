@@ -8,9 +8,8 @@
         Title="MainWindow" Height="540" Width="800" Name="Main">
     <Grid Background="#ffffff">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="159*"/>
-            <ColumnDefinition Width="71*"/>
-            <ColumnDefinition Width="564*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0" VerticalAlignment="Top" >

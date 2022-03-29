@@ -1,4 +1,5 @@
-﻿using InventorySystemClient.Models;
+﻿using InventorySystemClient.Commands;
+using InventorySystemClient.Models;
 using InventorySystemClient.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,8 @@ using System.Windows.Controls;
 
 namespace InventorySystemClient.ViewModels
 {
-    public class PurshaseViewModel : BaseViewModel
+    public class PurshaseViewModel : BasePage
     {
-        private Frame _mainFrame;
-        public Frame MainFrame
-        {
-            get => _mainFrame;
-            set
-            {
-                _mainFrame = value;
-                OnPropertyChanged("MainFrame");
-            }
-        }
-
         private PurshaseItemModel _selectedItem;
         public PurshaseItemModel SelectedItem
         {
@@ -37,8 +27,8 @@ namespace InventorySystemClient.ViewModels
         public ObservableCollection<PurshaseItemModel> Items { get; set; }
 
         public PurshaseViewModel(Frame mainFrame)
+            : base(mainFrame)
         {
-            _mainFrame = mainFrame;
             Items = new ObservableCollection<PurshaseItemModel>
             {
                  new PurshaseItemModel

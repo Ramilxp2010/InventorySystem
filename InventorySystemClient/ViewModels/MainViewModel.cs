@@ -25,6 +25,7 @@ namespace InventorySystemClient.ViewModels
         public MainViewModel(Frame frame) 
         {
             _mainFrame = frame;
+            MainFrame.Navigate(new WarehouseView(_mainFrame));
         }
 
         private RelayCommand _goToWarehouseCommand;
@@ -48,6 +49,8 @@ namespace InventorySystemClient.ViewModels
                 return _goToPurshaseCommand ??
                     (_goToPurshaseCommand = new RelayCommand(obj =>
                     {
+                        MainFrame.SetValue(Grid.ColumnProperty, 0);
+                        MainFrame.SetValue(Grid.ColumnSpanProperty, 2);
                         MainFrame.Navigate(new PurshaseView(_mainFrame));
                     }));
             }
@@ -61,6 +64,8 @@ namespace InventorySystemClient.ViewModels
                 return _goToInvoiceAddItemCommand ??
                     (_goToInvoiceAddItemCommand = new RelayCommand(obj =>
                     {
+                        MainFrame.SetValue(Grid.ColumnProperty, 0);
+                        MainFrame.SetValue(Grid.ColumnSpanProperty, 2);
                         MainFrame.Navigate(new InvoiceAddItemView(_mainFrame));
                     }));
             }

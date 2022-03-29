@@ -88,7 +88,7 @@
                             CustomSelectedItem="{Binding SelectedItem}"/>
         
         <Button Grid.Row="7" Grid.Column="0" Content="Back" 
-                Command="{Binding }"
+                Command="{Binding GoBackCommand}"
                 Style="{StaticResource BtnStyle}"
                 Height="41"
                 Margin="10 0"

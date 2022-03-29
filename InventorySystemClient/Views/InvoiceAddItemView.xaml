@@ -32,6 +32,14 @@
                Style="{StaticResource TextBase}"/>
         <uc:ProductListView Grid.Row="3" Grid.ColumnSpan="3"
                   ListItems="{Binding ItemsAdded}" />
+        <Button Grid.Row="4" Grid.Column="0" Content="Back" 
+                Command="{Binding GoBackCommand}"
+                Style="{StaticResource BtnStyle}"
+                Height="41"
+                Margin="10 0"
+                HorizontalAlignment="Left"
+                Background="OrangeRed"/>
+
         <Button Grid.Row="4" Grid.Column="2" Content="Next" 
                 Command="{Binding GoToInvoiceCommand}"
                 Style="{StaticResource BtnStyle}"

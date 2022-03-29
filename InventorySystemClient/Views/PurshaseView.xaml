@@ -49,6 +49,7 @@
             <RowDefinition Height="25"/>
             <RowDefinition Height="35"/>
             <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Label Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0"
                VerticalAlignment="Bottom"
@@ -113,6 +114,21 @@
                     <GradientStop Color="#f3fdf6" Offset="1"/>
                 </LinearGradientBrush>
             </ListView.Background>
+
         </ListView>
+        <Button Grid.Row="8" Grid.Column="0" Content="Back" 
+                Command="{Binding GoBackCommand}"
+                Style="{StaticResource BtnStyle}"
+                Height="41"
+                Margin="10 0"
+                HorizontalAlignment="Left"
+                Background="OrangeRed"/>
+
+        <Button Grid.Row="8" Grid.Column="3" Content="Add" 
+                Command="{Binding }"
+                Style="{StaticResource BtnStyle}"
+                Height="41"
+                Margin="10 0"
+                HorizontalAlignment="Right"/>
     </Grid>
 </Page>
