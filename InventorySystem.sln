@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem", "InventorySystem\InventorySystem.csproj", "{36AB6E36-2743-4E8F-87B4-7DA82594DF3A}"
 EndProject
@@ -19,7 +19,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.Api", "Inve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestFullFw", "UnitTestFullFw\UnitTestFullFw.csproj", "{32702B7B-6561-4819-93CA-9F54DF8A7ADB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystemClient", "InventorySystemClient\InventorySystemClient.csproj", "{7BB5630D-8DDB-4B3C-BD9B-628A78016470}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventorySystem.New", "InventorySystemClient\InventorySystem.New.csproj", "{7BB5630D-8DDB-4B3C-BD9B-628A78016470}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUIClient", "GUIClient", "{878D9B8E-2A60-44F1-B195-A492D54FD078}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinForm", "WinForm", "{D154A1AC-32DA-4882-B40D-1CAC500D6BF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf", "Wpf", "{74E808AE-7991-4025-9AEF-D6668D5EB17C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +72,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36AB6E36-2743-4E8F-87B4-7DA82594DF3A} = {D154A1AC-32DA-4882-B40D-1CAC500D6BF9}
+		{7BB5630D-8DDB-4B3C-BD9B-628A78016470} = {74E808AE-7991-4025-9AEF-D6668D5EB17C}
+		{D154A1AC-32DA-4882-B40D-1CAC500D6BF9} = {878D9B8E-2A60-44F1-B195-A492D54FD078}
+		{74E808AE-7991-4025-9AEF-D6668D5EB17C} = {878D9B8E-2A60-44F1-B195-A492D54FD078}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {26430926-468F-475B-8B3E-9219C90202CE}
