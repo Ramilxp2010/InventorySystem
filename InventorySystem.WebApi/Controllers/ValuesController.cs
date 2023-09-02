@@ -4,6 +4,7 @@ using InventorySystem.Contract;
 using InventorySystem.Core;
 using Unity;
 using InventorySystem.Manager.Interfaces;
+using System.Linq;
 
 namespace InventorySystem.WebApi.Controllers
 {
@@ -208,7 +209,7 @@ namespace InventorySystem.WebApi.Controllers
         
         public List<WarehouseProduct> GetWarehouseProducts()
         {
-            return _warehouseProductManager.GetWarehouseProducts();
+            return _warehouseProductManager.GetWarehouseProducts().ToList();
         }
     }
 }
